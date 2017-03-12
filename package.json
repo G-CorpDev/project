@@ -1,0 +1,42 @@
+{
+  "name": "project",
+  "version": "0.0.0",
+  "description": "for Project Tools course",
+  "main": "index.js",
+  "dependencies": {
+    "latest-version": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.4.0",
+    "babel-preset-env": "^1.2.1",
+    "css-loader": "^0.27.1",
+    "fs": "0.0.1-security",
+    "fs-loader": "0.0.1",
+    "jquery": "^3.1.1",
+    "jquery-loader": "^2.1.1",
+    "json-loader": "^0.5.4",
+    "node-sass": "^4.5.0",
+    "pug": "^2.0.0-beta11",
+    "pug-loader": "^2.3.0",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.13.2",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/webpack-dev-server --inline --hot",
+    "build": "./node_modules/.bin/webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/G-CorpDev/project.git"
+  },
+  "author": "G-Corp",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/G-CorpDev/project/issues"
+  },
+  "homepage": "https://github.com/G-CorpDev/project#readme"
+}
