@@ -26,9 +26,7 @@ module.exports = {
             ,{
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loaders: [
-                    /*'react-hot-loader' , NOTICE: hot-loading seems to work without this, and including this makes the code not compile. */
-                    'babel-loader'],
+                loaders: ['babel-loader'],
             }
             
         ]
