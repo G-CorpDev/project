@@ -33,6 +33,7 @@ coverage
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 client/build/Release
+client/build
 server/build/Release
 
 # Dependency directories
