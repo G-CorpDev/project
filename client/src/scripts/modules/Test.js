@@ -16,7 +16,7 @@ class Test extends Component {
     }
 
     render(){
-        return (<div>Tick-tock:{this.getMinutes()}:{this.getSeconds()}</div>);
+        return (<div>Tick-tock~{this.getMinutes()}:{this.getSeconds()}</div>);
     }
 }
 
