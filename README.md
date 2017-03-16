@@ -3,4 +3,6 @@ For Project Tools at ELTE IK
 
 
 Instructions for **Client** : 
-`cd client \n npm i \n npm start`
+`cd client 
+ npm i 
+ npm start`
