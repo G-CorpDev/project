@@ -4,8 +4,8 @@ For Project Tools at ELTE IK
 
 Instructions for **Client** : 
 
-`cd client
+`cd client`
  
- npm i 
+` npm i `
 
- npm start`
+ `npm start`
