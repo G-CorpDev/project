@@ -1,6 +1,6 @@
-require("./style/testsheet.css")
-document.write("test");
-const pug = require('pug');
+require("./style/testsheet.scss")
+document.write("testsdjabsjdabs");
+//var pug = require('jstransformer')(require('jstransformer-pug'))
 /*
 // Compile the source code
 const compiledFunction = pug.compileFile('test.pug');
