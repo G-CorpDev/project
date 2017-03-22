@@ -35,6 +35,7 @@ coverage
 client/build/Release
 client/build
 server/build/Release
+server/build
 
 # Dependency directories
 client/node_modules

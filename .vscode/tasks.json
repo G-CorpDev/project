@@ -1,0 +1,30 @@
+{
+  "version": "0.1.0",
+  "isShellCommand": true,
+  "linux": { "command": "sh", "args": ["-c"] },
+  "osx": { "command": "sh", "args": ["-c"] },
+  "windows": { "command": "powershell", "args": ["-Command"] },
+  "tasks": [
+    {
+      "taskName": "build server",
+      "args": ["mkdir -p server/build && cd server/build && cmake .. && make && find . ! -name 'Server' -type f -exec rm -f {} + && find . ! \\( -name bin -o -name . -o -name .. \\) -type d -exec rm -rf {} +"],
+      "showOutput": "always",
+      "isShellCommand": true,
+      "suppressTaskName": true,
+      "isBuildCommand": true,
+      "isTestCommand": false,
+      "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": ["relative", "${workspaceRoot}"],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
+    }
+  ]
+}
