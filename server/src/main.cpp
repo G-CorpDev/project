@@ -18,11 +18,13 @@ int main (int argc , char ** argv){
     server.setHandler(router.handler());
     server.serveThreaded();
 
-    std::cout<<"Model test:"<<std::endl;
+    std::cout<<"Database Mock test:"<<std::endl;
     Mocks::DatabaseMock db;
-    //userMock.add(std::pair<int,Models::User>(1,"Jani"));
-    //userMock.add(std::pair<int,Models::User>(2,"Pali"));
+    auto users = db.getAllUsers();
+    for(auto it = users.cbegin();it!=users.cend();++it){
+        std::cout<<(*it).getName()<<std::endl;
+    }
 
-    std::cout<<"Serving on port 3000"<<std::endl;
+    std::cout<<std::endl<<"Serving on port 3000"<<std::endl;
     std::cin.get();
 }

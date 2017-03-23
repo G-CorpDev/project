@@ -7,9 +7,11 @@ namespace Models{
     class User{
         private:
             std::string name;
+            int id;
         public:
-            std::string getName();
-            User (std::string name);
+            const std::string & getName() const;
+            int getID() const;
+            User (const std::string & name,const int & id);
     };
 }
 #endif

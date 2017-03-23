@@ -1,6 +1,10 @@
 {
     "files.associations": {
         "thread": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "array": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "initializer_list": "cpp"
     }
 }
