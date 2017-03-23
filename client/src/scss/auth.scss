@@ -1,0 +1,109 @@
+@import "color";
+
+.auth {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -15rem;
+  margin-top: -20rem;
+  width: 30rem;
+  height: 45rem;
+  overflow: hidden;
+  z-index: 2;
+}
+
+input, button {
+  outline: none;
+  border: none;
+}
+
+.login {
+  position: relative;
+  height: 100%;
+  border-radius: 5px;
+  background: linear-gradient(rgba($turquoise, 0.8) 0%, $shadow 100%);
+  transform: scale(1);
+
+  &__person {
+    position: absolute;
+    width: 310px;
+    height: 310px;
+    left: 50%;
+    top: 30px;
+    transform: translate(-50%, 0%);
+    background: darken($turquoise, 20%);
+    border-radius: 100%;
+    box-shadow: 0 15px 80px -15px $shadow;
+    &__head {
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      left: 50%;
+      top: 35px;
+      transform: translate(-50%, 0%);
+      background: $turquoise;
+      border-radius: 100%;
+    }
+    &__body {
+      position: absolute;
+      width: 200px;
+      height: 180px;
+      left: 50%;
+      top: 130px;
+      transform: translate(-50%, 0%);
+      background: $turquoise;
+      border-radius: 100% 100% 0 0;
+      overflow: hidden;
+    }
+  }
+
+  &__form {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    padding: 1.5rem 2.5rem;
+    text-align: center;
+  }
+
+  &__row {
+    height: 5rem;
+    padding-top: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  &__input {
+    display: inline-block;
+    width: 22rem;
+    height: 100%;
+    padding-left: 1.5rem;
+    font-size: 1.5rem;
+    background: transparent;
+    color: #FDFCFD;
+  }
+
+  &__submit {
+    position: relative;
+    width: 100%;
+    height: 4rem;
+    margin: 2rem 0 2.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    background: $turquoise;
+    font-size: 1.5rem;
+    border-radius: 3rem;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  &__signup {
+    font-size: 1.2rem;
+    color: #ABA8AE;
+
+    a {
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+
+}
