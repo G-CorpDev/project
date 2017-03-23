@@ -12,7 +12,6 @@ class App extends Component {
         return (
             <div className="app">
                 <Menu />
-                <span className="header">G-corp workout</span>
                 <Auth />
                 <div className="bg"  style={{background: 'url(src/img/bg_1.jpg) no-repeat 0 0'}}></div>
             </div>
