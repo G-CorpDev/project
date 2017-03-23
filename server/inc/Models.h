@@ -1,6 +1,8 @@
 #ifndef MODELS_HEADER
 #define MODELS_HEADER
 
+#include <string>
+
 namespace Models{
     class User{
         private:

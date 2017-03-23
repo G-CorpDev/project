@@ -4,10 +4,10 @@ module.exports = {
     entry: {
         main: ['./src/scripts/main.js']
     }
-    ,output: {
+    , output: {
         filename: './dist/scripts/[name].js'
     }
-    ,module: {
+    , module: {
         loaders: [
             {
                 test: /\.scss$/,
@@ -23,12 +23,15 @@ module.exports = {
                     }
                 }]
             }
-            ,{
+            , {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loaders: ['babel-loader'],
             }
-            
+
         ]
+    }
+    , devServer: {
+        port: 9080
     }
 };
