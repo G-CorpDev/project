@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 
 class Auth extends Component {
     constructor(props) {
@@ -14,12 +15,11 @@ class Auth extends Component {
     }
 
     login() {
-        let axios = require('axios');
-        console.log("logging in...");
         let logging = this.state.logging;
         this.setState({logging: !logging});
-        if (this.state.logging) {
-            axios.post('localhost:3000/login', {username: this.state.logInputs[0], password: this.state.logInputs[1]})
+        if (!logging) {
+            console.log("logging in...");
+            axios.post('http://localhost:3000/login', {username: this.state.logInputs[0], password: this.state.logInputs[1]})
                 .then(function (response) {
                     console.log("response: " + response);
                 });
