@@ -8,6 +8,14 @@
 
 #include <Mocks.h>
 
+#include <JWT.h>
+#include <Authenticator.h>
+
+#include <ctime>
+#include <sstream>
+
+Mocks::DatabaseMock db;
+
 int main (int argc , char ** argv){
     Net::Address acceptFromAddress(Net::Ipv4::any(),Net::Port(3000));
     auto options = Net::Http::Endpoint::options().threads(2);
@@ -18,11 +26,17 @@ int main (int argc , char ** argv){
     server.setHandler(router.handler());
     server.serveThreaded();
 
-    std::cout<<"Database Mock test:"<<std::endl;
-    Mocks::DatabaseMock db;
-    auto users = db.getAllUsers();
-    for(auto it = users.cbegin();it!=users.cend();++it){
-        std::cout<<(*it).getName()<<std::endl;
+    std::cout<<std::endl<<"JWT generation test:"<<std::endl;
+    std::map<std::string,std::string> payload;
+    std::stringstream ss;
+    ss << std::time(0);
+    std::string expiration(ss.str());
+    payload.insert({"exp",expiration});
+  
+    Authenticator auth;
+    for(int i = 1;i<12;++i){
+    std::string token = auth.generateToken(db.getUserByID(i)); 
+    auth.authenticateUser(token);
     }
 
     std::cout<<std::endl<<"Serving on port 3000"<<std::endl;
