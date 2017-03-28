@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
-import Auth from './modules/Auth.js'
-import Menu from './modules/Menu.js'
+import Page from './modules/Page.js'
 
 class App extends Component {
     constructor(props) {
@@ -11,8 +10,7 @@ class App extends Component {
     render(){
         return (
             <div className="app">
-                <Menu />
-                <Auth />
+                <Page />
                 <div className="bg"  style={{background: 'url(src/img/bg_1.jpg) no-repeat 0 0'}}></div>
             </div>
         );

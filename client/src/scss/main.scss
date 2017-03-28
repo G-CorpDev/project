@@ -42,5 +42,25 @@ body {
     z-index: 2;
     text-shadow: 2px 4px 3px $shadow--light;
   }
+}
 
+
+.page {
+  display: inline-block;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  margin-left: -15rem;
+  margin-top: -20rem;
+  width: 30rem;
+  height: 45rem;
+  z-index: 2;
+  perspective: 1000px;
+
+  &.page--flip .login {
+    transform: rotateY(-180deg);
+  }
+  &.page--flip .register {
+    transform: rotateY(0deg);
+  }
 }

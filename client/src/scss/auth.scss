@@ -1,15 +1,15 @@
 @import "color";
 
-.auth {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  margin-left: -15rem;
-  margin-top: -20rem;
-  width: 30rem;
-  height: 45rem;
-  overflow: hidden;
-  z-index: 2;
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
 }
 
 input, button {
@@ -17,12 +17,102 @@ input, button {
   border: none;
 }
 
-.login {
+.submit {
   position: relative;
+  width: 90%;
+  height: 4rem;
+  margin: 2rem 0 2.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  background: $turquoise;
+  font-size: 1.5rem;
+  border-radius: 3rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition: width 0.4s;
+
+  &:hover {
+    width: 75%;
+  }
+}
+
+.login, .register {
+  position: absolute;
+  display: table;
+  width: 100%;
   height: 100%;
   border-radius: 5px;
   background: linear-gradient(rgba($turquoise, 0.8) 0%, $shadow 100%);
-  transform: scale(1);
+  backface-visibility: hidden;
+  transition: transform 500ms;
+  transition-timing-function: linear;
+  box-shadow: 0 15px 80px -15px $shadow--light, 0 55px 50px -35px $shadow--light;
+
+  &__form {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 2.5rem;
+    text-align: center;
+  }
+
+  &__row {
+    position: relative;
+    height: 4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    label {
+      color: #4ad796;
+      left: 0;
+      top: 25px;
+      font-size: 1.5rem;
+      font-weight: normal;
+      position: absolute;
+      pointer-events: none;
+      padding-left: 1.5rem;
+      transition: all 0.2s ease;
+      transform-origin: 0 0;
+    }
+
+    input:focus ~ label, input.used ~ label {
+      top: 4px;
+      transform: scale(.75);
+      left: -1.3rem;
+      color: $white;
+    }
+
+  }
+
+  &__input {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 25rem;
+    height: 70%;
+    padding-left: 1.5rem;
+    font-size: 1.5rem;
+    background: transparent;
+    color: #FDFCFD;
+  }
+
+  &__signup, &__signin {
+    font-size: 1.2rem;
+    color: #ABA8AE;
+
+    a {
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+}
+
+.login {
+  transform: rotateY(0deg);
+
+  &__form {
+    top: 50%;
+    height: 50%;
+  }
 
   &__person {
     position: absolute;
@@ -34,6 +124,8 @@ input, button {
     background: darken($turquoise, 20%);
     border-radius: 100%;
     box-shadow: 0 15px 80px -15px $shadow;
+    overflow: hidden;
+
     &__head {
       position: absolute;
       width: 110px;
@@ -43,6 +135,13 @@ input, button {
       transform: translate(-50%, 0%);
       background: $turquoise;
       border-radius: 100%;
+
+      &--logging {
+        left: 100px;
+        top: 35px;
+        animation: bounce 1.75s infinite;
+      }
+
     }
     &__body {
       position: absolute;
@@ -56,54 +155,14 @@ input, button {
       overflow: hidden;
     }
   }
+}
+
+.register {
+  transform: rotateY(180deg);
 
   &__form {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 50%;
-    padding: 1.5rem 2.5rem;
-    text-align: center;
-  }
-
-  &__row {
-    height: 5rem;
-    padding-top: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  &__input {
-    display: inline-block;
-    width: 22rem;
+    top: 0;
     height: 100%;
-    padding-left: 1.5rem;
-    font-size: 1.5rem;
-    background: transparent;
-    color: #FDFCFD;
-  }
-
-  &__submit {
-    position: relative;
-    width: 100%;
-    height: 4rem;
-    margin: 2rem 0 2.2rem;
-    color: rgba(255, 255, 255, 0.8);
-    background: $turquoise;
-    font-size: 1.5rem;
-    border-radius: 3rem;
-    cursor: pointer;
-    overflow: hidden;
-  }
-
-  &__signup {
-    font-size: 1.2rem;
-    color: #ABA8AE;
-
-    a {
-      color: #fff;
-      cursor: pointer;
-    }
   }
 
 }
