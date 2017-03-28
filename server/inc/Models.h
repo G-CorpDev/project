@@ -6,12 +6,16 @@
 namespace Models{
     class User{
         private:
-            std::string name;
-            int id;
+            std::string displayName;
+            int age;
+            float weight;
+            float height;
+            int sex;
+            unsigned int id;
         public:
-            const std::string & getName() const;
-            int getID() const;
-            User (const std::string & name,const int & id);
+            const std::string & getDisplayName() const;
+            unsigned int getID() const;
+            User (const std::string & displayName,const int & age,const float & weight,const float & height,const int & sex,const unsigned int & id);
     };
 }
 #endif

@@ -1,20 +1,18 @@
 #include <Mocks.h>
 
-#include <iostream>
-
 Mocks::UserMock::UserMock()
 {
-    this->add(std::make_pair(this->getNextID(),Models::User("Jani",this->getCurrentID())));
-    this->add(std::make_pair(this->getNextID(),Models::User("Pali",this->getCurrentID())));
-    this->add(std::make_pair(this->getNextID(),Models::User("Mari",this->getCurrentID())));
-    this->add(std::make_pair(this->getNextID(),Models::User("Sanyi",this->getCurrentID())));
-    this->add(std::make_pair(this->getNextID(),Models::User("Dani",this->getCurrentID())));
-    this->add(std::make_pair(this->getNextID(),Models::User("Gipsz Jakab",this->getCurrentID())));
-    this->add(std::make_pair(this->getNextID(),Models::User("Jacob Gibbs",this->getCurrentID())));
-    this->add(std::make_pair(this->getNextID(),Models::User("Izom Tibor",this->getCurrentID())));
-    this->add(std::make_pair(this->getNextID(),Models::User("Test Eddie",this->getCurrentID())));
-    this->add(std::make_pair(this->getNextID(),Models::User("Bob",this->getCurrentID())));
-    this->add(std::make_pair(this->getNextID(),Models::User("Chrysantemum",this->getCurrentID())));
+    this->add(std::make_pair(this->getNextID(),Models::User("Jani",0,0,0,0,(this->getCurrentID()))));
+    this->add(std::make_pair(this->getNextID(),Models::User("Pali",0,0,0,0,(this->getCurrentID()))));
+    this->add(std::make_pair(this->getNextID(),Models::User("Mari",0,0,0,0,(this->getCurrentID()))));
+    this->add(std::make_pair(this->getNextID(),Models::User("Sanyi",0,0,0,0,(this->getCurrentID()))));
+    this->add(std::make_pair(this->getNextID(),Models::User("Dani",0,0,0,0,(this->getCurrentID()))));
+    this->add(std::make_pair(this->getNextID(),Models::User("Gipsz Jakab",0,0,0,0,(this->getCurrentID()))));
+    this->add(std::make_pair(this->getNextID(),Models::User("Jacob Gibbs",0,0,0,0,(this->getCurrentID()))));
+    this->add(std::make_pair(this->getNextID(),Models::User("Izom Tibor",0,0,0,0,(this->getCurrentID()))));
+    this->add(std::make_pair(this->getNextID(),Models::User("Test Eddie",0,0,0,0,(this->getCurrentID()))));
+    this->add(std::make_pair(this->getNextID(),Models::User("Bob",0,0,0,0,(this->getCurrentID()))));
+    this->add(std::make_pair(this->getNextID(),Models::User("Chrysantemum",0,0,0,0,(this->getCurrentID()))));
 }
 
 bool Mocks::UserMock::add(const std::pair<int, Models::User> & user){
