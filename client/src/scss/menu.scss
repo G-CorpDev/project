@@ -1,0 +1,37 @@
+@import "color";
+
+.menu {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  min-height: 90px;
+  height: auto;
+  background: $shadow--light;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 25px;
+  padding: 20px 0;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    position: relative;
+    margin: 10px 10px 0;
+    padding: 8px 10px;
+    text-transform: uppercase;
+    font-weight: 800;
+    white-space: nowrap;
+    letter-spacing: .05em;
+    font-size: 1.2em;
+    list-style: none;
+    transition: all 400ms;
+    cursor: pointer;
+    border-radius: 10px;
+    background: $shadow--veryLight;
+    color: $turquoise;
+
+    &:hover {
+      color: $white;
+      background: $turquoise;
+    }
+  }
+}

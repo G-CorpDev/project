@@ -11,23 +11,30 @@ class Auth extends Component {
             logInputs: ["Username", "Password"],
             logValues: ["", ""],
             flip: props.flip,
+            login: props.login,
         }
     }
 
     login() {
         let logging = this.state.logging;
         this.setState({logging: !logging});
-        if (!logging) {
+        /*if (!logging) {
             console.log("logging in...");
             axios.post('http://localhost:3000/login', {username: this.state.logInputs[0], password: this.state.logInputs[1]})
                 .then(function (response) {
                     console.log("response: " + response);
                 });
-        }
+        }*/
+        let _this = this;
+        setTimeout(function(){
+            _this.state.login();
+        }, 2000);
     }
 
     register() {
         console.log("Making Registration...");
+        //send data
+        this.flip();
     }
 
     flip() {

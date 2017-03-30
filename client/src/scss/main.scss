@@ -1,5 +1,7 @@
 @import 'color.scss';
 @import 'auth.scss';
+@import 'worksheet.scss';
+@import 'menu.scss';
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -7,11 +9,14 @@
   padding: 0;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   margin: 0;
-  background: $turquoise;
+  background: darken($turquoise,40%);
   overflow-x: hidden;
-  overflow-y: hidden;
   font-family: 'Cabin', Arial, sans-serif;
 }
 
@@ -25,42 +30,32 @@ body {
   transform: scale(1.2);
 }
 
-.app {
-  .header{
-    display: inline-block;
-    position: relative;
-    left:50%;
-    transform: translate(-50%, 0%);
-    margin: 5px 0 15px;
-    color: rgba(darken($turquoise,10%),0.9);
-    text-transform: uppercase;
-    font-weight: 800;
-    white-space: nowrap;
-    letter-spacing: .1em;
-    padding: .2em 0 .25em 0;
-    font-size: 4em;
-    z-index: 2;
-    text-shadow: 2px 4px 3px $shadow--light;
-  }
-}
-
-
 .page {
-  display: inline-block;
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  margin-left: -15rem;
-  margin-top: -20rem;
+  display: block;
+  position: relative;
+  top: 100px;
+  left: 0;
+  margin: 0 auto;
   width: 30rem;
   height: 45rem;
   z-index: 2;
   perspective: 1000px;
+  border-radius: 10px;
+  transition: all 800ms ease-in-out;
 
   &.page--flip .login {
     transform: rotateY(-180deg);
   }
   &.page--flip .register {
     transform: rotateY(0deg);
+  }
+
+  &.page--logged{
+    top: 20px;
+    width: 95%;
+    min-height: 95%;
+    height: auto;
+    padding-bottom: 50px;
+    background: linear-gradient(rgba($turquoise, 0.5) 60%, $shadow 100%);
   }
 }
