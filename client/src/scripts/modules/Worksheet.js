@@ -13,13 +13,41 @@ class Worksheet extends Component {
         console.log("sending data...");
     }
 
+    renderExercise(exercise, index) {
+        let W = "";
+        if (exercise.hasOwnProperty('W')) {
+            W = <input type="text" name="W" placeholder="Weight"></input>;
+        }
+        return (
+            <div className="exercise" key={index}>
+                <div className="exercise__name">
+                    <div className="exercise__addNote">Note</div>
+                    {exercise.name}:
+                </div>
+                <div className="exercise__inputs">
+                    {W}
+                    <input type="text" name="R" placeholder="Reps"></input>
+                </div>
+            </div>
+        )
+    }
+
     renderDay(day, workout, index) {
+        let exercises = [];
+        let _this = this;
+        workout.exercises.forEach(function (e, i) {
+            exercises.push(_this.renderExercise(e, i));
+        });
+
         return (
             <div className="workout" key={index}>
                 <div className="workout__info">i</div>
                 <div className="workout__description">{workout.description}</div>
-                <div className="workout__day">{day}</div>
+                <div className="workout__day">{day + " - " + workout.time}</div>
                 <div className="workout__name">{workout.name}</div>
+                <form className="workout__form">
+                    {exercises}
+                </form>
                 <button type="button" className="workout__send" onClick={() => this.send()}>
                     Send
                 </button>

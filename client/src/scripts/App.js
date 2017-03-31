@@ -7,11 +7,11 @@ class App extends Component {
         super(props);
     }
 
-    render(){
+    render() {
         return (
             <div className="app">
                 <Page />
-                <div className="bg"  style={{background: 'url(src/img/bg_1.jpg) no-repeat 0 0'}}></div>
+                <div className="bg" style={{background: 'url(src/img/bg_1.jpg) no-repeat 0 0'}}></div>
             </div>
         );
     }

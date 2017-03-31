@@ -26,7 +26,7 @@
     border-radius: 5px;
     background: $shadow--veryLight;
     cursor: pointer;
-    -webkit-transform: translate3d(-50%, 0, 0) scale(1.0, 1.0);
+    transform: translate(-50%, 0);
     transition: all 400ms;
     font-weight: 600;
     text-align: center;
@@ -44,8 +44,7 @@
     background: $blue;
     border-radius: 5px;
     box-shadow: 0 0 10px 1px $shadow--veryLight;
-    -webkit-transform: translate3d(-50%, 0, 0) scale(1.0, 1.0);
-    //overflow: hidden;
+    transform: translate(-50%, 0);
     transition: all 500ms linear;
     z-index: 1;
 
@@ -106,22 +105,26 @@
   }
 
   .workout {
+
     position: relative;
     top: 20px;
-    min-width: 220px;
-    flex-basis: 12.7%;
-    height: 500px;
+    min-width: 250px;
+    width: auto;
+    flex-basis: 18%;
+    min-height: 500px;
+    height: auto;
     margin: 0 10px 50px 10px;
     color: $white;
-    background: rgba($green, 0.5);
+    background: rgba($green, 0.4);
     border-radius: 5px;
     box-shadow: 0 10px 15px 3px $shadow--light;
     transition: all 400ms;
-    backface-visibility: hidden;
+    zoom:99%;
 
     &:hover {
-      background: rgba($green, 0.7);
-      -webkit-transform: translateZ(0) scale(1.1, 1.1);
+      background: rgba($darkGreen, 1);
+      transform: scale(1.15, 1.15);
+      z-index: 3;
     }
 
     &__day {
@@ -137,11 +140,11 @@
       text-align: center;
     }
 
-    &__name{
+    &__name {
       font-size: 18px;
       text-align: center;
       padding: 5px;
-      background: $shadow--ultraLight;
+      background: $shadow--veryLight;
     }
 
     &__info {
@@ -154,25 +157,85 @@
       font-size: 20px;
       text-align: center;
       background: $blue;
+      cursor: help;
 
-      &:hover ~ .workout__description{
+      &:hover ~ .workout__description {
         visibility: inherit;
-        opacity: 1;
       }
     }
 
     &__description {
       visibility: hidden;
-      opacity: 0;
       position: absolute;
-      top: 53px;
+      top: 52px;
       width: auto;
       max-width: 80%;
       padding: 5px;
       background: $blue;
-      border-radius:0 5px 5px 0;
-      transition: opacity 500ms;
-      -webkit-transform: translateZ(0) scale(1.0, 1.0);
+      border-radius: 0 5px 5px 0;
+      z-index: 4;
+    }
+
+    &__form {
+      .exercise {
+        display: table;
+        position: relative;
+        width: 100%;
+        padding-left: 7px;
+        margin-right: 0;
+        font-size: 14px;
+        user-select: none;
+
+        &:nth-child(odd){
+          background: $shadow--ultraLight;
+        }
+
+        &__addNote{
+          display: inline-block;
+          padding: 2px;
+          margin-right: 3px;
+          font-size: 11px;
+          background: $blue;
+          border-radius: 5px;
+          cursor: pointer;
+          &:hover {
+            background: darken($blue,10%);
+          }
+        }
+
+        &__name {
+          display: table-cell;
+          text-align: left;
+        }
+
+        &__inputs {
+          display: table-cell;
+          text-align: right;
+        }
+
+        &:first-child {
+          padding-top: 5px;
+        }
+
+        &:last-child {
+          margin-bottom: 35px;
+        }
+
+        input {
+          position: relative;
+          right: 0;
+          padding-left: 2px;
+          margin-right: 5px;
+          margin-bottom: 3px;
+          width: 44px;
+          border: none;
+          border-radius: 2px;
+          background: lighten($darkGreen,40%);
+          &:hover {
+            background: $white;
+          }
+        }
+      }
     }
 
     &__send {

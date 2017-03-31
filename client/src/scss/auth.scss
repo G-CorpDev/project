@@ -36,10 +36,13 @@ input, button {
 }
 
 .login, .register {
+  display: block;
   position: absolute;
-  display: table;
-  width: 100%;
-  height: 100%;
+  top: 100px;
+  left: 50%;
+  width: 30rem;
+  height: 45rem;
+  z-index: 2;
   border-radius: 5px;
   background: linear-gradient(rgba($turquoise, 0.8) 0%, $shadow 100%);
   backface-visibility: hidden;
@@ -107,7 +110,7 @@ input, button {
 }
 
 .login {
-  transform: rotateY(0deg);
+  transform: translate3d(-50%, 0, 0) rotateY(0deg);
 
   &__form {
     top: 50%;
@@ -158,7 +161,7 @@ input, button {
 }
 
 .register {
-  transform: rotateY(180deg);
+  transform: translate3d(-50%, 0, 0) rotateY(180deg);
 
   &__form {
     top: 0;

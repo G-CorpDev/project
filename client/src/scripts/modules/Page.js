@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 
 import Auth from './Auth.js';
-import Worksheet from './Worksheet.js';
-import Menu from './Menu.js';
+import Content from './Content.js';
 
 class Page extends Component {
     constructor(props) {
@@ -10,30 +9,31 @@ class Page extends Component {
         this.state = {
             flip: "page--noflip",
             logged: true,
+            loading: "",
         }
     }
 
-    flip(){
-        let flip = this.state.flip==="page--noflip" ? "page--flip" : "page--noflip";
+    flip() {
+        let flip = this.state.flip === "page--noflip" ? "page--flip" : "page--noflip";
         this.setState({flip: flip});
     }
 
-    login(){
-        let logged = this.state.logged;
-        this.setState({logged: !logged});
+    login() {
+        let _this = this;
+        this.setState({loading: " page--loading"}, function () {
+            setTimeout(function () {
+                let logged = _this.state.logged;
+                _this.setState({logged: !logged, loading: ""});
+            }, 800);
+        });
     }
 
     render() {
-        let logged="";
-        if(this.state.logged){
-            logged="--logged";
-        }
-        let page = [<Menu login={() => this.login()} key="menu"/>,<Worksheet key="worksheet"/>];
 
         return (
-            <div className={"page " + this.state.flip + " page" + logged}>
+            <div className={"page " + this.state.flip + this.state.loading}>
                 {this.state.logged ?
-                    page
+                    <Content login={() => this.login()}/>
                     :
                     <Auth flip={() => this.flip()} login={() => this.login()}/>
                 }

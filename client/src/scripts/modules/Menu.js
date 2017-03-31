@@ -8,7 +8,8 @@ class Menu extends Component {
         }
     }
 
-    render(){
+    render() {
+
         return (
             <div className="menu">
                 <li>My profile</li>
