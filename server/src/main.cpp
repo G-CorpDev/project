@@ -11,9 +11,6 @@
 #include <JWT.h>
 #include <Authenticator.h>
 
-#include <ctime>
-#include <sstream>
-
 Mocks::DatabaseMock db;
 
 int main (int argc , char ** argv){
@@ -34,10 +31,15 @@ int main (int argc , char ** argv){
     payload.insert({"exp",expiration});
   
     Authenticator auth;
+    std::string token = auth.generateToken(db.getUserByID(1)); 
     for(int i = 1;i<12;++i){
-    std::string token = auth.generateToken(db.getUserByID(i)); 
-    auth.authenticateUser(token);
+        token= auth.generateToken(db.getUserByID(i)); 
+        Models::User user = auth.authenticateUser(token);
+        std::cout<<"user "<<user.getID()<<" - "<< user.getDisplayName()<<", aged "<<user.getAge()<<std::endl;
     }
+
+    Models::User user = auth.authenticateUser("u2i3hnez23czwiemhiar23zrhq8.sdu2mh7382f38sm98dtg2.3rh2f8rh2f3");
+    std::cout<<"user "<<user.getID()<<" - "<< user.getDisplayName()<<std::endl;
 
     std::cout<<std::endl<<"Serving on port 3000"<<std::endl;
     std::cin.get();

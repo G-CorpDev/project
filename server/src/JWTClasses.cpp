@@ -1,7 +1,5 @@
 #include <JWT.h>
 
-#include <iostream>
-
 JWT::SecretHandler::SecretHandler(const std::string &secret) : secret(secret)
 {
     this->secret_raw = new unsigned char[this->secret.length()];
@@ -21,7 +19,7 @@ JWT::SecretHandler::~SecretHandler()
     }
 }
 
-const std::string JWT::Generator::generateJWT(const std::map<std::string, std::string> &payload)
+std::string JWT::Generator::generateJWT(const std::map<std::string, std::string> &payload)
 {
     std::string token("Error generating JWT.");
     int err = 0;
@@ -59,10 +57,9 @@ const std::map<std::string, std::string> JWT::Verifier::verifyJWT(const std::str
     jwt_t *verifier;
 
     err = jwt_decode(&verifier, token.c_str(), this->secret_raw, this->secret.length());
-    if(err!=0){return grants;}
+    if(err!=0){jwt_free(verifier);return grants;}
     char * decoded_tmp = jwt_dump_str(verifier, 0);
 
-    if(decoded_tmp==0){std::cout<<decoded_tmp<<std::endl;}
     std::string decoded = std::string(decoded_tmp);
     delete decoded_tmp;
     std::string delimiter("}.{"); 
