@@ -27,4 +27,10 @@ Instructions for **Client** :
  
  This will put the binary into `/build/bin` with the name `Server`. Since Pistache only works on Linux, this only works on Linux as well.
  
+ Then build the Client:
+ 
+ `cd client`
+ 
+ `npm run build`
+ 
 
