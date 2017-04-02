@@ -11,9 +11,6 @@
 #include <JWT.h>
 #include <Authenticator.h>
 
-#include <ctime>
-#include <sstream>
-
 Mocks::DatabaseMock db;
 
 int main (int argc , char ** argv){

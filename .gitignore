@@ -34,6 +34,7 @@ coverage
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 client/build/Release
 client/build
+client/dist
 server/build/Release
 server/build
 
