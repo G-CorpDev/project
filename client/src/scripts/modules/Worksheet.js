@@ -16,18 +16,32 @@ class Worksheet extends Component {
     renderExercise(exercise, index) {
         let W = "";
         if (exercise.hasOwnProperty('W')) {
-            W = <input type="text" name="W" placeholder="Weight"></input>;
+            W = <input type="text" name="W" placeholder="W"></input>;
+        }
+        let R = "";
+        if (exercise.hasOwnProperty('R')) {
+            R = <input type="text" name="R" placeholder="R"></input>;
+        }
+        let done = "";
+        if (exercise.hasOwnProperty('done')) {
+            done = [<input type="checkbox" name="done" key="i"></input>,
+                <label className="exercise__done" key="l"></label>];
         }
         return (
             <div className="exercise" key={index}>
-                <div className="exercise__name">
-                    <div className="exercise__addNote">Note</div>
-                    {exercise.name}:
+                <input type="checkbox" id="note" className="exercise__addNoteInput"></input>
+                <label className="exercise__addNote" htmlFor="note">Note</label>
+                <div className="exercise__basic">
+                    <div className="exercise__name">
+                        {exercise.name}:
+                    </div>
+                    <div className="exercise__inputs">
+                        {W}
+                        {R}
+                        {done}
+                    </div>
                 </div>
-                <div className="exercise__inputs">
-                    {W}
-                    <input type="text" name="R" placeholder="Reps"></input>
-                </div>
+                <input className="exercise__note" type="text" name="Note" placeholder="note"></input>
             </div>
         )
     }
@@ -41,9 +55,9 @@ class Worksheet extends Component {
 
         return (
             <div className="workout" key={index}>
-                <div className="workout__info">i</div>
+                <div className="workout__infoBox">i</div>
                 <div className="workout__description">{workout.description}</div>
-                <div className="workout__day">{day + " - " + workout.time}</div>
+                <div className="workout__time">{day + " - " + workout.time}</div>
                 <div className="workout__name">{workout.name}</div>
                 <form className="workout__form">
                     {exercises}
