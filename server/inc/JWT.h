@@ -6,7 +6,6 @@
 #include <string>
 #include <map>
 
-//TODO: random string generation for secret key
 namespace JWT
 {
 
@@ -31,7 +30,7 @@ class Generator : public SecretHandler
 
 public:
   Generator(const std::string &secret);
-  const std::string generateJWT(const std::map<std::string, std::string> &payload);
+  std::string generateJWT(const std::map<std::string, std::string> &payload);
 };
 
 class Verifier : public SecretHandler

@@ -34,6 +34,7 @@
         "utility": "cpp",
         "iosfwd": "cpp",
         "deque": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "iostream": "cpp"
     }
 }
