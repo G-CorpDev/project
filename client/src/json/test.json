@@ -177,7 +177,504 @@
         "day": "Wednesday",
         "workouts": [
           {
+            "time": "night",
+            "name": "Ab Ripper X",
+            "description": "Rip that AB",
+            "done": "not",
+            "exercises": [
+              {
+                "name": "Testing",
+                "R": "",
+                "note": ""
+              }
+            ]
+          },
+          {
+            "time": "day",
+            "name": "Shoulder & Arms",
+            "description": "This routine is performed during weeks 1, 2, 3, 9, and 11...",
+            "done": "done",
+            "exercises": [
+              {
+                "name": "Alternating Shoulder Presses",
+                "R": "12",
+                "W": "32kg",
+                "note": "This is a note."
+              },
+              {
+                "name": "In & Out Bicep Curls",
+                "R": "33",
+                "W": "12kg",
+                "note": ""
+              },
+              {
+                "name": "Two-Arm Tricep Kickbacks",
+                "R": "23",
+                "W": "23kg",
+                "note": ""
+              },
+              {
+                "name": "Alternating Shoulder Presses",
+                "R": "45",
+                "W": "12kg",
+                "note": ""
+              },
+              {
+                "name": "In & Out Bicep Curls",
+                "R": "22",
+                "W": "11kg",
+                "note": ""
+              },
+              {
+                "name": "Two-Arm Tricep Kickbacks",
+                "R": "1",
+                "W": "2kg",
+                "note": ""
+              },
+              {
+                "name": "Deep Swimmer’s Presses",
+                "R": "33",
+                "W": "77kg",
+                "note": "Another note."
+              },
+              {
+                "name": "Full Supination Concentration Curls",
+                "R": "22",
+                "W": "32kg",
+                "note": ""
+              },
+              {
+                "name": "Chair Dips",
+                "R": "43",
+                "note": "it was hard"
+              },
+              {
+                "name": "Deep Swimmer’s Presses",
+                "R": "32",
+                "W": "5kg",
+                "note": ""
+              },
+              {
+                "name": "Full Supination Concentration Curls",
+                "R": "22",
+                "W": "12kg",
+                "note": "do more weight next time"
+              },
+              {
+                "name": "Chair Dips",
+                "R": "88",
+                "note": ""
+              },
+              {
+                "name": "Upright Rows",
+                "R": "23",
+                "W": "32kg",
+                "note": ""
+              },
+              {
+                "name": "Static Arm Curls",
+                "R": "11",
+                "W": "11kg",
+                "note": ""
+              },
+              {
+                "name": "Flip-Grip Twist Tricep Kickbacks",
+                "R": "22",
+                "W": "22kg",
+                "note": ""
+              },
+              {
+                "name": "Upright Rows",
+                "R": "33",
+                "W": "33kg",
+                "note": ""
+              },
+              {
+                "name": "Static Arm Curls",
+                "R": "44",
+                "W": "44kg",
+                "note": ""
+              },
+              {
+                "name": "Flip-Grip Twist Tricep Kickbacks",
+                "R": "11",
+                "W": "11kg",
+                "note": ""
+              },
+              {
+                "name": "Two-Angle Shoulder Flys",
+                "R": "32",
+                "note": ""
+              },
+              {
+                "name": "Crouching Cohen Curls",
+                "R": "32",
+                "W": "32kg",
+                "note": ""
+              },
+              {
+                "name": "Lying-Down Tricep Extensions",
+                "R": "12",
+                "W": "12kg",
+                "note": ""
+              },
+              {
+                "name": "Two-Angle Shoulder Flys",
+                "R": "22",
+                "note": ""
+              },
+              {
+                "name": "Crouching Cohen Curls",
+                "R": "22",
+                "W": "22kg",
+                "note": ""
+              },
+              {
+                "name": "Lying-Down Tricep Extensions",
+                "R": "12",
+                "W": "12kg",
+                "note": ""
+              },
+              {
+                "name": "In & Out Straight-Arm Shoulder Flys",
+                "R": "32",
+                "W": "32kg",
+                "note": ""
+              },
+              {
+                "name": "Congdon Curls",
+                "R": "33",
+                "W": "33kg",
+                "note": ""
+              },
+              {
+                "name": "Side Tri-Rises",
+                "R": "23",
+                "note": ""
+              },
+              {
+                "name": "In & Out Straight-Arm Shoulder Flys",
+                "R": "32",
+                "W": "32kg",
+                "note": ""
+              },
+              {
+                "name": "Congdon Curls",
+                "R": "32",
+                "W": "32kg",
+                "note": ""
+              },
+              {
+                "name": "Side Tri-Rises",
+                "R": "12",
+                "note": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "day": "Tuesday",
+        "workouts": [
+          {
+            "time": "day",
+            "name": "Yoga X",
+            "description": "Single workout",
+            "done": "not",
+            "exercises": [
+              {
+                "name": "Finish",
+                "done": "",
+                "note": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "day": "Friday",
+        "workouts": [
+          {
             "time": "morning",
+            "name": "Ab Ripper X",
+            "description": "Rip that AB",
+            "done": "not",
+            "exercises": [
+              {
+                "name": "Testing",
+                "R": "",
+                "note": ""
+              }
+            ]
+          },
+          {
+            "time": "day",
+            "name": "Legs and Back",
+            "description": "L&B",
+            "done": "not",
+            "exercises": [
+              {
+                "name": "Reverse Grip Chin-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Wide Front Pull-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Closed Grip Overhand Pull-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Switch Grip Pull-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Reverse Grip Chin-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Wide Front Pull-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Closed Grip Overhand Pull-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Switch Grip Pull-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Finish",
+                "done": "",
+                "note": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "day": "Saturday",
+        "workouts": [
+          {
+            "time": "day",
+            "name": "Kenpo X",
+            "description": "Single workout",
+            "done": "not",
+            "exercises": [
+              {
+                "name": "Finish",
+                "done": "",
+                "note": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "day": "Sunday",
+        "workouts": [
+          {
+            "time": "day",
+            "name": "Rest or X-Stretch",
+            "description": "Single workout",
+            "done": "not",
+            "exercises": [
+              {
+                "name": "Finish",
+                "done": "",
+                "note": ""
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "day": "Monday",
+        "workouts": [
+          {
+            "time": "morning",
+            "name": "Ab Ripper X",
+            "description": "Rip that AB",
+            "done": "not",
+            "exercises": [
+              {
+                "name": "Testing",
+                "R": "",
+                "note": ""
+              }
+            ]
+          },
+          {
+            "time": "day",
+            "name": "Chest & Back",
+            "description": "This routine is performed during weeks 1, 2, 3, 9, and 11...",
+            "done": "not",
+            "exercises": [
+              {
+                "name": "Standard Push-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Wide Front Pull-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Military Push-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Reverse Grip Chin-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Wide Fly Push-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Closed Grip Overhand Pull-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Decline Push-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Heavy Pants",
+                "R": "",
+                "W": "",
+                "note": ""
+              },
+              {
+                "name": "Diamond Push-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Lawnmowers",
+                "R": "",
+                "W": "",
+                "note": ""
+              },
+              {
+                "name": "Dive-Bomber Push-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Back Flys",
+                "R": "",
+                "W": "",
+                "note": ""
+              },
+              {
+                "name": "Standard Push-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Wide Front Pull-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Military Push-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Reverse Grip Chin-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Wide Fly Push-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Closed Grip Overhand Pull-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Decline Push-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Heavy Pants",
+                "R": "",
+                "W": "",
+                "note": ""
+              },
+              {
+                "name": "Diamond Push-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Lawnmowers",
+                "R": "",
+                "W": "",
+                "note": ""
+              },
+              {
+                "name": "Dive-Bomber Push-Ups",
+                "R": "",
+                "note": ""
+              },
+              {
+                "name": "Back Flys",
+                "R": "",
+                "W": "",
+                "note": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "day": "Thursday",
+        "workouts": [
+          {
+            "time": "day",
+            "name": "Plyometrics",
+            "description": "Single workout",
+            "done": "not",
+            "exercises": [
+              {
+                "name": "Finish",
+                "done": "",
+                "note": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "day": "Wednesday",
+        "workouts": [
+          {
+            "time": "night",
             "name": "Ab Ripper X",
             "description": "Rip that AB",
             "done": "not",
@@ -674,7 +1171,7 @@
         "day": "Wednesday",
         "workouts": [
           {
-            "time": "morning",
+            "time": "night",
             "name": "Ab Ripper X",
             "description": "Rip that AB",
             "done": "not",
@@ -1171,7 +1668,7 @@
         "day": "Wednesday",
         "workouts": [
           {
-            "time": "morning",
+            "time": "night",
             "name": "Ab Ripper X",
             "description": "Rip that AB",
             "done": "not",
