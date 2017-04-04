@@ -20,7 +20,7 @@ class Auth extends Component {
         this.setState({logging: !logging});
         /*if (!logging) {
          console.log("logging in...");
-         axios.post('http://localhost:3000/login', {username: this.state.logInputs[0], password: this.state.logInputs[1]})
+         axios.post('http://localhost:3000/login', {username: this.state.logValues[0], password: this.state.logValues[1]})
          .then(function (response) {
          console.log("response: " + response);
          });
