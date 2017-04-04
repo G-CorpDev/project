@@ -1,6 +1,7 @@
 @import "color";
 
 .worksheet {
+  padding-top: 100px;
   color: $white;
 
   &__name {
@@ -68,6 +69,7 @@
       transition: all 400ms;
 
       &:hover {
+        border-radius: 0 2px 0 100%;
         transform: perspective(1px) scale(1.6);
       }
 
@@ -96,13 +98,27 @@
     }
   }
 
-  .week {
+  .weeks {
     display: flex;
     position: relative;
     align-items: flex-start;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    margin: 0 60px;
+  }
+
+  .week {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    flex-basis: 21%;
+
+    //flex-direction: row;
 
     &:nth-child(4n) {
       .workout__week {
@@ -132,9 +148,8 @@
     top: 20px;
     height: auto;
     width: auto;
-    min-width: 300px;
-    flex-basis: 18%;
-    min-height: 500px;
+    min-width: 370px;
+    min-height: 350px;
     margin: 0 10px 50px 10px;
     color: $white;
     background: rgba($green, 0.3);
@@ -190,7 +205,7 @@
 
     &:hover {
       background: $darkGreen;
-      transform: scale(1.15, 1.15);
+      transform: scale(1.10);
       z-index: 5;
       .workout__background {
         opacity: 1;
@@ -254,10 +269,6 @@
 
         &__basic {
           padding-left: 30px;
-        }
-
-        &:last-child {
-          margin-bottom: 35px;
         }
 
         &__addNote {
@@ -377,13 +388,38 @@
             margin-right: 1px;
           }
         }
+        &__noteBlock {
+          display: inline-block;
+          width: 27px;
+          height: 16px;
+          padding: 2px;
+          margin-right: 2px;
+          font-size: 11px;
+          background: #3498db;
+          border-radius: 5px;
+          cursor: default;
+
+          &:hover {
+            background: darken($blue,10%);
+          }
+          &:hover +  .exercise__note{
+              visibility: inherit;
+          }
+        }
+
         &__note {
           display: inline-block;
-          position: relative;
+          position: absolute;
           background: $blue;
           width: auto;
+          left: 0;
+          top: -21px;
+          border: 2px solid darken($blue,10%);
           border-radius: 2px;
-          padding: 1px;
+          padding: 2px 6px;
+          font-size: 16px;
+          z-index: 4;
+          visibility: hidden;
         }
       }
     }
@@ -404,6 +440,10 @@
           display: table;
           position: relative;
           width: 100%;
+        }
+
+        &:last-child {
+          margin-bottom: 35px;
         }
 
         &__name {
@@ -443,6 +483,110 @@
         box-shadow: 0 -2px 20px 3px $shadow--dark;
       }
     }
+
+    &__goodJob {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 30px;
+      background: $green;
+      border-radius: 0 0 5px 5px;
+      font-weight: 600;
+      padding-top: 6px;
+      text-align: center;
+    }
   }
 
+  .arrow {
+    position: fixed;
+    left: 5px;
+    top: 39%;
+    height: 30px;
+    width: 30px;
+    transform: rotate(45deg);
+    border-top: 5px solid $white;
+    border-right: 5px solid $white;
+    z-index: 99;
+    transition: opacity 200ms;
+
+    &:hover {
+      opacity: 0;
+    }
+    &:hover ~ .shortcut {
+      left: 0;
+    }
+  }
+
+  .shortcut {
+    position: fixed;
+    left: -100px;
+    top: 30%;
+    width: 90px;
+    padding-top: 3px;
+    font-size: 14px;
+    background: $turquoise;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 0 0 20px 1px $shadow--light;
+    z-index: 99;
+    transition: left 400ms;
+
+    &:hover{
+      left: 0;
+    }
+
+    &__weeks {
+      margin-top: 3px;
+      background: $shadow--light;
+    }
+
+    &__days {
+      padding-bottom: 3px;
+      background: $shadow--ultraLight;
+    }
+
+    &__row {
+      position: relative;
+      display: block;
+      text-align: center;
+      label {
+        position: relative;
+        display: block;
+        height: 17px;
+        width: 100%;
+      }
+      input {
+        position: absolute;
+        left: 0;
+        height: 17px;
+        width: 100%;
+        opacity: 0;
+        z-index: 4;
+        cursor: pointer;
+
+        &:hover + label{
+          background: rgba($green,0.4);
+        }
+        &:checked + label {
+          background: $green;
+        }
+      }
+    }
+
+    &__jump {
+      display: block;
+      position: relative;
+      border-radius: 0 0 5px;
+      padding: 3px 0;
+      cursor: pointer;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 600;
+      background: $blue;
+      transition: background 400ms;
+
+      &:hover {
+        background: darken($blue,10%);
+      }
+    }
+  }
 }

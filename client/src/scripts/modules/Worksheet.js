@@ -63,13 +63,14 @@ class Worksheet extends Component {
         }
         let note = "";
         if (exercise.note !== "") {
-            note = <div className="exercise__note">{exercise.note}</div>;
+            note = [<div className="exercise__noteBlock" key="noteBlock">Note</div>,<div className="exercise__note" key="note">{exercise.note}</div>];
         }
 
         return (
             <div className="exercise" key={index}>
                 <div className="exercise__basic">
                     <div className="exercise__name">
+                        {note}
                         {exercise.name}:
                     </div>
                     <div className="exercise__inputs">
@@ -78,7 +79,6 @@ class Worksheet extends Component {
                         {done}
                     </div>
                 </div>
-                {note}
             </div>
         )
     }
@@ -107,8 +107,9 @@ class Worksheet extends Component {
             content.push(
                 <div className="workout__list" key="list">
                     {exercises}
-                </div>
-            )
+                </div>,
+                <div className="workout__goodJob" key="done">Good job!</div>
+            );
         }
 
         return (
@@ -125,12 +126,13 @@ class Worksheet extends Component {
         )
     }
 
-    calcMousePosRelToParent(event) {
-        let bounds = event.target.getBoundingClientRect();
-        let x = event.clientX - bounds.left;
-        let y = event.clientY - bounds.top;
-        console.log(' X Position: ' + x
-            + ' Y Position: ' + y);
+    renderDayRadio(day, index) {
+        return (
+            <div className="shortcut__row" key={index}>
+                <input type="radio" name="day" value={day} id={day}></input>
+                <label htmlFor={day}>{day}</label>
+            </div>
+        )
     }
 
     changeDesc() {
@@ -142,14 +144,21 @@ class Worksheet extends Component {
         let weeks = [];
         let _this = this;
         let weekNumber = 0;
+        let weekShortCuts = [];
 
         this.state.test.weeks.forEach(function (week, week_i) {
             let workouts = [];
-            weekNumber ++;
+            weekNumber++;
+            weekShortCuts.push(
+                <div className="shortcut__row" key={weekNumber}>
+                    <input type="radio" name="week" value={weekNumber} id={"week__" + weekNumber}></input>
+                    <label htmlFor={"week__" + weekNumber}>Week {weekNumber}</label>
+                </div>
+            );
             week.forEach(function (day, day_i) {
                 day.workouts.forEach(function (workout, workout_i) {
                     workouts.push(
-                        _this.renderDay(day.day, workout, day_i.toString() + "-" + workout_i.toString(),weekNumber)
+                        _this.renderDay(day.day, workout, day_i.toString() + "-" + workout_i.toString(), weekNumber)
                     );
                 });
             });
@@ -157,6 +166,15 @@ class Worksheet extends Component {
         });
 
         let desc = (this.state.description) ? "" : "worksheet__description--closed";
+
+        let days = ["Monday", "Thursday", "Wednesday", "Tuesday", "Friday", "Saturday", "Sunday"];
+        let dayShortCuts = [];
+        days.forEach(function (day, index) {
+            dayShortCuts.push(
+                _this.renderDayRadio(day, index)
+            );
+        });
+
 
         return (
             <div className="worksheet">
@@ -169,7 +187,22 @@ class Worksheet extends Component {
                         <span className="line line--2"></span>
                     </div>
                 </div>
-                {weeks}
+                <div className="weeks">
+                    {weeks}
+                </div>
+                <div className="arrow"></div>
+                <div className="shortcut">
+                    SHORTCUTS
+                    <div className="shortcut__weeks">
+                        {weekShortCuts}
+                    </div>
+                    <div className="shortcut__days">
+                        {dayShortCuts}
+                    </div>
+                    <div className="shortcut__jump">
+                        JUMP
+                    </div>
+                </div>
             </div>
         );
     }

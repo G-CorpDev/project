@@ -2,30 +2,29 @@
 
 .menu {
   display: inline-block;
-  position: relative;
+  position: fixed;
   width: 100%;
-  min-height: 90px;
+  min-height: 65px;
   height: auto;
-  background: $shadow--light;
-  border-radius: 5px 5px 0 0;
-  margin-bottom: 25px;
-  padding: 20px 0;
+  padding-bottom: 7px;
+  background: $shadow;
   text-align: center;
+  z-index: 99;
+  transition: all 400ms;
 
-  li {
+  .menu__item {
     display: inline-block;
     position: relative;
-    margin: 10px 10px 0;
-    padding: 8px 10px;
+    margin: 15px 3px 0;
+    padding: 3px 10px;
     text-transform: uppercase;
     font-weight: 800;
     white-space: nowrap;
     letter-spacing: .05em;
-    font-size: 1.2em;
-    list-style: none;
+    font-size: 1.25em;
     transition: all 400ms;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 4px;
     background: $shadow--veryLight;
     color: $turquoise;
 
@@ -33,5 +32,26 @@
       color: $white;
       background: $turquoise;
     }
+
+    &--selected {
+      color: $white;
+      background: $darkGreen;
+    }
+
+    @media screen and (max-width: 1200px) {
+        font-size: 1em !important;
+    }
   }
+
+  &--scrolled {
+    min-height: 40px;
+    height: auto;
+    padding-bottom: 3px;
+    background: $shadow--strong;
+    .menu__item {
+      margin-top: 5px !important;
+      font-size: 0.95em !important;
+    }
+  }
+
 }

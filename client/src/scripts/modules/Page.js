@@ -10,6 +10,7 @@ class Page extends Component {
             flip: "page--noflip",
             logged: true,
             loading: "",
+            pers: " page--noPersp",
         }
     }
 
@@ -23,7 +24,8 @@ class Page extends Component {
         this.setState({loading: " page--loading"}, function () {
             setTimeout(function () {
                 let logged = _this.state.logged;
-                _this.setState({logged: !logged, loading: ""});
+                let pers = !logged ? " page--noPersp" : " page--Persp";
+                _this.setState({logged: !logged, loading: "", pers: pers});
             }, 800);
         });
     }
@@ -31,7 +33,7 @@ class Page extends Component {
     render() {
 
         return (
-            <div className={"page " + this.state.flip + this.state.loading}>
+            <div className={"page " + this.state.flip + this.state.loading + this.state.pers}>
                 {this.state.logged ?
                     <Content login={() => this.login()}/>
                     :

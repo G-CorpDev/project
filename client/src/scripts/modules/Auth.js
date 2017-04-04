@@ -6,8 +6,8 @@ class Auth extends Component {
         super(props);
         this.state = {
             logging: false,
-            regInputs: ["Username", "Password", "Confirm password", "Nickname", "Sex", "Age", "Height", "Weight"],
-            regValues: ["", "", "", "", "", "", "", ""],
+            regInputs: ["Username", "Password", "Confirm password","Email", "Nickname", "Sex", "Age", "Height", "Weight"],
+            regValues: ["", "", "", "", "", "", "", "",""],
             logInputs: ["Username", "Password"],
             logValues: ["", ""],
             flip: props.flip,
