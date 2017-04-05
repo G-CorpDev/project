@@ -2,6 +2,9 @@
 For Project Tools at ELTE IK
 
 
+**Note:** Do not use Chrome , POST requests are unreliable. Firefox works 100%.
+
+
 Instructions for **Client** : 
 
 `cd client`
