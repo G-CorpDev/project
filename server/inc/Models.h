@@ -22,6 +22,7 @@ namespace Models{
             int getSex() const;
             float getHeight() const;
             float getWeight() const;
+            bool isValid() const;
             User (const std::string & displayName,const int & age,const float & weight,const float & height,const int & sex,const unsigned int & id);
             User (bool verified);
     };

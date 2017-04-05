@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 
 class Auth extends Component {
@@ -6,8 +6,8 @@ class Auth extends Component {
         super(props);
         this.state = {
             logging: false,
-            regInputs: ["Username", "Password", "Confirm password","Email", "Nickname", "Sex", "Age", "Height", "Weight"],
-            regValues: ["", "", "", "", "", "", "", "",""],
+            regInputs: ["Username", "Password", "Confirm password", "Email", "Nickname", "Sex", "Age", "Height", "Weight"],
+            regValues: ["", "", "", "", "", "", "", "", ""],
             logInputs: ["Username", "Password"],
             logValues: ["", ""],
             flip: props.flip,
@@ -16,19 +16,23 @@ class Auth extends Component {
     }
 
     login() {
-        let logging = this.state.logging;
+        /*let logging = this.state.logging;
         this.setState({logging: !logging});
-        /*if (!logging) {
-         console.log("logging in...");
-         axios.post('http://localhost:3000/login', {username: this.state.logValues[0], password: this.state.logValues[1]})
-         .then(function (response) {
-         console.log("response: " + response);
-         });
+        if (!logging) {
+         
          }*/
-        let _this = this;
+        console.log("logging in...");
+        axios.post('http://localhost:3000/login', { username: this.state.logValues[0], password: this.state.logValues[1] })
+            .then(function (response) {
+                console.log("response: " + response);
+            }).catch(function (error){
+                console.log("ERROR:" + error);
+            });
+
+        /*let _this = this;
         setTimeout(function () {
             _this.state.login();
-        }, 1500);
+        }, 1500);*/
     }
 
     register() {
@@ -38,7 +42,7 @@ class Auth extends Component {
     }
 
     flip() {
-        this.setState({logging: false});
+        this.setState({ logging: false });
         this.state.flip();
     }
 
@@ -46,11 +50,11 @@ class Auth extends Component {
         if (g === "register") {
             let regValues = this.state.regValues.slice();
             regValues[index] = event.target.value;
-            this.setState({regValues: regValues});
+            this.setState({ regValues: regValues });
         } else {
             let logValues = this.state.logValues.slice();
             logValues[index] = event.target.value;
-            this.setState({logValues: logValues});
+            this.setState({ logValues: logValues });
         }
 
     }
@@ -65,7 +69,7 @@ class Auth extends Component {
         return (
             <div className={g + "__row"} key={index}>
                 <input type="text" className={g + "__input " + used + label}
-                       onChange={this.handleChange.bind(this, index, g)}/>
+                    onChange={this.handleChange.bind(this, index, g)} />
                 <label>{label}</label>
             </div>
         )

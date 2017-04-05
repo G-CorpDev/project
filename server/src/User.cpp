@@ -42,3 +42,8 @@ int Models::User::getSex() const
 {
     return this->sex;
 }
+
+bool Models::User::isValid() const
+{
+    return this->verified;
+}

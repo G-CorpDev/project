@@ -35,6 +35,10 @@
         "iosfwd": "cpp",
         "deque": "cpp",
         "vector": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "functional": "cpp",
+        "istream": "cpp",
+        "tuple": "cpp",
+        "memory": "cpp"
     }
 }

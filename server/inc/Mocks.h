@@ -6,6 +6,7 @@
 
 #include <Models.h>
 #include <iDatabaseSource.h>
+#include <Results.h>
 
 namespace Mocks{
 
@@ -25,12 +26,16 @@ namespace Mocks{
             std::vector<Models::User> getAllUsers();
     };
 
-    class DatabaseMock : iDatabaseSource {
+    class DatabaseMock : public iDatabaseSource {
         private:
             UserMock users;
         public:
             Models::User getUserByID(const int & id);
+            Models::User getUserByCredentials(const std::string & username,const std::string & password);
             std::vector<Models::User> getAllUsers();
+            Results::Database saveUser(const Models::User & user);
+            Results::Database saveUser(const Models::User & user,std::string username,std::string password);
+
     };
 
 }

@@ -8,7 +8,7 @@ class Page extends Component {
         super(props);
         this.state = {
             flip: "page--noflip",
-            logged: true,
+            logged: false,
             loading: "",
             pers: " page--noPersp",
         }
