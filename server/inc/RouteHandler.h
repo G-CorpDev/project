@@ -3,6 +3,7 @@
 #include <Authenticator.h>
 #include <iDatabaseSource.h>
 #include <Utils.h>
+#include <Results.h>
 
 class RouteHandler {
     public:

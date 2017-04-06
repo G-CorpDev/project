@@ -1,6 +1,6 @@
 #include <Utils.h>
 
-std::map<std::string, std::string> Utils::decodeJSON(const std::string &json)
+std::map<std::string, std::string> Utils::decodeSimpleJSON(const std::string &json)
 {
     std::map<std::string, std::string> grants;
     json_t *jsonParser;
@@ -25,7 +25,7 @@ std::map<std::string, std::string> Utils::decodeJSON(const std::string &json)
     return grants;
 }
 
-std::string Utils::makeJSON(const std::map<std::string, std::string> &data)
+std::string Utils::makeSimpleJSON(const std::map<std::string, std::string> &data)
 {
     json_t * root = json_object();
 

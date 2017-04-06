@@ -15,9 +15,9 @@ namespace Mocks{
             std::map<int,Models::User> users;
             int idcounter = 0;
 
-            int getNextID();
 
         public:
+            int getNextID();
             int getCurrentID();
 
             UserMock();
@@ -34,7 +34,7 @@ namespace Mocks{
             Models::User getUserByCredentials(const std::string & username,const std::string & password);
             std::vector<Models::User> getAllUsers();
             Results::Database saveUser(const Models::User & user);
-            Results::Database saveUser(const Models::User & user,std::string username,std::string password);
+            Results::Database saveUser(const std::string & user,const std::string & username,const std::string & password);
 
     };
 

@@ -4,6 +4,6 @@
 #include <map>
 
 namespace Utils{
-    std::map<std::string,std::string> decodeJSON(const std::string & json);
-    std::string makeJSON(const std::map<std::string,std::string> & data);
+    std::map<std::string,std::string> decodeSimpleJSON(const std::string & json);
+    std::string makeSimpleJSON(const std::map<std::string,std::string> & data);
 };

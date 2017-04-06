@@ -49,7 +49,7 @@ void RouteHandler::doLogin(const Net::Rest::Request &request, Net::Http::Respons
 {
     auto ct = request.headers().get<Net::Http::Header::Host>();
 
-    auto json = Utils::decodeJSON(request.body());
+    auto json = Utils::decodeSimpleJSON(request.body());
 
     std::string username;
     std::string password;
@@ -67,20 +67,16 @@ void RouteHandler::doLogin(const Net::Rest::Request &request, Net::Http::Respons
     Models::User user = database.getUserByCredentials(username, password);
     if (user.isValid())
     {
-        std::map<std::string,std::string> userData;
+        std::map<std::string, std::string> userData;
         userData.insert({"displayName", user.getDisplayName()});
         userData.insert({"id", std::to_string(user.getID())});
-        userData.insert({"age", std::to_string(user.getAge())});
-        userData.insert({"sex", std::to_string(user.getSex())});
-        userData.insert({"height", std::to_string(user.getHeight())});
-        userData.insert({"weight", std::to_string(user.getWeight())});
-        
+
         std::cout << "login from " << ct->host() << ":" << ct->port() << " - " << request.body() << std::endl;
         std::string token = auth.generateToken(user);
         Net::Http::Cookie cookie("token", token);
         cookie.httpOnly = true;
         response.cookies().add(cookie);
-        response.send(Net::Http::Code::Ok,Utils::makeJSON(userData));
+        response.send(Net::Http::Code::Ok, Utils::makeSimpleJSON(userData));
         return;
     }
     else
@@ -93,9 +89,10 @@ void RouteHandler::doLogin(const Net::Rest::Request &request, Net::Http::Respons
 }
 
 void RouteHandler::doLogout(const Net::Rest::Request &request, Net::Http::ResponseWriter response)
-{   
+{
     auto cookieJar = request.cookies();
-    if(cookieJar.has("token")){
+    if (cookieJar.has("token"))
+    {
         auto cookie = request.cookies().get("token");
         cookie.value = "";
         response.cookies().add(cookie);
@@ -105,8 +102,43 @@ void RouteHandler::doLogout(const Net::Rest::Request &request, Net::Http::Respon
 
 void RouteHandler::doRegister(const Net::Rest::Request &request, Net::Http::ResponseWriter response)
 {
-    std::cout << "register from " << request.body() << std::endl;
-    response.send(Net::Http::Code::Ok, "Piss off, CUNT!\n");
+    auto json = Utils::decodeSimpleJSON(request.body());
+    std::string username;
+    std::string password;
+    std::string displayName;
+
+    try
+    {
+        username = json.at("username");
+        password = json.at("password");
+        displayName = json.at("nickname");
+    }
+    catch (std::exception e)
+    {
+        std::cerr << e.what() << " Error in credentials" << std::endl;
+        response.send(Net::Http::Code::Not_Acceptable);
+        return;
+    }
+
+    Results::Database err = database.saveUser(displayName, username, password);
+    if (err == Results::Database::Ok)
+    {
+        Models::User user = database.getUserByCredentials(username, password);
+        if (user.isValid())
+        {
+            std::map<std::string, std::string> userData;
+            userData.insert({"displayName", user.getDisplayName()});
+            userData.insert({"id", std::to_string(user.getID())});
+            std::string token = auth.generateToken(user);
+            Net::Http::Cookie cookie("token", token);
+            cookie.httpOnly = true;
+            response.cookies().add(cookie);
+            std::cout << "registered" << user.getDisplayName() << std::endl;
+            response.send(Net::Http::Code::Ok, Utils::makeSimpleJSON(userData));
+            return;
+        }
+    }
+    response.send(Net::Http::Code::Internal_Server_Error);
 }
 
 void RouteHandler::testHandler(const Net::Rest::Request &request, Net::Http::ResponseWriter response)

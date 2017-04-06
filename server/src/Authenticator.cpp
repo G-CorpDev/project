@@ -22,7 +22,7 @@ std::string Authenticator::random_string(size_t length)
 Models::User Authenticator::authenticateUser(const std::string &token)
 {
     auto grants = this->tokenVerifier.verifyJWT(token);
-    if (grants.size() < 7)
+    if (grants.size() < 3)
     {
         return Models::User(false);
     }
@@ -32,11 +32,7 @@ Models::User Authenticator::authenticateUser(const std::string &token)
 
         std::string displayName = grants.at("displayName");
         unsigned int id = std::stoi(grants.at("id"));
-        int age = std::stoi(grants.at("age"));
-        float weight = std::stof(grants.at("weight"));
-        float height = std::stof(grants.at("height"));
-        int sex = std::stoi(grants.at("sex"));
-        return Models::User(displayName,age,weight,height,sex,id);
+        return Models::User(displayName,id);
     }
     return Models::User(false);
 }
@@ -52,10 +48,6 @@ std::string Authenticator::generateToken(const Models::User &user)
 
     userData.insert({"displayName", user.getDisplayName()});
     userData.insert({"id", std::to_string(user.getID())});
-    userData.insert({"age", std::to_string(user.getAge())});
-    userData.insert({"sex", std::to_string(user.getSex())});
-    userData.insert({"height", std::to_string(user.getHeight())});
-    userData.insert({"weight", std::to_string(user.getWeight())});
 
     return this->tokenGenerator.generateJWT(userData);
 }

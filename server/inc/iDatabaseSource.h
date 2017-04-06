@@ -24,7 +24,7 @@ class iDatabaseSource
 
     /*Saves the new User into the database.
       Returns the appropriate Results::Database message (i.e. Results::Database::Ok on success).*/
-    virtual Results::Database saveUser(const Models::User & user,std::string username,std::string password) = 0;
+    virtual Results::Database saveUser(const std::string & displayName,const std::string & username,const std::string & password) = 0;
 };
 
 #endif
