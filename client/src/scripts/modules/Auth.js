@@ -6,8 +6,8 @@ class Auth extends Component {
         super(props);
         this.state = {
             logging: false,
-            regInputs: ["Username", "Password", "Confirm password", "Email", "Nickname", "Sex", "Age", "Height", "Weight"],
-            regValues: ["", "", "", "", "", "", "", "", ""],
+            regInputs: ["Username", "Password", "Confirm password", "Nickname"],
+            regValues: ["", "", "", ""],
             logInputs: ["Username", "Password"],
             logValues: ["", ""],
             flip: props.flip,
@@ -19,27 +19,32 @@ class Auth extends Component {
         let logging = this.state.logging;
         let _this = this;
         if (!logging) {
-            this.setState({logging: !logging});
+            this.setState({logging: true});
             console.log("logging in...");
             setTimeout(function () {
 
                 //POSTING
-
                 axios.post('http://localhost:3000/login', {
                     username: _this.state.logValues[0],
                     password: _this.state.logValues[1]
                 })
                     .then(function (response) {
-                        console.log("response: " + response);
-
+                        console.log(response);
                         _this.state.login(response.data.id, response.data.displayName);
                     }).catch(function (error) {
                     if (error.response) {
                         // The request was made, but the server responded with a status code
                         // that falls out of the range of 2xx
                         console.log(error.response.data);
-                        console.log(error.response.status);
+                        let status = error.response.status;
+                        console.log(status);
                         console.log(error.response.headers);
+                        _this.setState({logging: false});
+                        if (status === 401) {
+                            window.alert("Error: " + status + ", wrong user data.")
+                        } else {
+                            window.alert("Error: " + status)
+                        }
                     } else {
                         // Something happened in setting up the request that triggered an Error
                         console.log('Error: ', error.message);
@@ -54,9 +59,32 @@ class Auth extends Component {
     }
 
     register() {
-        console.log("Making Registration...");
-        //send data
-        this.flip();
+        if (this.state.regValues[1].toString() !== this.state.regValues[2].toString()) {
+            window.alert("Use the same password, Fuckhead. ");
+        } else {
+            console.log("Making Registration...");
+            axios.post('http://localhost:3000/register', {
+                username: this.state.regValues[0],
+                password: this.state.regValues[1],
+                nickname: this.state.regValues[3],
+            })
+                .then(function (response) {
+                    console.log(response);
+                    window.alert("Good job, Motherfucker. ");
+                    this.flip();
+                }).catch(function (error) {
+                if (error.response) {
+                    console.log(error.response.data);
+                    let status = error.response.status;
+                    console.log(status);
+                    console.log(error.response.headers);
+                    this.setState({logging: false});
+                    window.alert("Error: " + status);
+                } else {
+                    console.log('Error: ', error.message);
+                }
+            });
+        }
     }
 
     flip() {
