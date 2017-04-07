@@ -8,8 +8,9 @@ class Content extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            login: props.login,
+            logout: props.logout,
             selectedContent: "Select new worksheet",
+            nick: props.nick,
         }
     }
 
@@ -21,7 +22,7 @@ class Content extends Component {
 
         return (
             <div className="content">
-                <Menu login={() => this.state.login()} select={(i) => this.selectContent(i)}/>
+                <Menu logout={() => this.state.logout()} select={(i) => this.selectContent(i)} nick={this.state.nick}/>
                 {this.state.selectedContent === "My worksheet" ? <Worksheet/> : ""}
                 {this.state.selectedContent === "Select new worksheet" ? <SheetList/> : ""}
             </div>

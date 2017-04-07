@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import axios from 'axios';
 
 class Auth extends Component {
@@ -16,23 +16,40 @@ class Auth extends Component {
     }
 
     login() {
-        /*let logging = this.state.logging;
-        this.setState({logging: !logging});
+        let logging = this.state.logging;
+        let _this = this;
         if (!logging) {
-         
-         }*/
-        console.log("logging in...");
-        axios.post('http://localhost:3000/login', { username: this.state.logValues[0], password: this.state.logValues[1] })
-            .then(function (response) {
-                console.log("response: " + response);
-            }).catch(function (error){
-                console.log("ERROR:" + error);
-            });
+            this.setState({logging: !logging});
+            console.log("logging in...");
+            setTimeout(function () {
 
-        /*let _this = this;
-        setTimeout(function () {
-            _this.state.login();
-        }, 1500);*/
+                //POSTING
+
+                axios.post('http://localhost:3000/login', {
+                    username: this.state.logValues[0],
+                    password: this.state.logValues[1]
+                })
+                    .then(function (response) {
+                        console.log("response: " + response);
+                        _this.state.login(response.id, response.displayName);
+                    }).catch(function (error) {
+                    if (error.response) {
+                        // The request was made, but the server responded with a status code
+                        // that falls out of the range of 2xx
+                        console.log(error.response.data);
+                        console.log(error.response.status);
+                        console.log(error.response.headers);
+                    } else {
+                        // Something happened in setting up the request that triggered an Error
+                        console.log('Error: ', error.message);
+                    }
+                });
+
+                //TESTING
+                //_this.state.login("1","Bela");
+
+            }, 1500);
+        }
     }
 
     register() {
@@ -42,7 +59,7 @@ class Auth extends Component {
     }
 
     flip() {
-        this.setState({ logging: false });
+        this.setState({logging: false});
         this.state.flip();
     }
 
@@ -50,11 +67,11 @@ class Auth extends Component {
         if (g === "register") {
             let regValues = this.state.regValues.slice();
             regValues[index] = event.target.value;
-            this.setState({ regValues: regValues });
+            this.setState({regValues: regValues});
         } else {
             let logValues = this.state.logValues.slice();
             logValues[index] = event.target.value;
-            this.setState({ logValues: logValues });
+            this.setState({logValues: logValues});
         }
 
     }
@@ -69,7 +86,7 @@ class Auth extends Component {
         return (
             <div className={g + "__row"} key={index}>
                 <input type="text" className={g + "__input " + used + label}
-                    onChange={this.handleChange.bind(this, index, g)} />
+                       onChange={this.handleChange.bind(this, index, g)}/>
                 <label>{label}</label>
             </div>
         )

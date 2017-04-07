@@ -5,10 +5,11 @@ class Menu extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            login: props.login,
+            logout: props.logout,
             select: props.select,
             selected: "Select new worksheet",
             scrolled: "menu--notScrolled",
+            nick: props.nick,
         };
         this.handleScroll = this.handleScroll.bind(this);
     }
@@ -44,7 +45,7 @@ class Menu extends Component {
 
     render() {
         let _this = this;
-        let menuTexts = ["My profile", "My worksheet", "Select new worksheet", "Create worksheet"];
+        let menuTexts = ["My worksheet", "Select new worksheet"];
         let menuItems = [];
         menuTexts.forEach(function (element, index) {
             menuItems.push(_this.renderMenuItem(element, index));
@@ -53,7 +54,8 @@ class Menu extends Component {
         return (
             <div className={"menu " + this.state.scrolled}>
                 {menuItems}
-                <a className="menu__item" onClick={() => this.state.login()}>Logout</a>
+                <a className="menu__item" onClick={() => this.state.logout()}>Logout</a>
+                <div className="menu__hi">Hi, {this.state.nick}!</div>
             </div>
         );
     }

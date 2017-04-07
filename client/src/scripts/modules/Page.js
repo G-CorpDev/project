@@ -10,7 +10,9 @@ class Page extends Component {
             flip: "page--noflip",
             logged: false,
             loading: "",
-            pers: " page--noPersp",
+            pers: " page--Persp",
+            userId : "",
+            userNick: "",
         }
     }
 
@@ -19,13 +21,20 @@ class Page extends Component {
         this.setState({flip: flip});
     }
 
-    login() {
+    login(id,nick) {
         let _this = this;
         this.setState({loading: " page--loading"}, function () {
             setTimeout(function () {
-                let logged = _this.state.logged;
-                let pers = !logged ? " page--noPersp" : " page--Persp";
-                _this.setState({logged: !logged, loading: "", pers: pers});
+                _this.setState({logged: true, loading: "", pers: " page--noPersp", userId: id, userNick: nick});
+            }, 800);
+        });
+    }
+
+    logout() {
+        let _this = this;
+        this.setState({loading: " page--loading"}, function () {
+            setTimeout(function () {
+                _this.setState({logged: false, loading: "", pers: " page--Persp", userId: "", userNick: ""});
             }, 800);
         });
     }
@@ -35,9 +44,9 @@ class Page extends Component {
         return (
             <div className={"page " + this.state.flip + this.state.loading + this.state.pers}>
                 {this.state.logged ?
-                    <Content login={() => this.login()}/>
+                    <Content logout={() => this.logout()} nick={this.state.userNick}/>
                     :
-                    <Auth flip={() => this.flip()} login={() => this.login()}/>
+                    <Auth flip={() => this.flip()} login={(i,n) => this.login(i,n)}/>
                 }
             </div>
         );
