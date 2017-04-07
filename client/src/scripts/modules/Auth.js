@@ -59,19 +59,21 @@ class Auth extends Component {
     }
 
     register() {
+        let _this = this;
+
         if (this.state.regValues[1].toString() !== this.state.regValues[2].toString()) {
             window.alert("Use the same password, Fuckhead. ");
         } else {
             console.log("Making Registration...");
             axios.post('http://localhost:3000/register', {
-                username: this.state.regValues[0],
-                password: this.state.regValues[1],
-                nickname: this.state.regValues[3],
+                username: _this.state.regValues[0],
+                password: _this.state.regValues[1],
+                nickname: _this.state.regValues[3],
             })
                 .then(function (response) {
                     console.log(response);
                     window.alert("Good job, Motherfucker. ");
-                    this.flip();
+                    _this.flip();
                 }).catch(function (error) {
                 if (error.response) {
                     console.log(error.response.data);
