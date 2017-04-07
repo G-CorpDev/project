@@ -26,12 +26,12 @@ class Auth extends Component {
                 //POSTING
 
                 axios.post('http://localhost:3000/login', {
-                    username: this.state.logValues[0],
-                    password: this.state.logValues[1]
+                    username: _this.state.logValues[0],
+                    password: _this.state.logValues[1]
                 })
                     .then(function (response) {
                         console.log("response: " + response);
-                        _this.state.login(response.id, response.displayName);
+                        _this.state.login(response.data.id, response.data.displayName);
                     }).catch(function (error) {
                     if (error.response) {
                         // The request was made, but the server responded with a status code
