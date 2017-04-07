@@ -31,6 +31,7 @@ class Auth extends Component {
                 })
                     .then(function (response) {
                         console.log("response: " + response);
+
                         _this.state.login(response.data.id, response.data.displayName);
                     }).catch(function (error) {
                     if (error.response) {
