@@ -12,7 +12,23 @@
   z-index: 99;
   transition: all 400ms;
 
-  .menu__item {
+  &__hi {
+    display: inline-block;
+    position: relative;
+    margin: 15px 3px 0 30px;
+    padding: 3px 10px;
+    background: $blue;
+    border-radius: 4px;
+    color: $white;
+    font-weight: 800;
+    font-size: 1.25em;
+
+    @media screen and (max-width: 1200px) {
+      font-size: 1em !important;
+    }
+  }
+
+  &__item {
     display: inline-block;
     position: relative;
     margin: 15px 3px 0;
@@ -49,6 +65,10 @@
     padding-bottom: 3px;
     background: $shadow--strong;
     .menu__item {
+      margin-top: 5px !important;
+      font-size: 0.95em !important;
+    }
+    .menu__hi {
       margin-top: 5px !important;
       font-size: 0.95em !important;
     }

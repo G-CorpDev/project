@@ -12,7 +12,7 @@
             "time": "morning",
             "name": "Ab Ripper X",
             "description": "Rip that AB",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Testing",
@@ -25,7 +25,7 @@
             "time": "day",
             "name": "Chest & Back",
             "description": "This routine is performed during weeks 1, 2, 3, 9, and 11...",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Standard Push-Ups",
@@ -164,7 +164,7 @@
             "time": "day",
             "name": "Plyometrics",
             "description": "Single workout",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Finish",
@@ -182,7 +182,7 @@
             "time": "day",
             "name": "Shoulder & Arms",
             "description": "This routine is performed during weeks 1, 2, 3, 9, and 11...",
-            "done": "done",
+            "done": true,
             "exercises": [
               {
                 "name": "Alternating Shoulder Presses",
@@ -364,7 +364,7 @@
             "time": "night",
             "name": "Ab Ripper X",
             "description": "Rip that AB",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Testing",
@@ -382,7 +382,7 @@
             "time": "day",
             "name": "Yoga X",
             "description": "Single workout",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Finish",
@@ -400,7 +400,7 @@
             "time": "morning",
             "name": "Ab Ripper X",
             "description": "Rip that AB",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Testing",
@@ -413,7 +413,7 @@
             "time": "day",
             "name": "Legs and Back",
             "description": "L&B",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Reverse Grip Chin-Ups",
@@ -471,7 +471,7 @@
             "time": "day",
             "name": "Kenpo X",
             "description": "Single workout",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Finish",
@@ -489,7 +489,7 @@
             "time": "day",
             "name": "Rest or X-Stretch",
             "description": "Single workout",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Finish",
@@ -509,7 +509,7 @@
             "time": "morning",
             "name": "Ab Ripper X",
             "description": "Rip that AB",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Testing",
@@ -522,7 +522,7 @@
             "time": "day",
             "name": "Chest & Back",
             "description": "This routine is performed during weeks 1, 2, 3, 9, and 11...",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Standard Push-Ups",
@@ -661,7 +661,7 @@
             "time": "day",
             "name": "Plyometrics",
             "description": "Single workout",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Finish",
@@ -679,7 +679,7 @@
             "time": "day",
             "name": "Shoulder & Arms",
             "description": "This routine is performed during weeks 1, 2, 3, 9, and 11...",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Alternating Shoulder Presses",
@@ -861,7 +861,7 @@
             "time": "night",
             "name": "Ab Ripper X",
             "description": "Rip that AB",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Testing",
@@ -879,7 +879,7 @@
             "time": "day",
             "name": "Yoga X",
             "description": "Single workout",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Finish",
@@ -897,7 +897,7 @@
             "time": "morning",
             "name": "Ab Ripper X",
             "description": "Rip that AB",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Testing",
@@ -910,7 +910,7 @@
             "time": "day",
             "name": "Legs and Back",
             "description": "L&B",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Reverse Grip Chin-Ups",
@@ -968,7 +968,7 @@
             "time": "day",
             "name": "Kenpo X",
             "description": "Single workout",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Finish",
@@ -986,7 +986,7 @@
             "time": "day",
             "name": "Rest or X-Stretch",
             "description": "Single workout",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Finish",
@@ -1006,7 +1006,7 @@
             "time": "morning",
             "name": "Ab Ripper X",
             "description": "Rip that AB",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Testing",
@@ -1019,7 +1019,7 @@
             "time": "day",
             "name": "Chest & Back",
             "description": "This routine is performed during weeks 1, 2, 3, 9, and 11...",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Standard Push-Ups",
@@ -1158,7 +1158,7 @@
             "time": "day",
             "name": "Plyometrics",
             "description": "Single workout",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Finish",
@@ -1176,7 +1176,7 @@
             "time": "day",
             "name": "Shoulder & Arms",
             "description": "This routine is performed during weeks 1, 2, 3, 9, and 11...",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Alternating Shoulder Presses",
@@ -1358,7 +1358,7 @@
             "time": "night",
             "name": "Ab Ripper X",
             "description": "Rip that AB",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Testing",
@@ -1376,7 +1376,7 @@
             "time": "day",
             "name": "Yoga X",
             "description": "Single workout",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Finish",
@@ -1394,7 +1394,7 @@
             "time": "morning",
             "name": "Ab Ripper X",
             "description": "Rip that AB",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Testing",
@@ -1407,7 +1407,7 @@
             "time": "day",
             "name": "Legs and Back",
             "description": "L&B",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Reverse Grip Chin-Ups",
@@ -1465,7 +1465,7 @@
             "time": "day",
             "name": "Kenpo X",
             "description": "Single workout",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Finish",
@@ -1483,7 +1483,7 @@
             "time": "day",
             "name": "Rest or X-Stretch",
             "description": "Single workout",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Finish",
@@ -1503,7 +1503,7 @@
             "time": "morning",
             "name": "Ab Ripper X",
             "description": "Rip that AB",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Testing",
@@ -1516,7 +1516,7 @@
             "time": "day",
             "name": "Chest & Back",
             "description": "This routine is performed during weeks 1, 2, 3, 9, and 11...",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Standard Push-Ups",
@@ -1655,7 +1655,7 @@
             "time": "day",
             "name": "Plyometrics",
             "description": "Single workout",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Finish",
@@ -1673,7 +1673,7 @@
             "time": "day",
             "name": "Shoulder & Arms",
             "description": "This routine is performed during weeks 1, 2, 3, 9, and 11...",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Alternating Shoulder Presses",
@@ -1855,7 +1855,7 @@
             "time": "night",
             "name": "Ab Ripper X",
             "description": "Rip that AB",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Testing",
@@ -1873,7 +1873,7 @@
             "time": "day",
             "name": "Yoga X",
             "description": "Single workout",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Finish",
@@ -1891,7 +1891,7 @@
             "time": "morning",
             "name": "Ab Ripper X",
             "description": "Rip that AB",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Testing",
@@ -1904,7 +1904,7 @@
             "time": "day",
             "name": "Legs and Back",
             "description": "L&B",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Reverse Grip Chin-Ups",
@@ -1962,7 +1962,7 @@
             "time": "day",
             "name": "Kenpo X",
             "description": "Single workout",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Finish",
@@ -1980,7 +1980,7 @@
             "time": "day",
             "name": "Rest or X-Stretch",
             "description": "Single workout",
-            "done": "not",
+            "done": false,
             "exercises": [
               {
                 "name": "Finish",

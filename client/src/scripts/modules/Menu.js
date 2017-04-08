@@ -55,7 +55,7 @@ class Menu extends Component {
             <div className={"menu " + this.state.scrolled}>
                 {menuItems}
                 <a className="menu__item" onClick={() => this.state.logout()}>Logout</a>
-                <div className="menu__hi">Hi, {this.state.nick}!</div>
+                <div className="menu__hi">Hi, {this.state.nick}! :)</div>
             </div>
         );
     }
