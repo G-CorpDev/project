@@ -18,7 +18,27 @@ std::map<std::string, std::string> Utils::decodeSimpleJSON(const std::string &js
     json_t *value;
     json_object_foreach(jsonParser, key, value)
     {
-        grants.insert({key, json_string_value(value)});
+        if (json_is_string(value))
+        {
+            grants.insert({key, json_string_value(value)});
+            continue;
+        }
+        if (json_is_boolean(value))
+        {
+            if (json_is_false(value))
+            {
+                grants.insert({key, "false"});
+            }
+            else
+            {
+                grants.insert({key, "true"});
+            }
+            continue;
+        }
+        if (json_is_integer(value))
+        {
+            grants.insert({key, std::to_string(json_integer_value(value))});
+        }
     }
 
     json_decref(jsonParser);
@@ -27,13 +47,14 @@ std::map<std::string, std::string> Utils::decodeSimpleJSON(const std::string &js
 
 std::string Utils::makeSimpleJSON(const std::map<std::string, std::string> &data)
 {
-    json_t * root = json_object();
+    json_t *root = json_object();
 
-    for(auto & entry : data){
-        json_object_set_new(root,entry.first.c_str(),json_string(entry.second.c_str()));
+    for (auto &entry : data)
+    {
+        json_object_set_new(root, entry.first.c_str(), json_string(entry.second.c_str()));
     }
 
-    char * raw = json_dumps(root,0);
+    char *raw = json_dumps(root, 0);
     std::string json(raw);
     delete raw;
 

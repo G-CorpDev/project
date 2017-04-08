@@ -17,6 +17,12 @@ class RouteHandler {
         void doLogout(const Net::Rest::Request& request, Net::Http::ResponseWriter response);
         void doRegister(const Net::Rest::Request& request, Net::Http::ResponseWriter response);
 
+        void getWorksheet(const Net::Rest::Request& request, Net::Http::ResponseWriter response);
+        void selectWorksheet(const Net::Rest::Request& request, Net::Http::ResponseWriter response);
+        void getWorksheets(const Net::Rest::Request& request, Net::Http::ResponseWriter response);
+
+        void finishWorkout(const Net::Rest::Request& request, Net::Http::ResponseWriter response);
+
         void testHandler(const Net::Rest::Request& request, Net::Http::ResponseWriter response);
 
     private:

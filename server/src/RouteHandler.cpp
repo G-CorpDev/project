@@ -10,6 +10,12 @@ RouteHandler::RouteHandler(Net::Rest::Router &router, iDatabaseSource &database)
     Net::Rest::Routes::Get(router, "/dist/scripts/main.js", Net::Rest::Routes::bind(&RouteHandler::serveApp, this));
     Net::Rest::Routes::Get(router, "/src/img/*", Net::Rest::Routes::bind(&RouteHandler::serveImage, this));
 
+    Net::Rest::Routes::Get(router, "/users/:id/worksheet", Net::Rest::Routes::bind(&RouteHandler::getWorksheet, this));
+    Net::Rest::Routes::Post(router, "/users/:id/SelectWorksheet", Net::Rest::Routes::bind(&RouteHandler::selectWorksheet, this));
+    Net::Rest::Routes::Post(router, "/worksheets", Net::Rest::Routes::bind(&RouteHandler::getWorksheets, this));
+
+    Net::Rest::Routes::Post(router, "/users/:id/finishWorkout", Net::Rest::Routes::bind(&RouteHandler::finishWorkout, this));
+
     Net::Rest::Routes::Get(router, "/test", Net::Rest::Routes::bind(&RouteHandler::testHandler, this));
 }
 
@@ -73,7 +79,12 @@ void RouteHandler::doLogin(const Net::Rest::Request &request, Net::Http::Respons
 
         std::cout << "login from " << ct->host() << ":" << ct->port() << " - " << request.body() << std::endl;
         std::string token = auth.generateToken(user);
-        Net::Http::Cookie cookie("token", token);
+        std::string payload("JWTtoken=");
+        payload.append(token);
+        payload.append("; path=/ ");
+        payload.append("; domain=localhost ");
+        payload.append("; Max-Age=3600");
+        Net::Http::Cookie cookie = Net::Http::Cookie::fromString(payload);
         cookie.httpOnly = true;
         response.cookies().add(cookie);
         response.send(Net::Http::Code::Ok, Utils::makeSimpleJSON(userData));
@@ -91,10 +102,11 @@ void RouteHandler::doLogin(const Net::Rest::Request &request, Net::Http::Respons
 void RouteHandler::doLogout(const Net::Rest::Request &request, Net::Http::ResponseWriter response)
 {
     auto cookieJar = request.cookies();
-    if (cookieJar.has("token"))
+    if (cookieJar.has("JWTtoken"))
     {
-        auto cookie = request.cookies().get("token");
-        cookie.value = "";
+        auto cookie = request.cookies().get("JWTtoken");
+        cookie = Net::Http::Cookie::fromString("JWTtoken=Logged Out.; path=/ ; domain=localhost ; max-age=2");
+        cookie.httpOnly = true;
         response.cookies().add(cookie);
     }
     response.send(Net::Http::Code::Ok);
@@ -115,7 +127,17 @@ void RouteHandler::doRegister(const Net::Rest::Request &request, Net::Http::Resp
     }
     catch (std::exception e)
     {
-        std::cerr << e.what() << " Error in credentials" << std::endl;
+        std::cerr << e.what() << " Error in registration data." << std::endl;
+        response.send(Net::Http::Code::Not_Acceptable);
+        return;
+    }
+
+    //Validation
+    if (
+        username.length() < 3 || username.length() > 254 || password.length() < 3 || password.length() > 254 ||
+        displayName.length() < 3 || displayName.length() > 254)
+    {
+        std::cerr << "Invalid registration data." << std::endl;
         response.send(Net::Http::Code::Not_Acceptable);
         return;
     }
@@ -130,7 +152,12 @@ void RouteHandler::doRegister(const Net::Rest::Request &request, Net::Http::Resp
             userData.insert({"displayName", user.getDisplayName()});
             userData.insert({"id", std::to_string(user.getID())});
             std::string token = auth.generateToken(user);
-            Net::Http::Cookie cookie("token", token);
+            std::string payload("JWTtoken=");
+            payload.append(token);
+            payload.append("; path=/ ");
+            payload.append("; domain=localhost ");
+            payload.append("; Max-Age=3600");
+            Net::Http::Cookie cookie = Net::Http::Cookie::fromString(payload);
             cookie.httpOnly = true;
             response.cookies().add(cookie);
             std::cout << "registered" << user.getDisplayName() << std::endl;
@@ -138,17 +165,158 @@ void RouteHandler::doRegister(const Net::Rest::Request &request, Net::Http::Resp
             return;
         }
     }
+    else
+    {
+        //TODO:database error handling
+    }
+    response.send(Net::Http::Code::Internal_Server_Error);
+}
+
+void RouteHandler::getWorksheet(const Net::Rest::Request &request, Net::Http::ResponseWriter response)
+{
+    auto cookies = request.cookies();
+    if (!cookies.has("JWTtoken"))
+    {
+        response.send(Net::Http::Code::Forbidden);
+        return;
+    }
+    Net::Http::Cookie cookie = cookies.get("JWTtoken");
+    std::string token = cookie.value;
+    int userID = request.param(":id").as<int>();
+    Models::User user(auth.authenticateUser(token));
+    if (userID != user.getID() || !user.isValid())
+    {
+        response.send(Net::Http::Code::Forbidden);
+        return;
+    }
+    response.send(Net::Http::Code::Ok, database.getUsersWorksheetByUserID(userID).toJSON());
+}
+void RouteHandler::getWorksheets(const Net::Rest::Request &request, Net::Http::ResponseWriter response)
+{ //TODO: sort
+    auto cookies = request.cookies();
+    if (!cookies.has("JWTtoken"))
+    {
+        response.send(Net::Http::Code::Forbidden);
+        return;
+    }
+
+    Net::Http::Cookie cookie = cookies.get("JWTtoken");
+    std::string token = cookie.value;
+    Models::User user(auth.authenticateUser(token));
+    if (!user.isValid())
+    {
+        response.send(Net::Http::Code::Forbidden);
+        return;
+    }
+
+    auto json = Utils::decodeSimpleJSON(request.body());
+    std::string sortBy;
+
+    try
+    {
+        sortBy = json.at("sortBy");
+    }
+    catch (std::exception e)
+    {
+        std::cerr << e.what() << " Error in sorting parameters." << std::endl;
+        response.send(Net::Http::Code::Not_Acceptable);
+        return;
+    }
+
+    std::vector<Models::Worksheet> sheets = database.getAllWorksheets(Sort::None);
+
+    std::string res("{\"sheets\":[");
+    bool first = true;
+
+    for (auto &sheet : sheets)
+    {
+        if (!first)
+        {
+            res.append(",");
+        }
+        res.append(sheet.toJSON());
+        first = false;
+    }
+    res.append("]}");
+
+    response.send(Net::Http::Code::Ok, res);
+}
+
+void RouteHandler::selectWorksheet(const Net::Rest::Request &request, Net::Http::ResponseWriter response)
+{
+    auto cookies = request.cookies();
+    if (!cookies.has("JWTtoken"))
+    {
+        response.send(Net::Http::Code::Forbidden);
+        return;
+    }
+    Net::Http::Cookie cookie = cookies.get("JWTtoken");
+    std::string token = cookie.value;
+    int userID = request.param(":id").as<int>();
+    Models::User user(auth.authenticateUser(token));
+    if (userID != user.getID() || !user.isValid())
+    {
+        response.send(Net::Http::Code::Forbidden);
+        return;
+    }
+
+    auto json = Utils::decodeSimpleJSON(request.body());
+    std::string worksheetName;
+
+    try
+    {
+        worksheetName = json.at("worksheet");
+    }
+    catch (std::exception e)
+    {
+        std::cerr << e.what() << " Error in worksheet name." << std::endl;
+        response.send(Net::Http::Code::Not_Acceptable);
+        return;
+    }
+
+    bool err = database.selectWorksheetByWorksheetName(userID, worksheetName);
+    if (err == 0)
+    {
+        response.send(Net::Http::Code::Ok);
+        return;
+    }
     response.send(Net::Http::Code::Internal_Server_Error);
 }
 
 void RouteHandler::testHandler(const Net::Rest::Request &request, Net::Http::ResponseWriter response)
 {
-    std::cout << "test - " << request.body() << std::endl;
-    Net::Http::Cookie cookie("test", "fuck");
-    cookie.httpOnly = true;
-    response.cookies()
-        .add(cookie);
-    response.send(Net::Http::Code::Ok, "BITCH\n");
+    Models::Worksheet sheet("Test sheet", "Work please.", "1 egg", "Like shitting bricks.");
+    Models::Week week1;
+    Models::Week week2;
+    Models::Day monday1(Models::Day::Days::Monday);
+    Models::Day tuesday1(Models::Day::Days::Tuesday);
+    Models::Day wednesday1(Models::Day::Days::Wednesday);
+    Models::Day monday2(Models::Day::Days::Monday);
+    Models::Workout overwritten("SHOULD NOT APPEAR", "get out of here", Models::Workout::TimeOfDay::Day, true);
+    Models::Workout workout1("Lunch", "Have lunch, fatass", Models::Workout::TimeOfDay::Day, false);
+    Models::Workout workout2("Swim", "So sharks can eat you", Models::Workout::TimeOfDay::Morning, true);
+    Models::Exercise ex("pushup", "", Models::Exercise::Type::RepsOnly, "10", "0", false);
+    Models::Exercise ex2("SOUPSUP", "fatass", Models::Exercise::Type::JustDone, "", "", true);
+    Models::Exercise ex3("lose weight", "FATASS!", Models::Exercise::Type::JustDone, "", "", false);
+    Models::Exercise ex4("lift bro", "DYEL!", Models::Exercise::Type::RepsAndWeight, "5x5", "50 moons", false);
+
+    workout1.addExercise(ex);
+    workout1.addExercise(ex3);
+    workout1.addExercise(ex2);
+    workout1.addExercise(ex4);
+    monday1.addWorkout(overwritten);
+    monday1.addWorkout(workout1);
+    monday1.addWorkout(workout2);
+    week1.addDay(monday1);
+    week1.addDay(tuesday1);
+    week1.addDay(wednesday1);
+    week2.addDay(monday2);
+    sheet.addWeek(week1);
+    sheet.addWeek(week2);
+    response.send(Net::Http::Code::Ok, sheet.toJSON());
 }
 
-//std::string token = request.cookies().get("auth").value;
+void RouteHandler::finishWorkout(const Net::Rest::Request &request, Net::Http::ResponseWriter response)
+{
+    //TODO:
+}
