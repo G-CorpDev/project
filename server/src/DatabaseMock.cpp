@@ -42,12 +42,12 @@ std::vector<Models::Worksheet> Mocks::DatabaseMock::getAllWorksheets(const Sort 
     return sheets;
 }
 
-bool Mocks::DatabaseMock::selectWorksheetByWorksheetName(const int &userID, const std::string &worksheetName)
+Results::Database Mocks::DatabaseMock::selectWorksheetByWorksheetName(const int &userID, const std::string &worksheetName)
 {
-    //TODO:
+    return Results::Database::Ok;
 }
 
-bool Mocks::DatabaseMock::saveExercise(const int &userID, const int &week, const int &day, const Models::Workout::TimeOfDay &timeOfDay, const Models::Exercise &exercise)
+Results::Database Mocks::DatabaseMock::saveExercise(const int &userID, const int &week, const int &day, const Models::Workout::TimeOfDay &timeOfDay, const Models::Exercise &exercise)
 {
-    //TODO:
+    return Results::Database::Ok;
 }

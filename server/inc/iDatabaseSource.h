@@ -30,12 +30,12 @@ class iDatabaseSource
     virtual std::vector<Models::Worksheet> getAllWorksheets(const Sort & sortBy) = 0;
 
     /*Sets the User's current worksheet to the worksheet designated by the worksheet name. The User is designated by userID
-      Returns true on success, false on failure.*/
-    virtual bool selectWorksheetByWorksheetName(const int & userID,const std::string & worksheetName) = 0;
+      Returns the appropriate Results::Database message (i.e. Results::Database::Ok on success).*/
+    virtual Results::Database selectWorksheetByWorksheetName(const int & userID,const std::string & worksheetName) = 0;
 
     /*Saves the Exercise record for the User identified by userID.
-      Returns true on success, false on failure.*/
-    virtual bool saveExercise(const int & userID,const int & week,const int & day,const Models::Workout::TimeOfDay & timeOfDay,const Models::Exercise & exercise) = 0;
+      Returns the appropriate Results::Database message (i.e. Results::Database::Ok on success).*/
+    virtual Results::Database saveExercise(const int & userID,const int & week,const int & day,const Models::Workout::TimeOfDay & timeOfDay,const Models::Exercise & exercise) = 0;
 };
 
 #endif

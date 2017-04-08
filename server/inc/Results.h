@@ -7,6 +7,7 @@ namespace Results{
         ConstraintViolated,
         PrimaryKeyViolated,
         UniqueKeyViolated,
+        NotFound
     };
 };
 #endif

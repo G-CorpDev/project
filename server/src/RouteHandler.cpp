@@ -160,7 +160,7 @@ void RouteHandler::doRegister(const Net::Rest::Request &request, Net::Http::Resp
             Net::Http::Cookie cookie = Net::Http::Cookie::fromString(payload);
             cookie.httpOnly = true;
             response.cookies().add(cookie);
-            std::cout << "registered" << user.getDisplayName() << std::endl;
+            std::cout << "Registered " << user.getDisplayName() << std::endl;
             response.send(Net::Http::Code::Ok, Utils::makeSimpleJSON(userData));
             return;
         }
@@ -192,7 +192,7 @@ void RouteHandler::getWorksheet(const Net::Rest::Request &request, Net::Http::Re
     response.send(Net::Http::Code::Ok, database.getUsersWorksheetByUserID(userID).toJSON());
 }
 void RouteHandler::getWorksheets(const Net::Rest::Request &request, Net::Http::ResponseWriter response)
-{ //TODO: sort
+{
     auto cookies = request.cookies();
     if (!cookies.has("JWTtoken"))
     {
@@ -211,10 +211,12 @@ void RouteHandler::getWorksheets(const Net::Rest::Request &request, Net::Http::R
 
     auto json = Utils::decodeSimpleJSON(request.body());
     std::string sortBy;
+    std::string descendingString;
 
     try
     {
         sortBy = json.at("sortBy");
+        descendingString = json.at("descending");
     }
     catch (std::exception e)
     {
@@ -222,8 +224,69 @@ void RouteHandler::getWorksheets(const Net::Rest::Request &request, Net::Http::R
         response.send(Net::Http::Code::Not_Acceptable);
         return;
     }
-
-    std::vector<Models::Worksheet> sheets = database.getAllWorksheets(Sort::None);
+    Sort sortArgument;
+    if ("None" == sortBy)
+    {
+        sortArgument=Sort::None;
+    }
+    else
+    {
+        bool descending;
+        if ("false" == descendingString)
+        {
+            descending = false;
+        }
+        if ("true" == descendingString)
+        {
+            descending = true;
+        }
+        switch (descending)
+        {
+        case (false):
+            if ("Name" == sortBy)
+            {
+                sortArgument = Sort::Name;
+                break;
+            }
+            if ("Length" == sortBy)
+            {
+                sortArgument = Sort::Length;
+                break;
+            }
+            if ("AvgWorkoutTime" == sortBy)
+            {
+                sortArgument = Sort::AvgWorkoutTime;
+                break;
+            }
+            if ("Difficulty" == sortBy)
+            {
+                sortArgument = Sort::Difficulty;
+                break;
+            }
+        case (true):
+            if ("Name_Descending" == sortBy)
+            {
+                sortArgument = Sort::Name_Descending;
+                break;
+            }
+            if ("Length_Descending" == sortBy)
+            {
+                sortArgument = Sort::Length_Descending;
+                break;
+            }
+            if ("AvgWorkoutTime_Descending" == sortBy)
+            {
+                sortArgument = Sort::AvgWorkoutTime_Descending;
+                break;
+            }
+            if ("Difficulty_Descending" == sortBy)
+            {
+                sortArgument = Sort::Difficulty_Descending;
+                break;
+            }
+        }
+    }
+    std::vector<Models::Worksheet> sheets = database.getAllWorksheets(sortArgument);
 
     std::string res("{\"sheets\":[");
     bool first = true;
@@ -274,10 +337,15 @@ void RouteHandler::selectWorksheet(const Net::Rest::Request &request, Net::Http:
         return;
     }
 
-    bool err = database.selectWorksheetByWorksheetName(userID, worksheetName);
-    if (err == 0)
+    Results::Database err = database.selectWorksheetByWorksheetName(userID, worksheetName);
+    if (err != Results::Database::Ok)
     {
         response.send(Net::Http::Code::Ok);
+        return;
+    }
+    if (err == Results::Database::NotFound)
+    {
+        response.send(Net::Http::Code::Not_Found);
         return;
     }
     response.send(Net::Http::Code::Internal_Server_Error);
@@ -319,4 +387,6 @@ void RouteHandler::testHandler(const Net::Rest::Request &request, Net::Http::Res
 void RouteHandler::finishWorkout(const Net::Rest::Request &request, Net::Http::ResponseWriter response)
 {
     //TODO:
+    //TODO: database error handling;
+    response.send(Net::Http::Code::Not_Implemented);
 }
