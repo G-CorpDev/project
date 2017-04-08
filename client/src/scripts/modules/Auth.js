@@ -72,8 +72,9 @@ class Auth extends Component {
             })
                 .then(function (response) {
                     console.log(response);
-                    window.alert("Good job, Motherfucker. ");
-                    _this.flip();
+                    //window.alert("Good job.");
+                    //_this.flip();
+                    _this.state.login(response.data.id, response.data.displayName);
                 }).catch(function (error) {
                 if (error.response) {
                     console.log(error.response.data);

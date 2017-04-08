@@ -6,7 +6,7 @@ class Worksheet extends Component {
         this.state = {
             test: require("../../json/test.json"),
             description: false,
-        }
+        };
     }
 
     send() {
@@ -59,11 +59,12 @@ class Worksheet extends Component {
         }
         let done = "";
         if (exercise.hasOwnProperty('done')) {
-            done = <div className="done">{exercise.done}</div>;
+            done = <div className="done">Done</div>;
         }
         let note = "";
         if (exercise.note !== "") {
-            note = [<div className="exercise__noteBlock" key="noteBlock">Note</div>,<div className="exercise__note" key="note">{exercise.note}</div>];
+            note = [<div className="exercise__noteBlock" key="noteBlock">Note</div>,
+                <div className="exercise__note" key="note">{exercise.note}</div>];
         }
 
         return (
@@ -83,10 +84,10 @@ class Worksheet extends Component {
         )
     }
 
-    renderDay(day, workout, index, weekN) {
+    renderDay(day, workout, index, weekN, firstUndone) {
         let content = [];
         let _this = this;
-        if (workout.done === "not") {
+        if (!workout.done) {
             let exercises = [];
             workout.exercises.forEach(function (e, i) {
                 exercises.push(_this.renderExercise(e, i));
@@ -94,11 +95,19 @@ class Worksheet extends Component {
             content.push(
                 <form className="workout__form" key="form">
                     {exercises}
-                </form>,
-                <button type="button" className="workout__send" onClick={() => this.send()} key="send">
-                    Send
-                </button>
+                </form>
             );
+            if (firstUndone) {
+                content.push(
+                    <button type="button" className="workout__send" onClick={() => this.send()} key="send">
+                        Send
+                    </button>
+                );
+            } else {
+                content.push(
+                    <div className="workout__TODO" key="todo">You have other workouts to do!</div>
+                );
+            }
         } else {
             let exercises = [];
             workout.exercises.forEach(function (e, i) {
@@ -108,18 +117,18 @@ class Worksheet extends Component {
                 <div className="workout__list" key="list">
                     {exercises}
                 </div>,
-                <div className="workout__goodJob" key="done">Good job!</div>
+                <div className="workout__goodJob" key="done">It's done! Good job!</div>
             );
         }
 
         return (
             <div className="workout" key={index}>
                 <div className="workout__week">Week {weekN}</div>
-                {workout.done !== "not" ? <div className="workout__sticker">Done</div> : "" }
+                {workout.done ? <div className="workout__sticker">Done</div> : "" }
                 <div className={"workout__background " + "workout__background--" + workout.time}></div>
                 <div className="workout__infoBox">i</div>
                 <div className="workout__description">{workout.description}</div>
-                <div className="workout__time">{day + " - " + workout.time}</div>
+                <div className={"workout__time " + "workout__time--" + workout.time }>{day + " - " + workout.time}</div>
                 <div className="workout__name">{workout.name}</div>
                 {content}
             </div>
@@ -145,6 +154,7 @@ class Worksheet extends Component {
         let _this = this;
         let weekNumber = 0;
         let weekShortCuts = [];
+        let firstUndone = true;
 
         this.state.test.weeks.forEach(function (week, week_i) {
             let workouts = [];
@@ -158,11 +168,18 @@ class Worksheet extends Component {
             week.forEach(function (day, day_i) {
                 day.workouts.forEach(function (workout, workout_i) {
                     workouts.push(
-                        _this.renderDay(day.day, workout, day_i.toString() + "-" + workout_i.toString(), weekNumber)
+                        _this.renderDay(day.day, workout, day_i.toString() + "-" + workout_i.toString(), weekNumber, firstUndone)
                     );
+                    if (firstUndone && !workout.done) {
+                        firstUndone = false;
+                    }
                 });
             });
-            weeks.push(<div className="week" key={week_i}>{workouts}</div>);
+            weeks.push(
+                <div className="week" key={week_i}>
+                    <div className="week__name">{"Week " + weekNumber}</div>
+                    {workouts}
+                </div>);
         });
 
         let desc = (this.state.description) ? "" : "worksheet__description--closed";

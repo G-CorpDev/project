@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 
 import Auth from './Auth.js';
 import Content from './Content.js';
@@ -8,11 +9,11 @@ class Page extends Component {
         super(props);
         this.state = {
             flip: "page--noflip",
-            logged: false,
+            logged: true,
             loading: "",
-            pers: " page--Persp",
-            userId : "",
-            userNick: "",
+            pers: " page--noPersp",
+            userId: "1",
+            userNick: "Béla",
         }
     }
 
@@ -21,7 +22,7 @@ class Page extends Component {
         this.setState({flip: flip});
     }
 
-    login(id,nick) {
+    login(id, nick) {
         let _this = this;
         this.setState({loading: " page--loading"}, function () {
             setTimeout(function () {
@@ -32,11 +33,28 @@ class Page extends Component {
 
     logout() {
         let _this = this;
-        this.setState({loading: " page--loading"}, function () {
+
+        //GETTING
+        axios.get('/logout')
+            .then(function (response) {
+                console.log(response);
+                _this.setState({loading: " page--loading"}, function () {
+                    setTimeout(function () {
+                        _this.setState({logged: false, loading: "", pers: " page--Persp", userId: "", userNick: ""});
+                    }, 800);
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
+                window.alert(error);
+            });
+
+        //TESTING
+        /*this.setState({loading: " page--loading"}, function () {
             setTimeout(function () {
                 _this.setState({logged: false, loading: "", pers: " page--Persp", userId: "", userNick: ""});
             }, 800);
-        });
+        });*/
     }
 
     render() {
@@ -46,7 +64,7 @@ class Page extends Component {
                 {this.state.logged ?
                     <Content logout={() => this.logout()} nick={this.state.userNick}/>
                     :
-                    <Auth flip={() => this.flip()} login={(i,n) => this.login(i,n)}/>
+                    <Auth flip={() => this.flip()} login={(i, n) => this.login(i, n)}/>
                 }
             </div>
         );
