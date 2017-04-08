@@ -35,7 +35,7 @@ class Page extends Component {
         let _this = this;
 
         //GETTING
-        axios.get('/logout?ID=' + _this.state.userId)
+        axios.get('/logout')
             .then(function (response) {
                 console.log(response);
                 _this.setState({loading: " page--loading"}, function () {
@@ -46,6 +46,7 @@ class Page extends Component {
             })
             .catch(function (error) {
                 console.log(error);
+                window.alert(error);
             });
 
         //TESTING
