@@ -116,7 +116,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     flex-basis: 20%;
-    border-radius: 8px;
+    border-radius: 5px;
     margin: 8px;
     box-shadow: 0 0 10px 1px $shadow--veryLight;
     transition:background 400ms, box-shadow 400ms;
@@ -127,7 +127,7 @@
       //padding: 2px;
       width: 100%;
       text-align: center;
-      border-radius: 8px 8px 0 0;
+      border-radius: 5px 5px 0 0;
     }
 
     @mixin background($color) {
@@ -200,6 +200,11 @@
       text-align: center;
       font-weight: 600;
       z-index: 1;
+
+      &--skip {
+        width: 70px;
+        background: $orange;
+      }
     }
 
     &__background {
@@ -527,7 +532,7 @@
       }
     }
 
-    &__goodJob, &__TODO {
+    &__footer {
       position: absolute;
       bottom: 0;
       width: 100%;
@@ -536,14 +541,18 @@
       font-weight: 600;
       padding-top: 6px;
       text-align: center;
-    }
 
-    &__goodJob {
-      background: rgba($green,0.5);
-    }
+      &--goodJob {
+        background: rgba($green,0.5);
+      }
 
-    &__TODO {
-      background: $shadow--light;
+      &--TODO {
+        background: $shadow--light;
+      }
+
+      &--skipped {
+        background: $orange;
+      }
     }
   }
 
