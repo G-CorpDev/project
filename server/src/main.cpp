@@ -17,7 +17,7 @@
 
 int main (int argc , char ** argv){
     Net::Address acceptFromAddress(Net::Ipv4::any(),Net::Port(3000));
-    auto options = Net::Http::Endpoint::options().threads(10);
+    auto options = Net::Http::Endpoint::options().threads(10).flags(Net::Tcp::Options::InstallSignalHandler);
     Net::Rest::Router router;
     Mocks::DatabaseMock database;
     RouteHandler handler(router,database);
