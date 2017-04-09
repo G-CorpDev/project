@@ -9,13 +9,14 @@ class Content extends Component {
         super(props);
         this.state = {
             logout: props.logout,
-            selectedContent: "Select new worksheet",
+            selectedContent: "My worksheet",
             nick: props.nick,
+            id: props.id,
         }
     }
 
-    selectContent (content) {
-        this.setState({selectedContent:content});
+    selectContent(content) {
+        this.setState({selectedContent: content});
     }
 
     render() {
@@ -23,8 +24,8 @@ class Content extends Component {
         return (
             <div className="content">
                 <Menu logout={() => this.state.logout()} select={(i) => this.selectContent(i)} nick={this.state.nick}/>
-                {this.state.selectedContent === "My worksheet" ? <Worksheet/> : ""}
-                {this.state.selectedContent === "Select new worksheet" ? <SheetList/> : ""}
+                {this.state.selectedContent === "My worksheet" ? <Worksheet id={this.state.id}/> : ""}
+                {this.state.selectedContent === "Select new worksheet" ? <SheetList id={this.state.id}/> : ""}
             </div>
         );
     }

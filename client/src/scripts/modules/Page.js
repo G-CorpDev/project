@@ -35,7 +35,7 @@ class Page extends Component {
         let _this = this;
 
         //GETTING
-        axios.get('/logout')
+        axios.get('http://localhost:3000/logout')
             .then(function (response) {
                 console.log(response);
                 _this.setState({loading: " page--loading"}, function () {
@@ -46,15 +46,15 @@ class Page extends Component {
             })
             .catch(function (error) {
                 console.log(error);
-                window.alert(error);
+                //window.alert(error);
             });
 
         //TESTING
         /*this.setState({loading: " page--loading"}, function () {
-            setTimeout(function () {
-                _this.setState({logged: false, loading: "", pers: " page--Persp", userId: "", userNick: ""});
-            }, 800);
-        });*/
+         setTimeout(function () {
+         _this.setState({logged: false, loading: "", pers: " page--Persp", userId: "", userNick: ""});
+         }, 800);
+         });*/
     }
 
     render() {
@@ -62,7 +62,7 @@ class Page extends Component {
         return (
             <div className={"page " + this.state.flip + this.state.loading + this.state.pers}>
                 {this.state.logged ?
-                    <Content logout={() => this.logout()} nick={this.state.userNick}/>
+                    <Content logout={() => this.logout()} nick={this.state.userNick} id={this.state.userId}/>
                     :
                     <Auth flip={() => this.flip()} login={(i, n) => this.login(i, n)}/>
                 }

@@ -1,37 +1,115 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 
 class Worksheet extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            test: require("../../json/test.json"),
+            sheet: require("../../json/test.json"),
             description: false,
+            id: props.id,
+            exercises: [],
+            skippedExercises: [],
         };
     }
 
-    send() {
+    componentDidMount() {
+        this.getWorksheet();
+
+        let _this = this;
+        let firstUndone = true;
+        let BreakException = {};
+        try {
+            this.state.sheet.weeks.forEach(function (week) {
+                week.forEach(function (day) {
+                    day.workouts.forEach(function (workout) {
+                        if (firstUndone && !workout.done) {
+                            _this.setState({exercises: workout.exercises, skippedExercises: workout.exercises});
+                            firstUndone = false;
+                            throw BreakException;
+                        }
+                    });
+                });
+            });
+        } catch (e) {
+            if (e !== BreakException) console.log(e);
+        }
+    }
+
+    getWorksheet() {
+        let _this = this;
+        axios.get('http://localhost:3000/users/' + _this.state.id + '/worksheet')
+            .then(function (response) {
+                console.log(response);
+                _this.setState({sheet: response.data});
+            })
+            .catch(function (error) {
+                console.log(error);
+                //window.alert(error);
+            });
+    }
+
+    postExercises(week, day, time, exercises) {
+        let _this = this;
+        axios.post('http://localhost:3000/users/' + _this.state.id + '/UploadWorkout ',
+            {week: week, day: day, time: time, done: done, exercises: exercises})
+            .then(function (response) {
+                console.log(response);
+                //window.alert("Workout sent!");
+                _this.getWorksheet();
+            })
+            .catch(function (error) {
+                console.log(error);
+                //window.alert(error);
+            });
+    }
+
+    send(week, day, time, done) {
         console.log("sending data...");
+        if (done === "skip") {
+            this.postExercises(week, day, time, this.state.skippedExercises);
+        } else {
+            this.postExercises(week, day, time, this.state.exercises);
+        }
+    }
+
+    handleInputChange(exerciseIndex, event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
+        let exercises = this.state.exercises;
+        let jsonData = exercises[exerciseIndex] !== undefined ? exercises[exerciseIndex] : {};
+        jsonData[name] = value;
+        exercises[exerciseIndex] = jsonData;
+
+        this.setState({
+            exercises: exercises,
+        });
     }
 
     renderExercise(exercise, index) {
         let W = "";
         if (exercise.hasOwnProperty('W')) {
-            W = <input type="text" name="W" placeholder="W"></input>;
+            W = <input type="text" name="W" placeholder="W"
+                       onChange={this.handleInputChange.bind(this, index)}/>;
         }
         let R = "";
         if (exercise.hasOwnProperty('R')) {
-            R = <input type="text" name="R" placeholder="R"></input>;
+            R = <input type="text" name="R" placeholder="R"
+                       onChange={this.handleInputChange.bind(this, index)}/>;
         }
         let done = "";
         if (exercise.hasOwnProperty('done')) {
-            done = [<input type="checkbox" name="done" key="i"></input>,
+            done = [<input type="checkbox" name="done" key="i"
+                           onChange={this.handleInputChange.bind(this, index)}/>,
                 <label className="exercise__checkbox" key="l">
                     <div>L</div>
                 </label>];
         }
         return (
             <div className="exercise" key={index}>
-                <input type="checkbox" id="note" className="exercise__addNoteInput"></input>
+                <input type="checkbox" id="note" className="exercise__addNoteInput"/>
                 <label className="exercise__addNote" htmlFor="note">Note</label>
                 <div className="exercise__basic">
                     <div className="exercise__name">
@@ -43,7 +121,37 @@ class Worksheet extends Component {
                         {done}
                     </div>
                 </div>
-                <input className="exercise__note" type="text" name="Note" placeholder="note"></input>
+                <input className="exercise__note" type="text" name="Note" placeholder="note"
+                       onChange={this.handleInputChange.bind(this, index)}/>
+            </div>
+        )
+    }
+
+    renderTodoExercise(exercise, index) {
+        let W = "";
+        if (exercise.hasOwnProperty('W')) {
+            W = <div className="weight">W</div>
+        }
+        let R = "";
+        if (exercise.hasOwnProperty('R')) {
+            R = <div className="reps">R</div>
+        }
+        let done = "";
+        if (exercise.hasOwnProperty('done')) {
+            done = <div className="done">X</div>
+        }
+        return (
+            <div className="exercise" key={index}>
+                <div className="exercise__basic">
+                    <div className="exercise__name">
+                        {exercise.name}:
+                    </div>
+                    <div className="exercise__inputs">
+                        {W}
+                        {R}
+                        {done}
+                    </div>
+                </div>
             </div>
         )
     }
@@ -51,22 +159,21 @@ class Worksheet extends Component {
     renderDoneExercise(exercise, index) {
         let W = "";
         if (exercise.hasOwnProperty('W')) {
-            W = <div className="weight">W:{exercise.W}</div>;
+            W = <div className="weight">W:{exercise.W}</div>
         }
         let R = "";
         if (exercise.hasOwnProperty('R')) {
-            R = <div className="reps">R:{exercise.R}</div>;
+            R = <div className="reps">R:{exercise.R}</div>
         }
         let done = "";
         if (exercise.hasOwnProperty('done')) {
-            done = <div className="done">Done</div>;
+            done = <div className="done">Done</div>
         }
         let note = "";
         if (exercise.note !== "") {
             note = [<div className="exercise__noteBlock" key="noteBlock">Note</div>,
                 <div className="exercise__note" key="note">{exercise.note}</div>];
         }
-
         return (
             <div className="exercise" key={index}>
                 <div className="exercise__basic">
@@ -84,23 +191,39 @@ class Worksheet extends Component {
         )
     }
 
-    renderDay(day, workout, index, weekN, firstUndone) {
+    renderWorkout(day, workout, index, weekN, firstUndone) {
         let content = [];
         let _this = this;
         if (!workout.done) {
             let exercises = [];
-            workout.exercises.forEach(function (e, i) {
-                exercises.push(_this.renderExercise(e, i));
-            });
-            content.push(
-                <form className="workout__form" key="form">
-                    {exercises}
-                </form>
-            );
+            if (firstUndone) {
+                workout.exercises.forEach(function (e, i) {
+                    exercises.push(_this.renderExercise(e, i));
+                });
+                content.push(
+                    <form className="workout__form" key="form">
+                        {exercises}
+                    </form>
+                );
+            } else {
+                workout.exercises.forEach(function (e, i) {
+                    exercises.push(_this.renderTodoExercise(e, i));
+                });
+                content.push(
+                    <div className="workout__list" key="list">
+                        {exercises}
+                    </div>
+                );
+            }
             if (firstUndone) {
                 content.push(
-                    <button type="button" className="workout__send" onClick={() => this.send()} key="send">
+                    <button type="button" className="workout__send"
+                            onClick={() => this.send(weekN, day, workout.time, "done")} key="send">
                         Send
+                    </button>,
+                    <button type="button" className="workout__skip"
+                            onClick={() => this.send(weekN, day, workout.time, "skip")} key="skip">
+                        Skip
                     </button>
                 );
             } else {
@@ -135,10 +258,10 @@ class Worksheet extends Component {
         )
     }
 
-    renderDayRadio(day, index) {
+    renderShortcutDayRadio(day, index) {
         return (
             <div className="shortcut__row" key={index}>
-                <input type="radio" name="day" value={day} id={day}></input>
+                <input type="radio" name="day" value={day} id={day}/>
                 <label htmlFor={day}>{day}</label>
             </div>
         )
@@ -156,19 +279,19 @@ class Worksheet extends Component {
         let weekShortCuts = [];
         let firstUndone = true;
 
-        this.state.test.weeks.forEach(function (week, week_i) {
+        this.state.sheet.weeks.forEach(function (week, week_i) {
             let workouts = [];
             weekNumber++;
             weekShortCuts.push(
                 <div className="shortcut__row" key={weekNumber}>
-                    <input type="radio" name="week" value={weekNumber} id={"week__" + weekNumber}></input>
+                    <input type="radio" name="week" value={weekNumber} id={"week__" + weekNumber}/>
                     <label htmlFor={"week__" + weekNumber}>Week {weekNumber}</label>
                 </div>
             );
             week.forEach(function (day, day_i) {
                 day.workouts.forEach(function (workout, workout_i) {
                     workouts.push(
-                        _this.renderDay(day.day, workout, day_i.toString() + "-" + workout_i.toString(), weekNumber, firstUndone)
+                        _this.renderWorkout(day.day, workout, day_i.toString() + "-" + workout_i.toString(), weekNumber, firstUndone)
                     );
                     if (firstUndone && !workout.done) {
                         firstUndone = false;
@@ -183,25 +306,23 @@ class Worksheet extends Component {
         });
 
         let desc = (this.state.description) ? "" : "worksheet__description--closed";
-
         let days = ["Monday", "Thursday", "Wednesday", "Tuesday", "Friday", "Saturday", "Sunday"];
         let dayShortCuts = [];
         days.forEach(function (day, index) {
             dayShortCuts.push(
-                _this.renderDayRadio(day, index)
+                _this.renderShortcutDayRadio(day, index)
             );
         });
 
-
         return (
             <div className="worksheet">
-                <div className="worksheet__name">Your current worksheet: {this.state.test.name}</div>
+                <div className="worksheet__name">Your current worksheet: {this.state.sheet.name}</div>
                 <div className="worksheet__info" onClick={() => this.changeDesc()}>Description</div>
                 <div className={"worksheet__description " + desc}>
-                    {this.state.test.description}
+                    {this.state.sheet.description}
                     <div className="worksheet__description__close" onClick={() => this.changeDesc()}>
-                        <span className="line line--1"></span>
-                        <span className="line line--2"></span>
+                        <span className="line line--1"/>
+                        <span className="line line--2"/>
                     </div>
                 </div>
                 <div className="weeks">

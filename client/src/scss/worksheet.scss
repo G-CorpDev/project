@@ -117,7 +117,9 @@
     flex-wrap: wrap;
     flex-basis: 20%;
     border-radius: 8px;
-    margin: 4px;
+    margin: 8px;
+    box-shadow: 0 0 10px 1px $shadow--veryLight;
+    transition:background 400ms, box-shadow 400ms;
 
     &__name {
       font-size: 1.3em;
@@ -128,41 +130,32 @@
       border-radius: 8px 8px 0 0;
     }
 
-    &:nth-child(4n) {
-      background: rgba($week4,0.4);
+    @mixin background($color) {
+      background: rgba($color, 0.4);
+      &:hover {
+        background: rgba($color, 0.9);
+        //background: rgba($green,0.8);
+        //box-shadow: 0 0 20px 3px $shadow--veryLight;
+      }
       .week__name {
-        background: $week4;
+        background: $color;
       }
       .workout__week {
-        background: $week4 !important;
+        background: $color !important;
       }
+    }
+
+    &:nth-child(4n) {
+      @include background($week4);
     }
     &:nth-child(4n+1) {
-      background: rgba($week1,0.4);
-      .week__name {
-        background: $week1;
-      }
-      .workout__week {
-        background: $week1 !important;
-      }
+      @include background($week1);
     }
     &:nth-child(4n+2) {
-      background: rgba($week2,0.4);
-      .week__name {
-        background: $week2;
-      }
-      .workout__week {
-        background: $week2 !important;
-      }
+      @include background($week2);
     }
     &:nth-child(4n+3) {
-      background: rgba($week3,0.4);
-      .week__name {
-        background: $week3;
-      }
-      .workout__week {
-        background: $week3 !important;
-      }
+      @include background($week3);
     }
 
   }
@@ -174,7 +167,7 @@
     width: auto;
     min-width: 370px;
     min-height: 350px;
-    margin: 0 10px 50px 10px;
+    margin: 0 11px 40px;
     color: $white;
     background: rgba($darkGreen, 0.5);
     border-radius: 5px;
@@ -434,10 +427,10 @@
           cursor: default;
 
           &:hover {
-            background: darken($blue,10%);
+            background: darken($blue, 10%);
           }
-          &:hover +  .exercise__note{
-              visibility: inherit;
+          &:hover + .exercise__note {
+            visibility: inherit;
           }
         }
 
@@ -448,7 +441,7 @@
           width: auto;
           left: 0;
           top: -21px;
-          border: 2px solid darken($blue,10%);
+          border: 2px solid darken($blue, 10%);
           border-radius: 2px;
           padding: 2px 6px;
           font-size: 16px;
@@ -498,24 +491,39 @@
       }
     }
 
-    &__send {
+    &__send, &__skip {
       position: absolute;
       bottom: 0;
-      width: 100%;
       height: 30px;
-      background: $green;
-      border-radius: 0 0 5px 5px;
       cursor: pointer;
       color: $white;
-      text-transform: uppercase;
-      font-weight: 800;
       letter-spacing: .1em;
       transition: all 400ms;
       font-size: 1.1em;
+      text-transform: uppercase;
+    }
 
+    &__send {
+      width: 84%;
+      background: $green;
+      border-radius: 0 0 0 5px;
+      padding-left: 70px;
+      font-weight: 800;
       &:hover {
-        background: darken($green,10%);
+        background: darken($green, 10%);
         box-shadow: 0 -2px 20px 3px $green;
+      }
+    }
+
+    &__skip {
+      right: 0;
+      width: 16%;
+      background: lighten($red, 4%);
+      border-radius: 0 0 5px 0;
+      font-weight: 600;
+      &:hover {
+        background: darken($red, 10%);
+        box-shadow: 0 -2px 20px 3px $red;
       }
     }
 
@@ -531,7 +539,7 @@
     }
 
     &__goodJob {
-      background: $green;
+      background: rgba($green,0.5);
     }
 
     &__TODO {
@@ -572,7 +580,7 @@
     z-index: 99;
     transition: left 400ms;
 
-    &:hover{
+    &:hover {
       left: 0;
     }
 
@@ -605,8 +613,8 @@
         z-index: 4;
         cursor: pointer;
 
-        &:hover + label{
-          background: rgba($green,0.4);
+        &:hover + label {
+          background: rgba($green, 0.4);
         }
         &:checked + label {
           background: $green;
@@ -627,7 +635,7 @@
       transition: background 400ms;
 
       &:hover {
-        background: darken($blue,10%);
+        background: darken($blue, 10%);
       }
     }
   }
