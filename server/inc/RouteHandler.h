@@ -5,6 +5,8 @@
 #include <Utils.h>
 #include <Results.h>
 
+#include <jansson.h>
+
 class RouteHandler {
     public:
         RouteHandler(Net::Rest::Router & router,iDatabaseSource & database);
@@ -22,8 +24,6 @@ class RouteHandler {
         void getWorksheets(const Net::Rest::Request& request, Net::Http::ResponseWriter response);
 
         void finishWorkout(const Net::Rest::Request& request, Net::Http::ResponseWriter response);
-
-        void testHandler(const Net::Rest::Request& request, Net::Http::ResponseWriter response);
 
     private:
         Authenticator auth;

@@ -11,12 +11,10 @@ RouteHandler::RouteHandler(Net::Rest::Router &router, iDatabaseSource &database)
     Net::Rest::Routes::Get(router, "/src/img/*", Net::Rest::Routes::bind(&RouteHandler::serveImage, this));
 
     Net::Rest::Routes::Get(router, "/users/:id/worksheet", Net::Rest::Routes::bind(&RouteHandler::getWorksheet, this));
-    Net::Rest::Routes::Post(router, "/users/:id/SelectWorksheet", Net::Rest::Routes::bind(&RouteHandler::selectWorksheet, this));
+    Net::Rest::Routes::Post(router, "/users/:id/selectWorksheet", Net::Rest::Routes::bind(&RouteHandler::selectWorksheet, this));
     Net::Rest::Routes::Post(router, "/worksheets", Net::Rest::Routes::bind(&RouteHandler::getWorksheets, this));
 
     Net::Rest::Routes::Post(router, "/users/:id/finishWorkout", Net::Rest::Routes::bind(&RouteHandler::finishWorkout, this));
-
-    Net::Rest::Routes::Get(router, "/test", Net::Rest::Routes::bind(&RouteHandler::testHandler, this));
 }
 
 void RouteHandler::serveApp(const Net::Rest::Request &request, Net::Http::ResponseWriter response)
@@ -67,7 +65,7 @@ void RouteHandler::doLogin(const Net::Rest::Request &request, Net::Http::Respons
     catch (std::exception e)
     {
         std::cerr << e.what() << " Error in credentials" << std::endl;
-        response.send(Net::Http::Code::Unauthorized);
+        response.send(Net::Http::Code::Not_Acceptable,"Credentials are malformed.");
         return;
     }
     Models::User user = database.getUserByCredentials(username, password);
@@ -93,7 +91,7 @@ void RouteHandler::doLogin(const Net::Rest::Request &request, Net::Http::Respons
     else
     {
         std::cout << "INVALID login from " << ct->host() << ":" << ct->port() << " - " << request.body() << std::endl;
-        response.send(Net::Http::Code::Unauthorized);
+        response.send(Net::Http::Code::Unauthorized,"Invalid credentials.");
         return;
     }
     response.send(Net::Http::Code::Internal_Server_Error);
@@ -128,7 +126,7 @@ void RouteHandler::doRegister(const Net::Rest::Request &request, Net::Http::Resp
     catch (std::exception e)
     {
         std::cerr << e.what() << " Error in registration data." << std::endl;
-        response.send(Net::Http::Code::Not_Acceptable);
+        response.send(Net::Http::Code::Not_Acceptable,"Registration data malformed");
         return;
     }
 
@@ -138,7 +136,7 @@ void RouteHandler::doRegister(const Net::Rest::Request &request, Net::Http::Resp
         displayName.length() < 3 || displayName.length() > 254)
     {
         std::cerr << "Invalid registration data." << std::endl;
-        response.send(Net::Http::Code::Not_Acceptable);
+        response.send(Net::Http::Code::Not_Acceptable,"Invalid registration data.");
         return;
     }
 
@@ -177,7 +175,7 @@ void RouteHandler::getWorksheet(const Net::Rest::Request &request, Net::Http::Re
     auto cookies = request.cookies();
     if (!cookies.has("JWTtoken"))
     {
-        response.send(Net::Http::Code::Forbidden);
+        response.send(Net::Http::Code::Forbidden,"No authorization present.");
         return;
     }
     Net::Http::Cookie cookie = cookies.get("JWTtoken");
@@ -186,17 +184,20 @@ void RouteHandler::getWorksheet(const Net::Rest::Request &request, Net::Http::Re
     Models::User user(auth.authenticateUser(token));
     if (userID != user.getID() || !user.isValid())
     {
-        response.send(Net::Http::Code::Forbidden);
+        response.send(Net::Http::Code::Forbidden,"Invalid authrization.");
         return;
     }
-    response.send(Net::Http::Code::Ok, database.getUsersWorksheetByUserID(userID).toJSON());
+    std::cout<<"Getting worksheet"<<std::endl;
+    Models::Worksheet sheet = database.getUsersWorksheetByUserID(userID);
+    std::cout<<"Got worksheet"<<std::endl;
+    response.send(Net::Http::Code::Ok, sheet.toJSON());
 }
 void RouteHandler::getWorksheets(const Net::Rest::Request &request, Net::Http::ResponseWriter response)
 {
     auto cookies = request.cookies();
     if (!cookies.has("JWTtoken"))
     {
-        response.send(Net::Http::Code::Forbidden);
+        response.send(Net::Http::Code::Forbidden,"No authorization present.");
         return;
     }
 
@@ -205,7 +206,7 @@ void RouteHandler::getWorksheets(const Net::Rest::Request &request, Net::Http::R
     Models::User user(auth.authenticateUser(token));
     if (!user.isValid())
     {
-        response.send(Net::Http::Code::Forbidden);
+        response.send(Net::Http::Code::Forbidden,"Invalid authrization.");
         return;
     }
 
@@ -221,13 +222,13 @@ void RouteHandler::getWorksheets(const Net::Rest::Request &request, Net::Http::R
     catch (std::exception e)
     {
         std::cerr << e.what() << " Error in sorting parameters." << std::endl;
-        response.send(Net::Http::Code::Not_Acceptable);
+        response.send(Net::Http::Code::Not_Acceptable,"Sorting parameters malformed.");
         return;
     }
     Sort sortArgument;
     if ("None" == sortBy)
     {
-        sortArgument=Sort::None;
+        sortArgument = Sort::None;
     }
     else
     {
@@ -310,7 +311,7 @@ void RouteHandler::selectWorksheet(const Net::Rest::Request &request, Net::Http:
     auto cookies = request.cookies();
     if (!cookies.has("JWTtoken"))
     {
-        response.send(Net::Http::Code::Forbidden);
+        response.send(Net::Http::Code::Forbidden,"No authorization present.");
         return;
     }
     Net::Http::Cookie cookie = cookies.get("JWTtoken");
@@ -319,7 +320,7 @@ void RouteHandler::selectWorksheet(const Net::Rest::Request &request, Net::Http:
     Models::User user(auth.authenticateUser(token));
     if (userID != user.getID() || !user.isValid())
     {
-        response.send(Net::Http::Code::Forbidden);
+        response.send(Net::Http::Code::Forbidden,"Invalid authorization.");
         return;
     }
 
@@ -333,7 +334,7 @@ void RouteHandler::selectWorksheet(const Net::Rest::Request &request, Net::Http:
     catch (std::exception e)
     {
         std::cerr << e.what() << " Error in worksheet name." << std::endl;
-        response.send(Net::Http::Code::Not_Acceptable);
+        response.send(Net::Http::Code::Not_Acceptable,"Worksheet data malformed.");
         return;
     }
 
@@ -345,48 +346,159 @@ void RouteHandler::selectWorksheet(const Net::Rest::Request &request, Net::Http:
     }
     if (err == Results::Database::NotFound)
     {
-        response.send(Net::Http::Code::Not_Found);
+        response.send(Net::Http::Code::Not_Found,"Worksheet not found in database.");
         return;
     }
     response.send(Net::Http::Code::Internal_Server_Error);
 }
 
-void RouteHandler::testHandler(const Net::Rest::Request &request, Net::Http::ResponseWriter response)
-{
-    Models::Worksheet sheet("Test sheet", "Work please.", "1 egg", "Like shitting bricks.");
-    Models::Week week1;
-    Models::Week week2;
-    Models::Day monday1(Models::Day::Days::Monday);
-    Models::Day tuesday1(Models::Day::Days::Tuesday);
-    Models::Day wednesday1(Models::Day::Days::Wednesday);
-    Models::Day monday2(Models::Day::Days::Monday);
-    Models::Workout overwritten("SHOULD NOT APPEAR", "get out of here", Models::Workout::TimeOfDay::Day, true);
-    Models::Workout workout1("Lunch", "Have lunch, fatass", Models::Workout::TimeOfDay::Day, false);
-    Models::Workout workout2("Swim", "So sharks can eat you", Models::Workout::TimeOfDay::Morning, true);
-    Models::Exercise ex("pushup", "", Models::Exercise::Type::RepsOnly, "10", "0", false);
-    Models::Exercise ex2("SOUPSUP", "fatass", Models::Exercise::Type::JustDone, "", "", true);
-    Models::Exercise ex3("lose weight", "FATASS!", Models::Exercise::Type::JustDone, "", "", false);
-    Models::Exercise ex4("lift bro", "DYEL!", Models::Exercise::Type::RepsAndWeight, "5x5", "50 moons", false);
-
-    workout1.addExercise(ex);
-    workout1.addExercise(ex3);
-    workout1.addExercise(ex2);
-    workout1.addExercise(ex4);
-    monday1.addWorkout(overwritten);
-    monday1.addWorkout(workout1);
-    monday1.addWorkout(workout2);
-    week1.addDay(monday1);
-    week1.addDay(tuesday1);
-    week1.addDay(wednesday1);
-    week2.addDay(monday2);
-    sheet.addWeek(week1);
-    sheet.addWeek(week2);
-    response.send(Net::Http::Code::Ok, sheet.toJSON());
-}
-
 void RouteHandler::finishWorkout(const Net::Rest::Request &request, Net::Http::ResponseWriter response)
 {
     //TODO:
+    //tmp
+    int userID = 0;
+    /*auto cookies = request.cookies();
+    if (!cookies.has("JWTtoken"))
+    {
+        response.send(Net::Http::Code::Forbidden,"No authorization found.");
+        return;
+    }
+    Net::Http::Cookie cookie = cookies.get("JWTtoken");
+    std::string token = cookie.value;
+    int userID = request.param(":id").as<int>();
+    Models::User user(auth.authenticateUser(token));
+    if (userID != user.getID() || !user.isValid())
+    {
+        response.send(Net::Http::Code::Forbidden,"Invalid authorization.");
+        return;
+    }*/
+    json_error_t err;
+    json_t *json = json_loads(request.body().c_str(), 0, &err);
+    if (!json_is_object(json))
+    {
+        response.send(Net::Http::Code::Not_Acceptable);
+        std::cout << "JSON malformed" << std::endl;
+        json_decref(json);
+        return;
+    }
+    int week = json_integer_value(json_object_get(json, "week"));
+    //TODO: change string day to MODELS::DAY::DAYS
+    std::string day(json_string_value(json_object_get(json, "day")));
+    std::string time(json_string_value(json_object_get(json, "time")));
+
+    json_t *exercises = json_object_get(json, "exercises");
+    if (!json_is_array(exercises))
+    {
+        response.send(Net::Http::Code::Not_Acceptable);
+        std::cout << "Exercises not an array." << std::endl;
+        json_decref(json);
+        return;
+    }
+
+    json_t *exercise;
+    size_t index;
+    json_array_foreach(exercises, index, exercise)
+    {
+        json_t *nameObject = json_object_get(exercise, "name");
+        std::string name;
+        if (json_is_string(nameObject))
+        {
+            name = json_string_value(nameObject);
+        }
+        else
+        {
+            response.send(Net::Http::Code::Not_Acceptable, "Name malformed in exercise " + std::to_string(index + 1) + ".");
+            return;
+        }
+        json_t *noteObject = json_object_get(exercise, "note");
+        std::string note;
+        if (json_is_string(noteObject))
+        {
+            name = json_string_value(noteObject);
+        }
+        else
+        {
+            response.send(Net::Http::Code::Not_Acceptable, "Note malformed in exercise " + std::to_string(index + 1) + ".");
+            return;
+        }
+        json_t *doneObject = json_object_get(exercise, "done");
+        bool done = false;
+        bool doneDefined = false;
+        if (json_is_boolean(doneObject))
+        {
+            done = json_boolean_value(doneObject);
+            doneDefined = true;
+        }
+        json_t *repsObject = json_object_get(exercise, "R");
+        std::string reps;
+        if (json_is_string(repsObject))
+        {
+            reps = json_string_value(repsObject);
+        }
+        json_t *weightObject = json_object_get(exercise, "W");
+        std::string weight;
+        if (json_is_string(weightObject))
+        {
+            weight = json_string_value(weightObject);
+        }//TODO: day -> int conv.
+
+        Models::Exercise::Type type;
+        if (!doneDefined && reps == "" && weight == "")
+        {
+            response.send(Net::Http::Code::Not_Acceptable, "No discernable type in exercise " + std::to_string(index + 1) + ".");
+            return;
+        }
+        if (doneDefined && reps == "" && weight == "")
+        {
+            type = Models::Exercise::Type::JustDone;
+        }
+        if (!doneDefined && reps != "" && weight != "")
+        {
+            type = Models::Exercise::Type::RepsAndWeight;
+        }
+        if (!doneDefined && reps == "" && weight != "")
+        {
+            type = Models::Exercise::Type::WeightOnly;
+        }
+        if (!doneDefined && reps != "" && weight == "")
+        {
+            type = Models::Exercise::Type::RepsOnly;
+        }
+
+        Results::Database result;
+        switch (type)
+        {
+        case Models::Exercise::Type::RepsOnly:
+            std::cout << "reps only" << std::endl;
+            //result = database.saveExercise(userID,week,)
+            break;
+        case Models::Exercise::Type::JustDone:
+            std::cout << "JustDone" << std::endl;
+            break;
+        case Models::Exercise::Type::WeightOnly:
+            std::cout << "WeightOnly" << std::endl;
+            break;
+        case Models::Exercise::Type::RepsAndWeight:
+            std::cout << "BOTH" << std::endl;
+            break;
+        }
+    }
+
+    //TODO: expand this verification
+    //if json_has_?
+    if (week < 1 || "" == day || "" == time)
+    {
+        response.send(Net::Http::Code::Not_Acceptable);
+        std::cout << "Too little data" << std::endl;
+        json_decref(json);
+        return;
+    }
+
+    std::cout << "Week " << week << ", " << day << " " << time << std::endl;
+
     //TODO: database error handling;
-    response.send(Net::Http::Code::Not_Implemented);
+    response.send(Net::Http::Code::Internal_Server_Error);
+    json_decref(json);
 }
+
+//TODO: put error messages in responses.

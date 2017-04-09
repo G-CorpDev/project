@@ -6,8 +6,9 @@ namespace Results{
         Ok,
         ConstraintViolated,
         PrimaryKeyViolated,
-        UniqueKeyViolated,
-        NotFound
+        UniqueViolated,
+        NotFound,
+        DatabaseUnavailable
     };
 };
 #endif

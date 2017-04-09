@@ -1,0 +1,348 @@
+# this is an example of the Uber API
+# as a demonstration of an API spec in YAML
+swagger: '2.0'
+info:
+  title: Workout API
+  description: For our Project Tools course.
+  version: "0.9.0"
+# the domain of the service
+host: localhost:3000
+# array of all schemes that your API supports
+schemes:
+  - http
+# will be prefixed to all paths
+
+securityDefinitions:
+  Logged in:
+    type: apiKey
+    in: header
+    name: JSON Web Token
+  Own resource:
+    type: apiKey
+    in: header
+    name: JSON Web Token
+
+
+
+paths:
+  /login:
+    post:
+      summary: Log an user in.
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      description: |
+        Attempts to log the user in with the provided credentials. Upon success, proper authentication will occur.
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref : '#/definitions/Credentials'
+      tags:
+        - User
+      responses:
+        200:
+          description: The User descriptor the JavaScript can use.
+          schema:
+            $ref: '#/definitions/User'
+        401:
+          description: Login was unsuccessful, User could not be identified by the Credentials.
+        406:
+          description: Credentials are malformed.
+        500:
+          description: Unexpected error
+  /logout:
+    get:
+      summary: Log the user out.
+      description: |
+        Logs the user out, removing the authentication from the client.
+      tags:
+        - User
+      responses:
+        200:
+          description: The user has been logged out.
+
+  /register:
+    post:
+      summary: Register a new user.
+      description: A new user will be registered based on the body sent in.
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref : '#/definitions/RegisterData'
+      tags:
+        - User
+      responses:
+        200:
+          description: Registration successfull, authentication occurs and the server sends back the User descriptor the JavaScript can use.
+          schema:
+            $ref: '#/definitions/User'
+        406:
+          description: Unusable registration data was received.
+        500:
+          description: Unexpected error
+  
+  /worksheets:
+    post:
+      summary: Get all worksheets.
+      description: Query all the present worksheet templates, sorted by the argument in body.
+      security:
+        - Logged in : []
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref : '#/definitions/Sort'
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      tags:
+        - Worksheet query
+      responses:
+        200:
+          description: Successful, server returns an object of Worksheets.
+          schema:
+            $ref: '#/definitions/Worksheets'
+        403:
+          description: Forbidden. Authorization not present.
+        406:
+          description: Sorting request malformed.
+        500:
+          description: Unexpected error
+          
+  /users/{userID}/worksheet:
+    get:
+      summary: Get the user's Worksheet.
+      description: Query the user's current Worksheet, filled out with the user's actual data.
+      security:
+        - Own resource : []
+      tags:
+        - Worksheet query
+      produces:
+        - application/json
+      parameters:
+        - name: userID
+          in: path
+          required: true
+          type: integer
+      responses:
+        200:
+          description: Successful, server returns an object of Worksheets.
+          schema:
+            $ref: '#/definitions/Worksheet'
+        403:
+          description: Forbidden. Authorization not present.
+        500:
+          description: Unexpected error
+          
+  /users/{userID}/selectWorksheet:
+    post:
+      summary: Select new Worksheet for the user.
+      description: The designated user's current worksheet will be changed to the one identified in the body.
+      security:
+        - Logged in : []
+      tags:
+        - User manipulation
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: userID
+          in: path
+          required: true
+          type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref : '#/definitions/WorksheetSelection'
+      responses:
+        200:
+          description: Successful, the user's current worksheet is changed.
+        403:
+          description: Forbidden. Authorization not present.
+        404:
+          description: Worksheet not found in database.
+        406:
+          description: Worksheet post data malformed.
+        500:
+          description: Unexpected error
+    
+    
+  /users/{userID}/finishWorkout:
+    post:
+      summary: Finish a Workout.
+      description: Saves the Workout in the request body to the user's records.
+      security:
+        - Own resource: []
+      tags:
+        - User manipulation
+      consumes:
+        - application/json
+      parameters:
+        - name: userID
+          in: path
+          required: true
+          type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref : '#/definitions/WorkoutFinished'
+      responses:
+        200:
+          description: Successful, the Workout has been saved.
+        403:
+          description: Forbidden. Authorization not present.
+        406:
+          description: Workout post data malformed.
+        500:
+          description: Unexpected error
+      
+          
+            
+    
+definitions:
+  Credentials:
+    type: object
+    properties:
+      username:
+        type: string
+      password:
+        type: string
+        
+  User:
+    type: object
+    properties:
+      displayName:
+        type: string
+        description: The chosen nickname of the user.
+      id:
+        type: string
+        description: A string representation of the integer ID
+        
+  RegisterData:
+    type: object
+    properties:
+      username:
+        type: string
+      password:
+       type: string
+      nickname:
+        type: string
+        
+  Worksheets:
+    type: object
+    properties:
+      sheets:
+        type: array
+        items:
+          $ref: '#/definitions/Worksheet'
+          
+  WorksheetSelection:
+    type: object
+    properties:
+      worksheet:
+        type: string
+  
+  Worksheet:
+    type: object
+    properties:
+        name: 
+          type: string
+        description:
+          type: string
+        length:
+          type: string
+        difficulty:
+          type: string
+        avgWorkoutLength:
+          type: string
+        weeks:
+          type: array
+          items:
+            type: array
+            items:
+              $ref: '#/definitions/Day'
+          
+  Sort:
+    type: object
+    properties:
+      sortBy:
+        type: string
+        description: One of [ None, Name, Length, AvgWorkoutTime, Difficulty ]
+      descending:
+        type: boolean
+
+          
+  Day:
+    type: object
+    properties:
+      day:
+        type: string
+        description: One of [ Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday ]
+      workouts:
+        type: array
+        items:
+         $ref: '#/definitions/Workout'
+         
+  Workout:
+    type: object
+    properties:
+      name:
+        type: string
+      description:
+          type: string
+      time:
+          type: string
+          description: One of [ morning, day, night ]
+      done:
+        type: boolean
+      exercises:
+        type: array
+        items:
+            $ref: '#/definitions/Exercise'
+            
+  WorkoutFinished:
+    type: object
+    properties:
+      week:
+        type: integer
+      day:
+        type: string
+        description: One of [ Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday ]
+      time:
+        type: string
+        description: One of [ morning, day, night ]
+      exercises:
+        type: array
+        items:
+          $ref: '#/definitions/Exercise'
+            
+  Exercise:
+    type: object
+    properties:
+      name:
+        type: string
+      note:
+        type: string
+      R:
+        type: string
+        description: optional
+      W:
+        type: string
+        description: optional
+      done:
+        type: boolean
+        description: optional

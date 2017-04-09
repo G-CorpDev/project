@@ -38,7 +38,7 @@ namespace Mocks{
             std::vector<Models::Worksheet> getAllWorksheets(const Sort & sortBy);
             
             Results::Database selectWorksheetByWorksheetName(const int & userID,const std::string & worksheetName);//Doesn't do anything.
-            Results::Database saveExercise(const int & userID,const int & week,const int & day,const Models::Workout::TimeOfDay & timeOfDay,const Models::Exercise & exercise);//Doesn't do anything
+            Results::Database saveExercise(const int & userID,const int & week,const Models::Day::Days & day,const Models::Workout::TimeOfDay & timeOfDay,const Models::Exercise & exercise);//Doesn't do anything
 
     };
 

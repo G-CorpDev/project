@@ -56,7 +56,7 @@ class Workout
         Evening = 2
     };
 
-    Workout(const std::string &name, const std::string &description, const TimeOfDay &time, const bool &done);
+    Workout(const std::string &name, const std::string &description, const TimeOfDay &time, const bool &done , const bool & skipped);
     std::string toJSON();
     void addExercise(const Exercise &exercise);
     TimeOfDay getTime()const{return time;}
@@ -65,6 +65,7 @@ class Workout
     std::string name;
     std::string description;
     bool done;
+    bool skipped;
     TimeOfDay time;
     std::vector<Exercise> exercises;
 };
@@ -80,9 +81,11 @@ class Day
         Thursday = 3,
         Friday = 4,
         Saturday = 5,
-        Sunday = 6
+        Sunday = 6,
+        Invalid = -1
     };
     std::string dayAsString(const Days & day);
+    static Days fromString(const std::string & string); 
 
     //for sorting
     bool operator<(const Day & other){return this->dayOfTheWeek<other.dayOfTheWeek;}
