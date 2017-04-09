@@ -9,11 +9,31 @@ class Worksheet extends Component {
             description: false,
             id: props.id,
             exercises: [],
+            skippedExercises: [],
         };
     }
 
     componentDidMount() {
         this.getWorksheet();
+
+        let _this = this;
+        let firstUndone = true;
+        let BreakException = {};
+        try {
+            this.state.sheet.weeks.forEach(function (week) {
+                week.forEach(function (day) {
+                    day.workouts.forEach(function (workout) {
+                        if (firstUndone && !workout.done) {
+                            _this.setState({exercises: workout.exercises, skippedExercises: workout.exercises});
+                            firstUndone = false;
+                            throw BreakException;
+                        }
+                    });
+                });
+            });
+        } catch (e) {
+            if (e !== BreakException) console.log(e);
+        }
     }
 
     getWorksheet() {
@@ -29,12 +49,10 @@ class Worksheet extends Component {
             });
     }
 
-    send(week, day, time, done) {
-        console.log("sending data...");
-
+    postExercises(week, day, time, exercises) {
         let _this = this;
         axios.post('http://localhost:3000/users/' + _this.state.id + '/UploadWorkout ',
-            {week:week,day:day,time:time,done:done,exercises:_this.state.exercises})
+            {week: week, day: day, time: time, done: done, exercises: exercises})
             .then(function (response) {
                 console.log(response);
                 //window.alert("Workout sent!");
@@ -44,6 +62,15 @@ class Worksheet extends Component {
                 console.log(error);
                 //window.alert(error);
             });
+    }
+
+    send(week, day, time, done) {
+        console.log("sending data...");
+        if (done === "skip") {
+            this.postExercises(week, day, time, this.state.skippedExercises);
+        } else {
+            this.postExercises(week, day, time, this.state.exercises);
+        }
     }
 
     handleInputChange(exerciseIndex, event) {
