@@ -25,7 +25,7 @@ class Content extends Component {
             <div className="content">
                 <Menu logout={() => this.state.logout()} select={(i) => this.selectContent(i)} nick={this.state.nick}/>
                 {this.state.selectedContent === "My worksheet" ? <Worksheet id={this.state.id}/> : ""}
-                {this.state.selectedContent === "Select new worksheet" ? <SheetList/> : ""}
+                {this.state.selectedContent === "Select new worksheet" ? <SheetList id={this.state.id}/> : ""}
             </div>
         );
     }

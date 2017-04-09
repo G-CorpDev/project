@@ -13,7 +13,7 @@ class Worksheet extends Component {
 
     componentDidMount() {
         let _this = this;
-        axios.get('http://localhost:3000/users/:' + _this.state.id + '/worksheet')
+        axios.get('http://localhost:3000/users/' + _this.state.id + '/worksheet')
             .then(function (response) {
                 console.log(response);
                 _this.setState({sheet: response.data});

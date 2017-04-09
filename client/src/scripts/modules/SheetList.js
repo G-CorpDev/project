@@ -6,6 +6,7 @@ class SheetList extends Component {
         super(props);
         this.state = {
             sheetsJson: require("../../json/testList.json"),
+            id: props.id,
         }
     }
 
@@ -28,7 +29,7 @@ class SheetList extends Component {
 
     selectNewSheet(name) {
         let _this = this;
-        axios.post('http://localhost:3000/users/:' + _this.state.id + '/SelectWorksheet ',
+        axios.post('http://localhost:3000/users/' + _this.state.id + '/SelectWorksheet ',
             {worksheet: name})
             .then(function (response) {
                 console.log(response);
