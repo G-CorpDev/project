@@ -1,7 +1,7 @@
 {
   "name": "P90X",
   "description": "P90X, or Power 90 Extreme, is a commercial home exercise regimen created by Tony Horton. Developed as a successor to the program called \"Power 90\", it is designed to take 90 days, and consists of a training program that uses cross-training and periodization, combined with a nutrition and dietary supplement plan.",
-  "avgWorkoutLength": "1 hour",
+  "avgWorkoutTime": "1 hour",
   "difficulty": "extreme",
   "weeks": [
     [

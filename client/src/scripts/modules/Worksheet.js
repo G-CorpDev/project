@@ -1,16 +1,31 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 
 class Worksheet extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            test: require("../../json/test.json"),
+            sheet: require("../../json/test.json"),
             description: false,
+            id: props.id,
         };
     }
 
-    send() {
-        console.log("sending data...");
+    componentDidMount() {
+        let _this = this;
+        axios.get('http://localhost:3000/users/:' + _this.state.id + '/worksheet')
+            .then(function (response) {
+                console.log(response);
+                _this.setState({sheet: response.data});
+            })
+            .catch(function (error) {
+                console.log(error);
+                window.alert(error);
+            });
+    }
+
+    send(action) {
+        console.log("sending data..." + action);
     }
 
     renderExercise(exercise, index) {
@@ -99,8 +114,11 @@ class Worksheet extends Component {
             );
             if (firstUndone) {
                 content.push(
-                    <button type="button" className="workout__send" onClick={() => this.send()} key="send">
+                    <button type="button" className="workout__send" onClick={() => this.send("done")} key="send">
                         Send
+                    </button>,
+                    <button type="button" className="workout__skip" onClick={() => this.send("skip")} key="skip">
+                        Skip
                     </button>
                 );
             } else {
@@ -156,7 +174,7 @@ class Worksheet extends Component {
         let weekShortCuts = [];
         let firstUndone = true;
 
-        this.state.test.weeks.forEach(function (week, week_i) {
+        this.state.sheet.weeks.forEach(function (week, week_i) {
             let workouts = [];
             weekNumber++;
             weekShortCuts.push(
@@ -195,10 +213,10 @@ class Worksheet extends Component {
 
         return (
             <div className="worksheet">
-                <div className="worksheet__name">Your current worksheet: {this.state.test.name}</div>
+                <div className="worksheet__name">Your current worksheet: {this.state.sheet.name}</div>
                 <div className="worksheet__info" onClick={() => this.changeDesc()}>Description</div>
                 <div className={"worksheet__description " + desc}>
-                    {this.state.test.description}
+                    {this.state.sheet.description}
                     <div className="worksheet__description__close" onClick={() => this.changeDesc()}>
                         <span className="line line--1"></span>
                         <span className="line line--2"></span>
