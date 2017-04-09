@@ -51,8 +51,8 @@ class Worksheet extends Component {
 
     postExercises(week, day, time, exercises) {
         let _this = this;
-        axios.post('http://localhost:3000/users/' + _this.state.id + '/UploadWorkout ',
-            {week: week, day: day, time: time, done: done, exercises: exercises})
+        axios.post('http://localhost:3000/users/' + _this.state.id + '/finishWorkout',
+            {week: week, day: day, time: time, exercises: exercises})
             .then(function (response) {
                 console.log(response);
                 //window.alert("Workout sent!");
@@ -156,23 +156,25 @@ class Worksheet extends Component {
         )
     }
 
-    renderDoneExercise(exercise, index) {
+    renderDoneExercise(exercise, index, skipped) {
         let W = "";
-        if (exercise.hasOwnProperty('W')) {
-            W = <div className="weight">W:{exercise.W}</div>
-        }
         let R = "";
-        if (exercise.hasOwnProperty('R')) {
-            R = <div className="reps">R:{exercise.R}</div>
-        }
         let done = "";
-        if (exercise.hasOwnProperty('done')) {
-            done = <div className="done">Done</div>
-        }
         let note = "";
-        if (exercise.note !== "") {
-            note = [<div className="exercise__noteBlock" key="noteBlock">Note</div>,
-                <div className="exercise__note" key="note">{exercise.note}</div>];
+        if (!skipped) {
+            if (exercise.hasOwnProperty('W')) {
+                W = <div className="weight">W:{exercise.W}</div>
+            }
+            if (exercise.hasOwnProperty('R')) {
+                R = <div className="reps">R:{exercise.R}</div>
+            }
+            if (exercise.hasOwnProperty('done')) {
+                done = <div className="done">Done</div>
+            }
+            if (exercise.note !== "") {
+                note = [<div className="exercise__noteBlock" key="noteBlock">Note</div>,
+                    <div className="exercise__note" key="note">{exercise.note}</div>];
+            }
         }
         return (
             <div className="exercise" key={index}>
@@ -228,26 +230,36 @@ class Worksheet extends Component {
                 );
             } else {
                 content.push(
-                    <div className="workout__TODO" key="todo">You have other workouts to do!</div>
+                    <div className="workout__footer workout__footer--TODO" key="todo">You have other workouts to
+                        do!</div>
                 );
             }
-        } else {
+        } else if (workout.done) {
             let exercises = [];
             workout.exercises.forEach(function (e, i) {
-                exercises.push(_this.renderDoneExercise(e, i));
+                exercises.push(_this.renderDoneExercise(e, i, workout.skipped));
             });
             content.push(
                 <div className="workout__list" key="list">
                     {exercises}
-                </div>,
-                <div className="workout__goodJob" key="done">It's done! Good job!</div>
-            );
+                </div>);
+            if (!workout.skipped) {
+                content.push(<div className="workout__footer workout__footer--goodJob" key="done">It's done! Good
+                    job!</div>)
+            }
+            else {
+                content.push(<div className="workout__footer workout__footer--skipped" key="skipped">This workout has
+                    been skipped!</div>)
+            }
         }
 
         return (
             <div className="workout" key={index}>
                 <div className="workout__week">Week {weekN}</div>
-                {workout.done ? <div className="workout__sticker">Done</div> : "" }
+                {workout.done && !workout.skipped ?
+                    <div className="workout__sticker workout__sticker--done">Done</div> : "" }
+                {workout.done && workout.skipped ?
+                    <div className="workout__sticker workout__sticker--skip">Skipped</div> : "" }
                 <div className={"workout__background " + "workout__background--" + workout.time}></div>
                 <div className="workout__infoBox">i</div>
                 <div className="workout__description">{workout.description}</div>
