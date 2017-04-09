@@ -132,11 +132,11 @@
 
     @mixin background($color) {
       background: rgba($color, 0.4);
-      &:hover {
+      /*&:hover {
         background: rgba($color, 0.9);
         //background: rgba($green,0.8);
         //box-shadow: 0 0 20px 3px $shadow--veryLight;
-      }
+      }*/
       .week__name {
         background: $color;
       }
@@ -271,6 +271,7 @@
 
     &__name {
       position: relative;
+      height: 31px;
       font-size: 18px;
       text-align: center;
       padding: 5px;
@@ -493,8 +494,6 @@
 
         &__name {
           display: table-cell;
-          position: absolute;
-          top: 0;
           text-align: left;
         }
 

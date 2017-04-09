@@ -161,21 +161,21 @@ class Worksheet extends Component {
         let R = "";
         let done = "";
         let note = "";
-        if (!skipped) {
-            if (exercise.hasOwnProperty('W')) {
-                W = <div className="weight">W:{exercise.W}</div>
-            }
-            if (exercise.hasOwnProperty('R')) {
-                R = <div className="reps">R:{exercise.R}</div>
-            }
-            if (exercise.hasOwnProperty('done')) {
-                done = <div className="done">Done</div>
-            }
-            if (exercise.note !== "") {
-                note = [<div className="exercise__noteBlock" key="noteBlock">Note</div>,
-                    <div className="exercise__note" key="note">{exercise.note}</div>];
-            }
+        if (exercise.hasOwnProperty('W')) {
+            W = <div className="weight" key={index+"W"}>W:{exercise.W}</div>
         }
+        if (exercise.hasOwnProperty('R')) {
+            R = <div className="reps" key={index+"R"}>R:{exercise.R}</div>
+        }
+        if (exercise.hasOwnProperty('done')) {
+            done = <div className="done" key={index+"D"}>{exercise.done ? "Done" : "Skip"}</div>
+        }
+        if (exercise.note !== "") {
+            note = [<div className="exercise__noteBlock" key="noteBlock">Note</div>,
+                <div className="exercise__note" key="note">{exercise.note}</div>];
+        }
+        let inputs =[W,R,done];
+
         return (
             <div className="exercise" key={index}>
                 <div className="exercise__basic">
@@ -184,9 +184,7 @@ class Worksheet extends Component {
                         {exercise.name}:
                     </div>
                     <div className="exercise__inputs">
-                        {W}
-                        {R}
-                        {done}
+                        {skipped ?  <div className="done">X</div> : inputs}
                     </div>
                 </div>
             </div>
@@ -195,7 +193,7 @@ class Worksheet extends Component {
 
     renderWorkout(day, workout, index, weekN, firstUndone) {
         let content = [];
-        let workoutClass="workout";
+        let workoutClass = "workout";
         let _this = this;
         if (!workout.done) {
             let exercises = [];
@@ -219,7 +217,7 @@ class Worksheet extends Component {
                 );
             }
             if (firstUndone) {
-                workoutClass="workout workout--first";
+                workoutClass = "workout workout--first";
                 content.push(
                     <button type="button" className="workout__send"
                             onClick={() => this.send(weekN, day, workout.time, "done")} key="send">
@@ -262,7 +260,7 @@ class Worksheet extends Component {
                     <div className="workout__sticker workout__sticker--done">Done</div> : "" }
                 {workout.done && workout.skipped ?
                     <div className="workout__sticker workout__sticker--skipped">Skipped</div> : "" }
-                {workoutClass==="workout workout--first" ?
+                {workoutClass === "workout workout--first" ?
                     <div className="workout__sticker workout__sticker--current">Current</div> : ""}
                 <div className={"workout__background " + "workout__background--" + workout.time}></div>
                 <div className="workout__infoBox">i</div>
