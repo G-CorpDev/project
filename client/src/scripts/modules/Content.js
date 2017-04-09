@@ -9,7 +9,7 @@ class Content extends Component {
         super(props);
         this.state = {
             logout: props.logout,
-            selectedContent: "Select new worksheet",
+            selectedContent: "My worksheet",
             nick: props.nick,
             id: props.id,
         }

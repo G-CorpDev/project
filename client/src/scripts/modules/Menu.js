@@ -7,7 +7,7 @@ class Menu extends Component {
         this.state = {
             logout: props.logout,
             select: props.select,
-            selected: "Select new worksheet",
+            selected: "My worksheet",
             scrolled: "menu--notScrolled",
             nick: props.nick,
         };

@@ -46,7 +46,7 @@ class Page extends Component {
             })
             .catch(function (error) {
                 console.log(error);
-                window.alert(error);
+                //window.alert(error);
             });
 
         //TESTING
