@@ -195,6 +195,7 @@ class Worksheet extends Component {
 
     renderWorkout(day, workout, index, weekN, firstUndone) {
         let content = [];
+        let workoutClass="workout";
         let _this = this;
         if (!workout.done) {
             let exercises = [];
@@ -218,6 +219,7 @@ class Worksheet extends Component {
                 );
             }
             if (firstUndone) {
+                workoutClass="workout workout--first";
                 content.push(
                     <button type="button" className="workout__send"
                             onClick={() => this.send(weekN, day, workout.time, "done")} key="send">
@@ -254,12 +256,14 @@ class Worksheet extends Component {
         }
 
         return (
-            <div className="workout" key={index}>
+            <div className={workoutClass} key={index}>
                 <div className="workout__week">Week {weekN}</div>
                 {workout.done && !workout.skipped ?
                     <div className="workout__sticker workout__sticker--done">Done</div> : "" }
                 {workout.done && workout.skipped ?
-                    <div className="workout__sticker workout__sticker--skip">Skipped</div> : "" }
+                    <div className="workout__sticker workout__sticker--skipped">Skipped</div> : "" }
+                {workoutClass==="workout workout--first" ?
+                    <div className="workout__sticker workout__sticker--current">Current</div> : ""}
                 <div className={"workout__background " + "workout__background--" + workout.time}></div>
                 <div className="workout__infoBox">i</div>
                 <div className="workout__description">{workout.description}</div>

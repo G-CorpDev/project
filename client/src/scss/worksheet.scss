@@ -175,6 +175,12 @@
     transition: all 300ms linear;
     zoom: 99%; //chrome blurry text exploit
 
+    &--first{
+      //border: 5px dashed $green;
+      //box-shadow: 0 0 0 4px $white,inset 0 0 20px 0px $white ;
+      box-shadow: 0 0 0 4px $white;
+    }
+
     &__week {
       position: absolute;
       left: 0;
@@ -201,9 +207,15 @@
       font-weight: 600;
       z-index: 1;
 
-      &--skip {
+      &--skipped {
         width: 70px;
         background: $orange;
+      }
+      &--current {
+        width: 70px;
+        background: $white;
+        color: $darkGreen;
+        border-radius: 0 2px 0 5px;
       }
     }
 
@@ -407,6 +419,7 @@
 
     &__list {
       .exercise {
+        //height: 22px;
         //text-align: center;
         &__inputs {
           width: 100px !important;
@@ -480,6 +493,8 @@
 
         &__name {
           display: table-cell;
+          position: absolute;
+          top: 0;
           text-align: left;
         }
 
@@ -492,6 +507,7 @@
 
         &:first-child {
           padding-top: 5px;
+          height: 27px !important;
         }
       }
     }
@@ -510,13 +526,13 @@
 
     &__send {
       width: 84%;
-      background: $green;
+      background: darken($green,3%);
       border-radius: 0 0 0 5px;
       padding-left: 70px;
       font-weight: 800;
       &:hover {
-        background: darken($green, 10%);
-        box-shadow: 0 -2px 20px 3px $green;
+        background: lighten($green, 5%);
+        box-shadow: 0 -2px 20px 3px lighten($green, 5%);
       }
     }
 
