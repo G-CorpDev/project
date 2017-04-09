@@ -35,7 +35,7 @@ class iDatabaseSource
 
     /*Saves the Exercise record for the User identified by userID.
       Returns the appropriate Results::Database message (i.e. Results::Database::Ok on success).*/
-    virtual Results::Database saveExercise(const int & userID,const int & week,const int & day,const Models::Workout::TimeOfDay & timeOfDay,const Models::Exercise & exercise) = 0;
+    virtual Results::Database saveExercise(const int & userID,const int & week,const Models::Day::Days & day,const Models::Workout::TimeOfDay & timeOfDay,const Models::Exercise & exercise) = 0;
 };
 
 #endif

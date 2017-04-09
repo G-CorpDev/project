@@ -1,4 +1,5 @@
 #include <Models.h>
+#include <iostream>
 
 Models::Exercise::Exercise(const std::string &name, const std::string &note, Models::Exercise::Type type, const std::string &reps, const std::string &weight, const bool &done)
     : name(name), note(note), type(type), reps(reps), weight(weight), done(done) {}
@@ -34,8 +35,8 @@ std::string Models::Exercise::toJSON()
     return json;
 }
 
-Models::Workout::Workout(const std::string &name, const std::string &description, const TimeOfDay &time, const bool &done)
-    : name(name), description(description), time(time), done(done) {}
+Models::Workout::Workout(const std::string &name, const std::string &description, const TimeOfDay &time, const bool &done, const bool & skipped)
+    : name(name), description(description), time(time), done(done), skipped(skipped) {}
 
 std::string Models::Workout::toJSON()
 {
@@ -57,6 +58,7 @@ std::string Models::Workout::toJSON()
         break;
     }
     json_object_set_new(root, "done", json_boolean(done));
+    json_object_set_new(root, "skipped", json_boolean(skipped));
 
     for (auto &exercise : this->exercises)
     {
@@ -161,8 +163,21 @@ std::string Models::Day::dayAsString(const Days &day)
         return "Saturday";
     case Models::Day::Days::Sunday:
         return "Sunday";
+    case Models::Day::Days::Invalid:
+        return "Invalid day.";
     }
     return "ERROR";
+}
+
+Models::Day::Days Models::Day::fromString(const std::string & string){
+    if(string=="Monday" || "monday"==string){return Models::Day::Days::Monday;}
+    if(string=="Tuesday" || "tuesday"==string){return Models::Day::Days::Tuesday;}
+    if(string=="Wednesday" || "wednesday"==string){return Models::Day::Days::Wednesday;}
+    if(string=="Thursday" || "thursday"==string){return Models::Day::Days::Thursday;}
+    if(string=="Friday" || "friday"==string){return Models::Day::Days::Friday;}
+    if(string=="Saturday" || "saturday"==string){return Models::Day::Days::Saturday;}
+    if(string=="Sunday" || "sunday"==string){return Models::Day::Days::Sunday;}
+    return Models::Day::Days::Invalid;
 }
 
 void Models::Week::addDay(const Day &day)
@@ -208,6 +223,8 @@ std::string Models::Worksheet::toJSON()
 
     for (auto &week : this->weeks)
     {
+            std::cout<<"Here"<<std::endl;
+
         json_error_t err;
         json_t *tmp = json_loads(week.toJSON().c_str(), 0, &err);
         json_array_append(weeks, tmp);
