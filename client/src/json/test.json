@@ -12,66 +12,66 @@
             "time": "morning",
             "name": "Ab Ripper X",
             "description": "Rip that AB",
-            "done": false,
+            "done": true,
             "exercises": [
               {
                 "name": "In & Outs",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Seated Bicycles",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Reverse Bicycles",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Seated Crunchy Frogs",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Crossed Leg/Wide Leg Sit-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Fifer Scissors",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Hip Rock 'N' Raise",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Pulse-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Roll-Up/V-Up-Combo",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Oblique V-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Leg Climbs",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Mason Twist",
-                "R": "",
+                "R": "40",
                 "note": ""
               }
             ]
@@ -80,132 +80,132 @@
             "time": "day",
             "name": "Chest & Back",
             "description": "This routine is performed during weeks 1, 2, 3, 9, and 11...",
-            "done": false,
+            "done": true,
             "exercises": [
               {
                 "name": "Standard Push-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Wide Front Pull-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Military Push-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Reverse Grip Chin-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Wide Fly Push-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Closed Grip Overhand Pull-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Decline Push-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Heavy Pants",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Diamond Push-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Lawnmowers",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Dive-Bomber Push-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Back Flys",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Standard Push-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Wide Front Pull-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Military Push-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Reverse Grip Chin-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Wide Fly Push-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Closed Grip Overhand Pull-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Decline Push-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Heavy Pants",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Diamond Push-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Lawnmowers",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Dive-Bomber Push-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Back Flys",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               }
             ]
@@ -219,236 +219,236 @@
             "time": "day",
             "name": "Plyometrics",
             "description": "Single workout",
-            "done": false,
+            "done": true,
             "exercises": [
               {
                 "name": "Jump Squats",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Run Stance Squats",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Airborne Heismans",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Swing Kicks",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Jump Squats",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Run Stance Squats",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Airborne Heismans",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Swing Kicks",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Squat Reach Jumps",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Squat Switch Pickups",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Double Airborne Heismans",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Circle Runs",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Squat Reach Jumps",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Squat Switch Pickups",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Double Airborne Heismans",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Circle Runs",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Jump Knee Tucks",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Marg Katherine Lunges",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Leap Frog Squats",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Twist Combos",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Jump Knee Tucks",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Marg Katherine Lunges",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Leap Frog Squats",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Twist Combos",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Rock Star Hops",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Gap Jumps",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Squat Jumps",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Military March",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Rock Star Hops",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Gap Jumps",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Squat Jumps",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Military March",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Run Squat 180 Jump Switches",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Lateral Leap Frog Squats",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Monster Truck Tires",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Hot Foor",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Run Squat 180 Jump Switches",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Lateral Leap Frog Squats",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Monster Truck Tires",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Hot Foor",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Pitch & Catch",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Jump Shots",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Football Hero",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Pitch & Catch",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Jump Shots",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Football Hero",
-                "done": "",
+                "done": true,
                 "note": ""
               }
             ]
@@ -462,180 +462,180 @@
             "time": "day",
             "name": "Shoulder & Arms",
             "description": "This routine is performed during weeks 1, 2, 3, 9, and 11...",
-            "done": false,
+            "done": true,
             "exercises": [
               {
                 "name": "Alternating Shoulder Presses",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "In & Out Bicep Curls",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Two-Arm Tricep Kickbacks",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Alternating Shoulder Presses",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "In & Out Bicep Curls",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Two-Arm Tricep Kickbacks",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Deep Swimmer’s Presses",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Full Supination Concentration Curls",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Chair Dips",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Deep Swimmer’s Presses",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Full Supination Concentration Curls",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Chair Dips",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Upright Rows",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Static Arm Curls",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Flip-Grip Twist Tricep Kickbacks",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Upright Rows",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Static Arm Curls",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Flip-Grip Twist Tricep Kickbacks",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Two-Angle Shoulder Flys",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Crouching Cohen Curls",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Lying-Down Tricep Extensions",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Two-Angle Shoulder Flys",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Crouching Cohen Curls",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Lying-Down Tricep Extensions",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "In & Out Straight-Arm Shoulder Flys",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Congdon Curls",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Side Tri-Rises",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "In & Out Straight-Arm Shoulder Flys",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Congdon Curls",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Side Tri-Rises",
-                "R": "",
+                "R": "40",
                 "note": ""
               }
             ]
@@ -644,66 +644,66 @@
             "time": "night",
             "name": "Ab Ripper X",
             "description": "Rip that AB",
-            "done": false,
+            "done": true,
             "exercises": [
               {
                 "name": "In & Outs",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Seated Bicycles",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Reverse Bicycles",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Seated Crunchy Frogs",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Crossed Leg/Wide Leg Sit-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Fifer Scissors",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Hip Rock 'N' Raise",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Pulse-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Roll-Up/V-Up-Combo",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Oblique V-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Leg Climbs",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Mason Twist",
-                "R": "",
+                "R": "40",
                 "note": ""
               }
             ]
@@ -717,161 +717,161 @@
             "time": "day",
             "name": "Yoga X",
             "description": "Single workout",
-            "done": false,
+            "done": true,
             "exercises": [
               {
                 "name": "Runner's Pose",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Crescent Pose",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Warrior One",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Warrior Two",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Reverse Warrior",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Triangle Pose",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Twisting Triangle",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Chair to Twisting Chair",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Right-Angle Pose to Extended Right-Angle Pose & Grab",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Prayer twist from Runner’s Pose to Side Arm Balance",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Warrior Three to Standing Splits",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Half Moon to Twisting Half Moon",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Tree",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Royal Dancer",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Standing Leg Extension",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Crane",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Seated Spinal Stretch",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Cat Stretch",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Frog",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Bridge or Wheel",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Plough into Shoulder Stand with Leg Variations into Plough",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Table",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Cobbler Pose",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "One-Legged Hamstring Stretch into Two-Legged Hamstring Stretch",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Touch the Sky",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Boat",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Half Boat",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Scissor",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Torso Twist Hold",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Deep Torso Twist Hold",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Touch the Sky",
-                "done": "",
+                "done": true,
                 "note": ""
               }
             ]
@@ -885,66 +885,66 @@
             "time": "morning",
             "name": "Ab Ripper X",
             "description": "Rip that AB",
-            "done": false,
+            "done": true,
             "exercises": [
               {
                 "name": "In & Outs",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Seated Bicycles",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Reverse Bicycles",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Seated Crunchy Frogs",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Crossed Leg/Wide Leg Sit-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Fifer Scissors",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Hip Rock 'N' Raise",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Pulse-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Roll-Up/V-Up-Combo",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Oblique V-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Leg Climbs",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Mason Twist",
-                "R": "",
+                "R": "40",
                 "note": ""
               }
             ]
@@ -953,126 +953,126 @@
             "time": "day",
             "name": "Legs and Back",
             "description": "L&B",
-            "done": false,
+            "done": true,
             "exercises": [
               {
                 "name": "Balanced Lunges",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Calf-Raise Squats",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Reverse Grip Chin-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Super Skaters",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Wall Squats",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Wide Front Pull-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Step Back Lunge",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Alternating Side Lunge",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Closed Grip Overhand Pull-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Single-Leg Wall Squat",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Deadlift Squats",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Switch Grip Pull-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Three-Way Lunge",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Sneaky Lunge",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Reverse Grip Chin-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Chair Salutations",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Toe-Roll Iso Lunge",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Wide Front Pull-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Groucho Walk",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Calf Raises",
-                "R": "",
-                "W": "",
+                "R": "40",
+                "W": "20kg",
                 "note": ""
               },
               {
                 "name": "Closed Grip Overhand Pull-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "80/20 Siebers-Speed Squats",
-                "R": "",
+                "R": "40",
                 "note": ""
               },
               {
                 "name": "Switch Grip Pull-Ups",
-                "R": "",
+                "R": "40",
                 "note": ""
               }
             ]
@@ -1086,141 +1086,141 @@
             "time": "day",
             "name": "Kenpo X",
             "description": "Single workout",
-            "done": false,
+            "done": true,
             "exercises": [
               {
                 "name": "Twist and Pivot",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Twist & Pivot w/Hook Uppercut",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Jabs",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Jab/Cross",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Jab/Cross/Hook",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Jab/Cross/Hook/Uppercut",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Step Drag Punch High/Low",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Jab/Cross Switch",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Hook/Uppercut Switch",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Knee Kicks",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Ball Kicks",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Side Kicks",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Back Kicks",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Three Direction Kicks",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "High Sword/Low Hammer",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Step Drag/Claw/Low Punch",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "High Blocks",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Inward Blocks",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Outward Blocks",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Downward Block",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Star Blocks",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "High Block/Low Punch",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Knee/Back Kick",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Back Knuckle/Ball Kick/Back Kick",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Hook/Uppercut/Low Side Kick",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Elbow Series",
-                "done": "",
+                "done": true,
                 "note": ""
               },
               {
                 "name": "Vertical Punches",
-                "done": "",
+                "done": true,
                 "note": ""
               }
             ]
@@ -1234,11 +1234,11 @@
             "time": "night",
             "name": "Rest or X-Stretch",
             "description": "Single workout",
-            "done": false,
+            "done": true,
             "exercises": [
               {
                 "name": "Done",
-                "done": "",
+                "done": true,
                 "note": ""
               }
             ]
@@ -1465,232 +1465,232 @@
             "exercises": [
               {
                 "name": "Jump Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Run Stance Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Airborne Heismans",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Swing Kicks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jump Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Run Stance Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Airborne Heismans",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Swing Kicks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Squat Reach Jumps",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Squat Switch Pickups",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Double Airborne Heismans",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Circle Runs",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Squat Reach Jumps",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Squat Switch Pickups",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Double Airborne Heismans",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Circle Runs",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jump Knee Tucks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Marg Katherine Lunges",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Leap Frog Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Twist Combos",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jump Knee Tucks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Marg Katherine Lunges",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Leap Frog Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Twist Combos",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Rock Star Hops",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Gap Jumps",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Squat Jumps",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Military March",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Rock Star Hops",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Gap Jumps",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Squat Jumps",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Military March",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Run Squat 180 Jump Switches",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Lateral Leap Frog Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Monster Truck Tires",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Hot Foor",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Run Squat 180 Jump Switches",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Lateral Leap Frog Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Monster Truck Tires",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Hot Foor",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Pitch & Catch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jump Shots",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Football Hero",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Pitch & Catch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jump Shots",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Football Hero",
-                "done": "",
+                "done": false,
                 "note": ""
               }
             ]
@@ -1963,157 +1963,157 @@
             "exercises": [
               {
                 "name": "Runner's Pose",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Crescent Pose",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Warrior One",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Warrior Two",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Reverse Warrior",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Triangle Pose",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Twisting Triangle",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Chair to Twisting Chair",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Right-Angle Pose to Extended Right-Angle Pose & Grab",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Prayer twist from Runner’s Pose to Side Arm Balance",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Warrior Three to Standing Splits",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Half Moon to Twisting Half Moon",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Tree",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Royal Dancer",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Standing Leg Extension",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Crane",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Seated Spinal Stretch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Cat Stretch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Frog",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Bridge or Wheel",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Plough into Shoulder Stand with Leg Variations into Plough",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Table",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Cobbler Pose",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "One-Legged Hamstring Stretch into Two-Legged Hamstring Stretch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Touch the Sky",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Boat",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Half Boat",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Scissor",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Torso Twist Hold",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Deep Torso Twist Hold",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Touch the Sky",
-                "done": "",
+                "done": false,
                 "note": ""
               }
             ]
@@ -2332,137 +2332,137 @@
             "exercises": [
               {
                 "name": "Twist and Pivot",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Twist & Pivot w/Hook Uppercut",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jabs",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jab/Cross",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jab/Cross/Hook",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jab/Cross/Hook/Uppercut",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Step Drag Punch High/Low",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jab/Cross Switch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Hook/Uppercut Switch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Knee Kicks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Ball Kicks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Side Kicks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Back Kicks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Three Direction Kicks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "High Sword/Low Hammer",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Step Drag/Claw/Low Punch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "High Blocks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Inward Blocks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Outward Blocks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Downward Block",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Star Blocks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "High Block/Low Punch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Knee/Back Kick",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Back Knuckle/Ball Kick/Back Kick",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Hook/Uppercut/Low Side Kick",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Elbow Series",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Vertical Punches",
-                "done": "",
+                "done": false,
                 "note": ""
               }
             ]
@@ -2480,7 +2480,7 @@
             "exercises": [
               {
                 "name": "Done",
-                "done": "",
+                "done": false,
                 "note": ""
               }
             ]
@@ -2707,232 +2707,232 @@
             "exercises": [
               {
                 "name": "Jump Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Run Stance Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Airborne Heismans",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Swing Kicks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jump Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Run Stance Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Airborne Heismans",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Swing Kicks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Squat Reach Jumps",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Squat Switch Pickups",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Double Airborne Heismans",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Circle Runs",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Squat Reach Jumps",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Squat Switch Pickups",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Double Airborne Heismans",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Circle Runs",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jump Knee Tucks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Marg Katherine Lunges",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Leap Frog Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Twist Combos",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jump Knee Tucks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Marg Katherine Lunges",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Leap Frog Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Twist Combos",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Rock Star Hops",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Gap Jumps",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Squat Jumps",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Military March",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Rock Star Hops",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Gap Jumps",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Squat Jumps",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Military March",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Run Squat 180 Jump Switches",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Lateral Leap Frog Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Monster Truck Tires",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Hot Foor",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Run Squat 180 Jump Switches",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Lateral Leap Frog Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Monster Truck Tires",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Hot Foor",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Pitch & Catch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jump Shots",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Football Hero",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Pitch & Catch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jump Shots",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Football Hero",
-                "done": "",
+                "done": false,
                 "note": ""
               }
             ]
@@ -3205,157 +3205,157 @@
             "exercises": [
               {
                 "name": "Runner's Pose",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Crescent Pose",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Warrior One",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Warrior Two",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Reverse Warrior",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Triangle Pose",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Twisting Triangle",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Chair to Twisting Chair",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Right-Angle Pose to Extended Right-Angle Pose & Grab",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Prayer twist from Runner’s Pose to Side Arm Balance",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Warrior Three to Standing Splits",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Half Moon to Twisting Half Moon",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Tree",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Royal Dancer",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Standing Leg Extension",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Crane",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Seated Spinal Stretch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Cat Stretch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Frog",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Bridge or Wheel",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Plough into Shoulder Stand with Leg Variations into Plough",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Table",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Cobbler Pose",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "One-Legged Hamstring Stretch into Two-Legged Hamstring Stretch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Touch the Sky",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Boat",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Half Boat",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Scissor",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Torso Twist Hold",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Deep Torso Twist Hold",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Touch the Sky",
-                "done": "",
+                "done": false,
                 "note": ""
               }
             ]
@@ -3574,137 +3574,137 @@
             "exercises": [
               {
                 "name": "Twist and Pivot",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Twist & Pivot w/Hook Uppercut",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jabs",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jab/Cross",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jab/Cross/Hook",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jab/Cross/Hook/Uppercut",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Step Drag Punch High/Low",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jab/Cross Switch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Hook/Uppercut Switch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Knee Kicks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Ball Kicks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Side Kicks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Back Kicks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Three Direction Kicks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "High Sword/Low Hammer",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Step Drag/Claw/Low Punch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "High Blocks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Inward Blocks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Outward Blocks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Downward Block",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Star Blocks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "High Block/Low Punch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Knee/Back Kick",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Back Knuckle/Ball Kick/Back Kick",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Hook/Uppercut/Low Side Kick",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Elbow Series",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Vertical Punches",
-                "done": "",
+                "done": false,
                 "note": ""
               }
             ]
@@ -3722,7 +3722,7 @@
             "exercises": [
               {
                 "name": "Done",
-                "done": "",
+                "done": false,
                 "note": ""
               }
             ]
@@ -3949,232 +3949,232 @@
             "exercises": [
               {
                 "name": "Jump Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Run Stance Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Airborne Heismans",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Swing Kicks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jump Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Run Stance Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Airborne Heismans",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Swing Kicks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Squat Reach Jumps",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Squat Switch Pickups",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Double Airborne Heismans",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Circle Runs",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Squat Reach Jumps",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Squat Switch Pickups",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Double Airborne Heismans",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Circle Runs",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jump Knee Tucks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Marg Katherine Lunges",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Leap Frog Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Twist Combos",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jump Knee Tucks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Marg Katherine Lunges",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Leap Frog Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Twist Combos",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Rock Star Hops",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Gap Jumps",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Squat Jumps",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Military March",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Rock Star Hops",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Gap Jumps",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Squat Jumps",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Military March",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Run Squat 180 Jump Switches",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Lateral Leap Frog Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Monster Truck Tires",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Hot Foor",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Run Squat 180 Jump Switches",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Lateral Leap Frog Squats",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Monster Truck Tires",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Hot Foor",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Pitch & Catch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jump Shots",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Football Hero",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Pitch & Catch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jump Shots",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Football Hero",
-                "done": "",
+                "done": false,
                 "note": ""
               }
             ]
@@ -4447,157 +4447,157 @@
             "exercises": [
               {
                 "name": "Runner's Pose",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Crescent Pose",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Warrior One",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Warrior Two",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Reverse Warrior",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Triangle Pose",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Twisting Triangle",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Chair to Twisting Chair",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Right-Angle Pose to Extended Right-Angle Pose & Grab",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Prayer twist from Runner’s Pose to Side Arm Balance",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Warrior Three to Standing Splits",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Half Moon to Twisting Half Moon",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Tree",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Royal Dancer",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Standing Leg Extension",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Crane",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Seated Spinal Stretch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Cat Stretch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Frog",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Bridge or Wheel",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Plough into Shoulder Stand with Leg Variations into Plough",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Table",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Cobbler Pose",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "One-Legged Hamstring Stretch into Two-Legged Hamstring Stretch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Touch the Sky",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Boat",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Half Boat",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Scissor",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Torso Twist Hold",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Deep Torso Twist Hold",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Touch the Sky",
-                "done": "",
+                "done": false,
                 "note": ""
               }
             ]
@@ -4816,137 +4816,137 @@
             "exercises": [
               {
                 "name": "Twist and Pivot",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Twist & Pivot w/Hook Uppercut",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jabs",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jab/Cross",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jab/Cross/Hook",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jab/Cross/Hook/Uppercut",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Step Drag Punch High/Low",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Jab/Cross Switch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Hook/Uppercut Switch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Knee Kicks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Ball Kicks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Side Kicks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Back Kicks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Three Direction Kicks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "High Sword/Low Hammer",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Step Drag/Claw/Low Punch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "High Blocks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Inward Blocks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Outward Blocks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Downward Block",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Star Blocks",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "High Block/Low Punch",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Knee/Back Kick",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Back Knuckle/Ball Kick/Back Kick",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Hook/Uppercut/Low Side Kick",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Elbow Series",
-                "done": "",
+                "done": false,
                 "note": ""
               },
               {
                 "name": "Vertical Punches",
-                "done": "",
+                "done": false,
                 "note": ""
               }
             ]
@@ -4964,7 +4964,7 @@
             "exercises": [
               {
                 "name": "Done",
-                "done": "",
+                "done": false,
                 "note": ""
               }
             ]
