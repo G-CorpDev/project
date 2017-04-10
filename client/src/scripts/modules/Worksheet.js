@@ -15,7 +15,7 @@ class Worksheet extends Component {
 
     componentDidMount() {
         this.getWorksheet();
-
+        console.log("mounting");
         let _this = this;
         let firstUndone = true;
         let BreakException = {};
@@ -24,7 +24,8 @@ class Worksheet extends Component {
                 week.forEach(function (day) {
                     day.workouts.forEach(function (workout) {
                         if (firstUndone && !workout.done) {
-                            _this.setState({exercises: workout.exercises, skippedExercises: workout.exercises});
+                            let exs = workout.exercises.slice();
+                            _this.setState({exercises: exs, skippedExercises: exs});
                             firstUndone = false;
                             throw BreakException;
                         }
@@ -78,9 +79,9 @@ class Worksheet extends Component {
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
 
-        let exercises = this.state.exercises;
-        let jsonData = exercises[exerciseIndex] !== undefined ? exercises[exerciseIndex] : {};
+        let jsonData = JSON.parse(JSON.stringify(this.state.exercises[exerciseIndex]));
         jsonData[name] = value;
+        let exercises = this.state.exercises.slice();
         exercises[exerciseIndex] = jsonData;
 
         this.setState({
