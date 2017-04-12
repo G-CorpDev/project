@@ -50,7 +50,7 @@ class Worksheet extends Component {
             })
             .catch(function (error) {
                 console.log(error);
-                _this.setBlankExercise(this.state.sheet);
+                _this.setBlankExercise(_this.state.sheet);
             });
     }
 
