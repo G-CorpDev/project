@@ -16,11 +16,14 @@ class Worksheet extends Component {
     componentDidMount() {
         this.getWorksheet();
         console.log("mounting");
+    }
+
+    setBlankExercise(sheet) {
         let _this = this;
         let firstUndone = true;
         let BreakException = {};
         try {
-            this.state.sheet.weeks.forEach(function (week) {
+            sheet.weeks.forEach(function (week) {
                 week.forEach(function (day) {
                     day.workouts.forEach(function (workout) {
                         if (firstUndone && !workout.done) {
@@ -43,10 +46,11 @@ class Worksheet extends Component {
             .then(function (response) {
                 console.log(response);
                 _this.setState({sheet: response.data});
+                _this.setBlankExercise(response.data);
             })
             .catch(function (error) {
                 console.log(error);
-                //window.alert(error);
+                _this.setBlankExercise(this.state.sheet);
             });
     }
 
