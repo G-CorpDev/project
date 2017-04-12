@@ -1,5 +1,7 @@
 #include <Mocks.h>
 
+#include <iostream>
+
 Models::User Mocks::DatabaseMock::getUserByID(const int &id)
 {
     return users.getUserByID(id);
@@ -29,32 +31,53 @@ Models::Worksheet Mocks::DatabaseMock::getUsersWorksheetByUserID(const int &id)
     Models::Worksheet sheet(name,"Work please.","1 egg","Like shitting bricks.");
     Models::Week week1;
     Models::Week week2;
+
     Models::Day monday1(Models::Day::Days::Monday);
     Models::Day tuesday1(Models::Day::Days::Tuesday);
     Models::Day wednesday1(Models::Day::Days::Wednesday);
+    Models::Day thursday1(Models::Day::Days::Thursday);
+    Models::Day friday1(Models::Day::Days::Friday);
     Models::Day monday2(Models::Day::Days::Monday);
+    Models::Day tuesday2(Models::Day::Days::Tuesday);
+    Models::Day wednesday2(Models::Day::Days::Wednesday);
+    Models::Day thursday2(Models::Day::Days::Thursday);
+
     Models::Workout overwritten("SHOULD NOT APPEAR","get out of here",Models::Workout::TimeOfDay::Day,true,false);
     Models::Workout workout1("Lunch","Have lunch, fatass",Models::Workout::TimeOfDay::Day,true,false);
-    Models::Workout workout2("Swim","So sharks can eat you",Models::Workout::TimeOfDay::Morning,false,true);
+    Models::Workout workout2("Swim","So sharks can eat you",Models::Workout::TimeOfDay::Morning,true,true);
+    Models::Workout workout3("Lift.","CRATESANDCRATESANDCRATESANDCRATES and smooth jazz",Models::Workout::TimeOfDay::Evening,false,false);
     Models::Exercise ex("pushup","",Models::Exercise::Type::RepsOnly,"10","0",false);
     Models::Exercise ex2("SOUPSUP","fatass",Models::Exercise::Type::JustDone,"","",true);
     Models::Exercise ex3("lose weight","FATASS!",Models::Exercise::Type::JustDone,"","",false);
     Models::Exercise ex4("lift bro","DYEL!",Models::Exercise::Type::RepsAndWeight,"5x5","50 moons",false);
+    Models::Exercise ex5("lift bro","DYEL!",Models::Exercise::Type::WeightOnly,"5x5","50 moons",false);
+    Models::Exercise ex6("lift bro","DYEL!",Models::Exercise::Type::RepsOnly,"5x5","50 moons",false);
+    Models::Exercise ex7("leg day","DYEL!",Models::Exercise::Type::JustDone,"5x5","50 moons",false);
     
     workout1.addExercise(ex);
     workout1.addExercise(ex3);
     workout1.addExercise(ex2);
     workout1.addExercise(ex4);
+    workout3.addExercise(ex5);
+    workout3.addExercise(ex6);
+    workout3.addExercise(ex7);
     monday1.addWorkout(overwritten);
     monday1.addWorkout(workout1);
     monday1.addWorkout(workout2);
+    monday1.addWorkout(workout3);
+    wednesday1.addWorkout(workout3);
     week1.addDay(monday1);
     week1.addDay(tuesday1);
     week1.addDay(wednesday1);
-    week2.addDay(monday2);
+    week1.addDay(thursday1);
+    week1.addDay(friday1);
+    week2.addDay(monday1);
+    week2.addDay(tuesday1);
+    week2.addDay(wednesday1);
+    week2.addDay(thursday1);
     sheet.addWeek(week1);
     sheet.addWeek(week2);
-    return sheet;
+    return Models::Worksheet(sheet);
 }
 
 std::vector<Models::Worksheet> Mocks::DatabaseMock::getAllWorksheets(const Sort &sortBy)

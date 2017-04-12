@@ -10,9 +10,8 @@
 
 #include <JWT.h>
 #include <Authenticator.h>
-//TODO: add Not_Acceptable to /login and to /register(?)
+
 //NOTE: POSTs in Chrome are unreliable for some reason. Use Firefox.
-//TODO: Workout skip
 
 int main (int argc , char ** argv){
     Net::Address acceptFromAddress(Net::Ipv4::any(),Net::Port(3000));
@@ -42,37 +41,7 @@ int main (int argc , char ** argv){
     std::cout<<"Valid is"<<validUser.isValid()<<std::endl;
     std::cout<<"inValid is"<<invalidUser.isValid()<<std::endl;
 */
-/*
-    Models::Worksheet sheet("Test sheet","Work please.","1 egg","Like shitting bricks.");
-    Models::Week week1;
-    Models::Week week2;
-    Models::Day monday1(Models::Day::Days::Monday);
-    Models::Day tuesday1(Models::Day::Days::Tuesday);
-    Models::Day wednesday1(Models::Day::Days::Wednesday);
-    Models::Day monday2(Models::Day::Days::Monday);
-    Models::Workout overwritten("SHOULD NOT APPEAR","get out of here",Models::Workout::TimeOfDay::Day,true,false);
-    Models::Workout workout1("Lunch","Have lunch, fatass",Models::Workout::TimeOfDay::Day,true,false);
-    Models::Workout workout2("Swim","So sharks can eat you",Models::Workout::TimeOfDay::Morning,false,true);
-    Models::Exercise ex("pushup","",Models::Exercise::Type::RepsOnly,"10","0",false);
-    Models::Exercise ex2("SOUPSUP","fatass",Models::Exercise::Type::JustDone,"","",true);
-    Models::Exercise ex3("lose weight","FATASS!",Models::Exercise::Type::JustDone,"","",false);
-    Models::Exercise ex4("lift bro","DYEL!",Models::Exercise::Type::RepsAndWeight,"5x5","50 moons",false);
-    
-    workout1.addExercise(ex);
-    workout1.addExercise(ex3);
-    workout1.addExercise(ex2);
-    workout1.addExercise(ex4);
-    monday1.addWorkout(overwritten);
-    monday1.addWorkout(workout1);
-    monday1.addWorkout(workout2);
-    week1.addDay(monday1);
-    week1.addDay(tuesday1);
-    week1.addDay(wednesday1);
-    week2.addDay(monday2);
-    sheet.addWeek(week1);
-    sheet.addWeek(week2);
-    std::cout<<sheet.toJSON()<<std::endl;
-*/
+
     std::cout<<std::endl<<"Serving on port 3000"<<std::endl;
     std::cin.get();
     server.shutdown();

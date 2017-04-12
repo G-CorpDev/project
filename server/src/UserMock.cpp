@@ -1,5 +1,7 @@
 #include <Mocks.h>
 
+#include <iostream>
+
 Mocks::UserMock::UserMock()
 {
     this->getNextID();
@@ -43,7 +45,8 @@ Models::User Mocks::UserMock::getUserByCredentials(const std::pair<std::string, 
 {
     try
     {
-        return users.at(credentials);
+        auto user = users.at(credentials);
+        return user;
     }
     catch (std::exception e)
     {

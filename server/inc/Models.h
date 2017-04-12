@@ -3,7 +3,10 @@
 
 #include <string>
 #include <vector>
+#include <memory>
 #include <jansson.h>
+
+#include <iostream>
 
 namespace Models
 {
@@ -56,9 +59,11 @@ class Workout
         Evening = 2
     };
 
+    static Models::Workout::TimeOfDay timeFromString(const std::string & string);
+
     Workout(const std::string &name, const std::string &description, const TimeOfDay &time, const bool &done , const bool & skipped);
     std::string toJSON();
-    void addExercise(const Exercise &exercise);
+    void addExercise(Exercise exercise);
     TimeOfDay getTime()const{return time;}
 
   private:
@@ -95,20 +100,20 @@ class Day
     bool operator==(const Day & other){return this->dayOfTheWeek==other.dayOfTheWeek;}
 
     Day(const Days & dayOfTheWeek);
-    void addWorkout(Workout & workout);
+    void addWorkout(Workout workout);
     std::string toJSON();
 
   private:
     Days dayOfTheWeek;
-    Workout * morning;
-    Workout * midday;
-    Workout * evening;
+    std::shared_ptr<Workout> morning;
+    std::shared_ptr<Workout> midday;
+    std::shared_ptr<Workout> evening;
 };
 
 class Week
 {
   public:
-    void addDay(const Day &day);
+    void addDay(Day day);
     std::string toJSON();
 
   private:
@@ -119,7 +124,7 @@ class Worksheet
 {
   public:
     Worksheet(const std::string &name, const std::string &description, const std::string &avgWorkoutLength, const std::string &difficulty);
-    void addWeek(const Week &week);
+    void addWeek(Week week);
     std::string toJSON();
 
   private:

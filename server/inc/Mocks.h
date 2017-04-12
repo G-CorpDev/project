@@ -15,7 +15,7 @@ namespace Mocks{
     class UserMock{
         private:
             std::map<std::pair<std::string,std::string>,Models::User> users;
-            std::atomic<int> idcounter;
+            std::atomic<int> idcounter{0};
 
         public:
             int getNextID();

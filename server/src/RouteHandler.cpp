@@ -75,13 +75,12 @@ void RouteHandler::doLogin(const Net::Rest::Request &request, Net::Http::Respons
         userData.insert({"displayName", user.getDisplayName()});
         userData.insert({"id", std::to_string(user.getID())});
 
-        std::cout << "login from " << ct->host() << ":" << ct->port() << " - " << request.body() << std::endl;
+        std::cout <<user.getDisplayName()<<" - id: "<<user.getID()<< ". logged from " << ct->host() << ":" << ct->port() << " - " << request.body() << std::endl;
         std::string token = auth.generateToken(user);
         std::string payload("JWTtoken=");
         payload.append(token);
         payload.append("; path=/ ");
         payload.append("; domain=localhost ");
-        payload.append("; Max-Age=3600");
         Net::Http::Cookie cookie = Net::Http::Cookie::fromString(payload);
         cookie.httpOnly = true;
         response.cookies().add(cookie);
@@ -154,7 +153,6 @@ void RouteHandler::doRegister(const Net::Rest::Request &request, Net::Http::Resp
             payload.append(token);
             payload.append("; path=/ ");
             payload.append("; domain=localhost ");
-            payload.append("; Max-Age=3600");
             Net::Http::Cookie cookie = Net::Http::Cookie::fromString(payload);
             cookie.httpOnly = true;
             response.cookies().add(cookie);
@@ -187,10 +185,9 @@ void RouteHandler::getWorksheet(const Net::Rest::Request &request, Net::Http::Re
         response.send(Net::Http::Code::Forbidden,"Invalid authrization.");
         return;
     }
-    std::cout<<"Getting worksheet"<<std::endl;
-    Models::Worksheet sheet = database.getUsersWorksheetByUserID(userID);
-    std::cout<<"Got worksheet"<<std::endl;
-    response.send(Net::Http::Code::Ok, sheet.toJSON());
+    std::cout<<"Getting worksheet for "<<user.getID()<<","<<user.getDisplayName()<<std::endl;
+    Models::Worksheet sheet = database.getUsersWorksheetByUserID(user.getID());
+    response.send(Net::Http::Code::Ok,sheet.toJSON() );
 }
 void RouteHandler::getWorksheets(const Net::Rest::Request &request, Net::Http::ResponseWriter response)
 {
@@ -500,5 +497,3 @@ void RouteHandler::finishWorkout(const Net::Rest::Request &request, Net::Http::R
     response.send(Net::Http::Code::Internal_Server_Error);
     json_decref(json);
 }
-
-//TODO: put error messages in responses.

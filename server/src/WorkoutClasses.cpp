@@ -1,5 +1,4 @@
 #include <Models.h>
-#include <iostream>
 
 Models::Exercise::Exercise(const std::string &name, const std::string &note, Models::Exercise::Type type, const std::string &reps, const std::string &weight, const bool &done)
     : name(name), note(note), type(type), reps(reps), weight(weight), done(done) {}
@@ -10,6 +9,7 @@ std::string Models::Exercise::toJSON()
 
     json_object_set_new(root, "name", json_string(name.c_str()));
     json_object_set_new(root, "note", json_string(note.c_str()));
+
     switch (type)
     {
     case Models::Exercise::Type::JustDone:
@@ -78,9 +78,14 @@ std::string Models::Workout::toJSON()
     return json;
 }
 
-void Models::Workout::addExercise(const Exercise &exercise)
+void Models::Workout::addExercise(Exercise exercise)
 {
     this->exercises.push_back(exercise);
+}
+    
+Models::Workout::TimeOfDay timeFromString(const std::string & string){
+    //TODO:
+    return Models::Workout::TimeOfDay::Day;
 }
 
 Models::Day::Day(const Days &dotw) : dayOfTheWeek(dotw)
@@ -129,18 +134,18 @@ std::string Models::Day::toJSON()
     return json;
 }
 
-void Models::Day::addWorkout(Workout &workout)
+void Models::Day::addWorkout(Workout workout)
 {
     switch (workout.getTime())
     {
     case Models::Workout::TimeOfDay::Morning:
-        morning = &workout;
+        morning =std::make_shared<Workout>(workout);
         break;
     case Models::Workout::TimeOfDay::Day:
-        midday = &workout;
+        midday = std::make_shared<Workout>(workout);
         break;
     case Models::Workout::TimeOfDay::Evening:
-        evening = &workout;
+        evening = std::make_shared<Workout>(workout);
         break;
     }
 }
@@ -180,7 +185,7 @@ Models::Day::Days Models::Day::fromString(const std::string & string){
     return Models::Day::Days::Invalid;
 }
 
-void Models::Week::addDay(const Day &day)
+void Models::Week::addDay(Day day)
 {
     this->days.push_back(day);
 }
@@ -205,7 +210,7 @@ std::string Models::Week::toJSON()
 Models::Worksheet::Worksheet(const std::string &name, const std::string &description, const std::string &avgWorkoutLength, const std::string &difficulty)
     : name(name), description(description), avgWorkoutLength(avgWorkoutLength), difficulty(difficulty) {}
 
-void Models::Worksheet::addWeek(const Week &week)
+void Models::Worksheet::addWeek(Week week)
 {
     this->weeks.push_back(week);
 }
@@ -220,13 +225,11 @@ std::string Models::Worksheet::toJSON()
     json_object_set_new(root, "avgWorkoutLength", json_string(this->avgWorkoutLength.c_str()));
 
     json_t *weeks = json_array();
-
-    for (auto &week : this->weeks)
+    for (auto week : this->weeks)
     {
-            std::cout<<"Here"<<std::endl;
-
         json_error_t err;
         json_t *tmp = json_loads(week.toJSON().c_str(), 0, &err);
+
         json_array_append(weeks, tmp);
         json_decref(tmp);
     }
