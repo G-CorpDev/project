@@ -13,6 +13,9 @@
 
 //NOTE: POSTs in Chrome are unreliable for some reason. Use Firefox.
 
+//BUG: CLient: cant write note for the first exercise
+//BUG: Client: if note is empty , server gets it as "note", if not its "Note" as an additional field
+
 int main (int argc , char ** argv){
     Net::Address acceptFromAddress(Net::Ipv4::any(),Net::Port(3000));
     auto options = Net::Http::Endpoint::options().threads(10).flags(Net::Tcp::Options::InstallSignalHandler);

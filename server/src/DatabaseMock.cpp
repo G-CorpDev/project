@@ -50,9 +50,9 @@ Models::Worksheet Mocks::DatabaseMock::getUsersWorksheetByUserID(const int &id)
     Models::Exercise ex2("SOUPSUP","fatass",Models::Exercise::Type::JustDone,"","",true);
     Models::Exercise ex3("lose weight","FATASS!",Models::Exercise::Type::JustDone,"","",false);
     Models::Exercise ex4("lift bro","DYEL!",Models::Exercise::Type::RepsAndWeight,"5x5","50 moons",false);
-    Models::Exercise ex5("lift bro","DYEL!",Models::Exercise::Type::WeightOnly,"5x5","50 moons",false);
-    Models::Exercise ex6("lift bro","DYEL!",Models::Exercise::Type::RepsOnly,"5x5","50 moons",false);
-    Models::Exercise ex7("leg day","DYEL!",Models::Exercise::Type::JustDone,"5x5","50 moons",false);
+    Models::Exercise ex5("lift bro","",Models::Exercise::Type::WeightOnly,"","",false);
+    Models::Exercise ex6("lift bro","",Models::Exercise::Type::RepsOnly,"","",false);
+    Models::Exercise ex7("leg day","",Models::Exercise::Type::JustDone,"","",false);
     
     workout1.addExercise(ex);
     workout1.addExercise(ex3);
@@ -94,11 +94,12 @@ std::vector<Models::Worksheet> Mocks::DatabaseMock::getAllWorksheets(const Sort 
 }
 
 Results::Database Mocks::DatabaseMock::selectWorksheetByWorksheetName(const int &userID, const std::string &worksheetName)
-{
+{   //DEBUG:
+    std::cout<<"User "<<userID<<" changed worksheet to "<<worksheetName<<std::endl;
     return Results::Database::Ok;
 }
 
 Results::Database Mocks::DatabaseMock::saveExercise(const int &userID, const int &week, const Models::Day::Days &day, const Models::Workout::TimeOfDay &timeOfDay, const Models::Exercise &exercise)
 {
-    return Results::Database::Ok;
+    return Results::Database::Ok;   
 }

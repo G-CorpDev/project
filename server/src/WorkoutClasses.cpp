@@ -83,9 +83,11 @@ void Models::Workout::addExercise(Exercise exercise)
     this->exercises.push_back(exercise);
 }
     
-Models::Workout::TimeOfDay timeFromString(const std::string & string){
-    //TODO:
-    return Models::Workout::TimeOfDay::Day;
+Models::Workout::TimeOfDay Models::Workout::timeFromString(const std::string & string){
+    if("Morning"==string || "morning"==string){return Models::Workout::TimeOfDay::Morning;}
+    if("Day"==string || "day"==string || "Midday"==string || "midday"==string){return Models::Workout::TimeOfDay::Day;}
+    if("Evening"==string || "evening"==string || "Night"==string || "night"==string){return Models::Workout::TimeOfDay::Day;}
+    return Models::Workout::TimeOfDay::Invalid;
 }
 
 Models::Day::Day(const Days &dotw) : dayOfTheWeek(dotw)

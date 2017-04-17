@@ -6,8 +6,6 @@
 #include <memory>
 #include <jansson.h>
 
-#include <iostream>
-
 namespace Models
 {
 class User
@@ -34,11 +32,19 @@ class Exercise
         RepsOnly = 0,
         WeightOnly = 1,
         RepsAndWeight = 2,
-        JustDone = 3
+        JustDone = 3,
+        Invalid = -1
     };
 
     Exercise(const std::string &name, const std::string &note, Type type, const std::string &reps, const std::string &weight, const bool &done);
     std::string toJSON();
+
+    bool isDone() const {return done;}
+    std::string getName() const {return name;}
+    std::string getNote() const {return note;}
+    std::string getWeight() const {return weight;}
+    std::string getReps() const {return reps;}
+    Type getType() const {return type;}
 
   private:
     std::string name;
@@ -56,7 +62,8 @@ class Workout
     {
         Morning = 0,
         Day = 1,
-        Evening = 2
+        Evening = 2,
+        Invalid = -1
     };
 
     static Models::Workout::TimeOfDay timeFromString(const std::string & string);

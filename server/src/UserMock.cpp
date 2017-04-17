@@ -1,7 +1,5 @@
 #include <Mocks.h>
 
-#include <iostream>
-
 Mocks::UserMock::UserMock()
 {
     this->getNextID();
