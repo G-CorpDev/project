@@ -126,7 +126,7 @@ class Worksheet extends Component {
                         {done}
                     </div>
                 </div>
-                <input className="exercise__note" type="text" name="Note" placeholder="note"
+                <input className="exercise__note" type="text" name="note" placeholder="note"
                        onChange={this.handleInputChange.bind(this, index)}/>
             </div>
         )
