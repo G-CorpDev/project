@@ -3,6 +3,7 @@
 
 #include <Models.h>
 #include <JWT.h>
+#include <Utils.h>
 
 /*! A class to handle all JSON Web Token needs.*/
 class Authenticator
@@ -10,8 +11,6 @@ class Authenticator
 private:
   JWT::Generator tokenGenerator;
   JWT::Verifier tokenVerifier;
-
-  std::string random_string(size_t length);
 
 public:
   /*! \param token the JWT

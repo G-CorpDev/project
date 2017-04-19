@@ -20,14 +20,18 @@
             "windows": {
                 "MIMode": "gdb"
             },
-            "preLaunchTask": "build server"
+            "preLaunchTask": "build"
         },
         {
-            "name": "C++ Attach",
+            "name": "launch Test",
             "type": "cppdbg",
-            "request": "attach",
-            "program": "${workspaceRoot}/server/src/Server",
-            "processId": "${command:pickProcess}",
+            "request": "launch",
+            "program": "${workspaceRoot}/server/build/bin/Test",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}",
+            "environment": [],
+            "externalConsole": true,
             "linux": {
                 "MIMode": "gdb"
             },
@@ -36,7 +40,8 @@
             },
             "windows": {
                 "MIMode": "gdb"
-            }
+            },
+            "preLaunchTask": "build"
         }
     ]
 }

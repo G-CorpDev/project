@@ -1,23 +1,7 @@
 #include <Authenticator.h>
-#include <algorithm>
 
 #include <sstream>
 #include <ctime>
-
-std::string Authenticator::random_string(size_t length)
-{
-    auto randchar = []() -> char {
-        const char charset[] =
-            "0123456789"
-            "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-            "abcdefghijklmnopqrstuvwxyz";
-        const size_t max_index = (sizeof(charset) - 1);
-        return charset[rand() % max_index];
-    };
-    std::string str(length, 0);
-    std::generate_n(str.begin(), length, randchar);
-    return str;
-}
 
 Models::User Authenticator::authenticateUser(const std::string &token)
 {
@@ -52,6 +36,6 @@ std::string Authenticator::generateToken(const Models::User &user)
     return this->tokenGenerator.generateJWT(userData);
 }
 
-Authenticator::Authenticator() : tokenGenerator(random_string(20)), tokenVerifier(tokenGenerator.getSecret())
+Authenticator::Authenticator() : tokenGenerator(Utils::random_string(20)), tokenVerifier(tokenGenerator.getSecret())
 {
 }

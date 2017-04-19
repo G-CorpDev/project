@@ -16,17 +16,18 @@
 //BUG: CLient: cant write note for the first exercise
 //BUG: Client: if note is empty , server gets it as "note", if not its "Note" as an additional field
 
-int main (int argc , char ** argv){
-    Net::Address acceptFromAddress(Net::Ipv4::any(),Net::Port(3000));
+int main(int argc, char **argv)
+{
+    Net::Address acceptFromAddress(Net::Ipv4::any(), Net::Port(3000));
     auto options = Net::Http::Endpoint::options().threads(10).flags(Net::Tcp::Options::InstallSignalHandler);
     Net::Rest::Router router;
     Mocks::DatabaseMock database;
-    RouteHandler handler(router,database);
+    RouteHandler handler(router, database);
     Net::Http::Endpoint server(acceptFromAddress);
     server.init(options);
     server.setHandler(router.handler());
     server.serveThreaded();
-/*
+    /*
     std::cout<<std::endl<<"JWT generation test:"<<std::endl;
     Authenticator auth;
     std::string token = auth.generateToken(database.getUserByID(1)); 
@@ -45,7 +46,8 @@ int main (int argc , char ** argv){
     std::cout<<"inValid is"<<invalidUser.isValid()<<std::endl;
 */
 
-    std::cout<<std::endl<<"Serving on port 3000"<<std::endl;
+    std::cout << std::endl
+              << "Serving on port 3000" << std::endl;
     std::cin.get();
     server.shutdown();
 }

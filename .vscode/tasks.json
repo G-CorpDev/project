@@ -6,8 +6,8 @@
   "windows": { "command": "powershell", "args": ["-Command"] },
   "tasks": [
     {
-      "taskName": "build server",
-      "args": ["mkdir -p server/build && cd server/build && cmake .. && make && find . ! -name 'Server' -type f -exec rm -f {} + && find . ! \\( -name bin -o -name . -o -name .. \\) -type d -exec rm -rf {} + && cd ../../doc && doxygen Doxyfile"],
+      "taskName": "build",
+      "args": ["mkdir -p server/build && cd server/build && cmake .. && make && find . ! \\( -name 'Server' -o -name 'Test' \\) -type f -exec rm -f {} + && find . ! \\( -name bin -o -name . -o -name .. \\) -type d -exec rm -rf {} + && cd ../../doc && doxygen Doxyfile"],
       "showOutput": "always",
       "isShellCommand": true,
       "suppressTaskName": true,

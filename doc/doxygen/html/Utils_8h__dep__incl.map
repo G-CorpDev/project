@@ -1,6 +1,8 @@
 <map id="/home/mate/Projects/project/server/inc/Utils.h" name="/home/mate/Projects/project/server/inc/Utils.h">
 <area shape="rect" id="node2" href="$Utils_8cpp.html" title="/home/mate/Projects\l/project/server/src\l/Utils.cpp" alt="" coords="5,109,148,165"/>
-<area shape="rect" id="node3" href="$RouteHandler_8h.html" title="/home/mate/Projects\l/project/server/inc\l/RouteHandler.h" alt="" coords="172,109,315,165"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title="/home/mate/Projects\l/project/server/src\l/main.cpp" alt="" coords="88,213,231,269"/>
-<area shape="rect" id="node5" href="$RouteHandler_8cpp.html" title="/home/mate/Projects\l/project/server/src\l/RouteHandler.cpp" alt="" coords="255,213,397,269"/>
+<area shape="rect" id="node3" href="$Authenticator_8h.html" title="/home/mate/Projects\l/project/server/inc\l/Authenticator.h" alt="" coords="172,109,315,165"/>
+<area shape="rect" id="node6" href="$RouteHandler_8h.html" title="/home/mate/Projects\l/project/server/inc\l/RouteHandler.h" alt="" coords="281,213,424,269"/>
+<area shape="rect" id="node4" href="$Authenticator_8cpp.html" title="/home/mate/Projects\l/project/server/src\l/Authenticator.cpp" alt="" coords="63,213,205,269"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="/home/mate/Projects\l/project/server/src\l/main.cpp" alt="" coords="172,317,315,373"/>
+<area shape="rect" id="node7" href="$RouteHandler_8cpp.html" title="/home/mate/Projects\l/project/server/src\l/RouteHandler.cpp" alt="" coords="339,317,481,373"/>
 </map>
