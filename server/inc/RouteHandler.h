@@ -7,6 +7,7 @@
 
 #include <jansson.h>
 
+/*! The class which handles all incoming requests. **For the documentation of the REST API, please see** [the Swagger-UI documentation](../../API [Swagger-UI]/index.html) *Chrome may not work, use Firefox.* */
 class RouteHandler {
     public:
         RouteHandler(Net::Rest::Router & router,iDatabaseSource & database);

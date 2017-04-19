@@ -10,8 +10,10 @@
 #include <Results.h>
 #include <Sort.h>
 
-namespace Mocks{
 
+/*! Namespace containing mocks for testing.*/
+namespace Mocks{
+    /*! Mocks the user tables of the database.*/
     class UserMock{
         private:
             std::map<std::pair<std::string,std::string>,Models::User> users;
@@ -25,7 +27,7 @@ namespace Mocks{
             Models::User getUserByID(const int & id);
             std::vector<Models::User> getAllUsers();
     };
-
+    /*! Mock simulating a database connection.*/
     class DatabaseMock : public iDatabaseSource {
         private:
             UserMock users;
@@ -37,8 +39,8 @@ namespace Mocks{
             Models::Worksheet getUsersWorksheetByUserID(const int & id);
             std::vector<Models::Worksheet> getAllWorksheets(const Sort & sortBy);
             
-            Results::Database selectWorksheetByWorksheetName(const int & userID,const std::string & worksheetName);//Doesn't do anything.
-            Results::Database saveExercise(const int & userID,const int & week,const Models::Day::Days & day,const Models::Workout::TimeOfDay & timeOfDay,const Models::Exercise & exercise);//Doesn't do anything
+            Results::Database selectWorksheetByWorksheetName(const int & userID,const std::string & worksheetName);/*!Doesn't do anything.*/
+            Results::Database saveExercise(const int & userID,const int & week,const Models::Day::Days & day,const Models::Workout::TimeOfDay & timeOfDay,const Models::Exercise & exercise);/*!Doesn't do anything*/
 
     };
 

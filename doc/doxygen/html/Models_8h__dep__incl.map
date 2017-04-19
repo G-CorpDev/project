@@ -1,0 +1,15 @@
+<map id="/home/mate/Projects/project/server/inc/Models.h" name="/home/mate/Projects/project/server/inc/Models.h">
+<area shape="rect" id="node2" href="$main_8cpp.html" title="/home/mate/Projects\l/project/server/src\l/main.cpp" alt="" coords="85,317,228,373"/>
+<area shape="rect" id="node3" href="$User_8cpp.html" title="/home/mate/Projects\l/project/server/src\l/User.cpp" alt="" coords="609,109,752,165"/>
+<area shape="rect" id="node4" href="$WorkoutClasses_8cpp.html" title="/home/mate/Projects\l/project/server/src\l/WorkoutClasses.cpp" alt="" coords="776,109,924,165"/>
+<area shape="rect" id="node5" href="$Authenticator_8h.html" title="/home/mate/Projects\l/project/server/inc\l/Authenticator.h" alt="" coords="57,109,200,165"/>
+<area shape="rect" id="node9" href="$iDatabaseSource_8h.html" title="/home/mate/Projects\l/project/server/inc\l/iDatabaseSource.h" alt="" coords="390,109,533,165"/>
+<area shape="rect" id="node10" href="$Mocks_8h.html" title="/home/mate/Projects\l/project/server/inc\l/Mocks.h" alt="" coords="557,213,700,269"/>
+<area shape="rect" id="node13" href="$Utils_8h.html" title="/home/mate/Projects\l/project/server/inc\l/Utils.h" alt="" coords="224,109,366,165"/>
+<area shape="rect" id="node6" href="$Authenticator_8cpp.html" title="/home/mate/Projects\l/project/server/src\l/Authenticator.cpp" alt="" coords="57,213,200,269"/>
+<area shape="rect" id="node7" href="$RouteHandler_8h.html" title="/home/mate/Projects\l/project/server/inc\l/RouteHandler.h" alt="" coords="390,213,533,269"/>
+<area shape="rect" id="node8" href="$RouteHandler_8cpp.html" title="/home/mate/Projects\l/project/server/src\l/RouteHandler.cpp" alt="" coords="390,317,533,373"/>
+<area shape="rect" id="node11" href="$DatabaseMock_8cpp.html" title="/home/mate/Projects\l/project/server/src\l/DatabaseMock.cpp" alt="" coords="557,317,700,373"/>
+<area shape="rect" id="node12" href="$UserMock_8cpp.html" title="/home/mate/Projects\l/project/server/src\l/UserMock.cpp" alt="" coords="724,317,866,373"/>
+<area shape="rect" id="node14" href="$Utils_8cpp.html" title="/home/mate/Projects\l/project/server/src\l/Utils.cpp" alt="" coords="224,213,366,269"/>
+</map>

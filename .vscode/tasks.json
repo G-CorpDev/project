@@ -7,7 +7,7 @@
   "tasks": [
     {
       "taskName": "build server",
-      "args": ["mkdir -p server/build && cd server/build && cmake .. && make && find . ! -name 'Server' -type f -exec rm -f {} + && find . ! \\( -name bin -o -name . -o -name .. \\) -type d -exec rm -rf {} +"],
+      "args": ["mkdir -p server/build && cd server/build && cmake .. && make && find . ! -name 'Server' -type f -exec rm -f {} + && find . ! \\( -name bin -o -name . -o -name .. \\) -type d -exec rm -rf {} + && cd ../../doc && doxygen Doxyfile"],
       "showOutput": "always",
       "isShellCommand": true,
       "suppressTaskName": true,
