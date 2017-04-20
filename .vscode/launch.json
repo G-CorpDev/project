@@ -20,7 +20,7 @@
             "windows": {
                 "MIMode": "gdb"
             },
-            "preLaunchTask": "build"
+            "preLaunchTask": "build Server"
         },
         {
             "name": "launch Test",
