@@ -48,7 +48,7 @@
             "name": "make Documentation",
             "type": "cppdbg",
             "request": "launch",
-            "program": "",
+            "program": "${workspaceRoot}/server/build/bin/Test",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceRoot}",

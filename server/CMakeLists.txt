@@ -5,6 +5,8 @@ project(Server)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
+SET(CMAKE_CXX_FLAGS "-std=c++0x")
+
 subdirs(src)
 subdirs(test)
 

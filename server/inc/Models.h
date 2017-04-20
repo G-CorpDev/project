@@ -115,7 +115,7 @@ class Day
         Invalid = -1 /*!<Day could not be interpreted as any of the above, and therefore is invalid.*/
     };
     /*!\return the string representation of the Days*/
-    std::string dayAsString(const Days & day);
+    static std::string dayAsString(const Days & day);
     /*!\param string the string representation of a Days
     \return a Days parsed from string*/
     static Days fromString(const std::string & string); 

@@ -28,4 +28,13 @@ TEST_F(UserTest, ConstructorAndGetters)
     EXPECT_EQ(user.getDisplayName(),nickname);
     EXPECT_EQ(user.getID(),random_integer);
 }
+
+TEST_F(UserTest, VerifiedTests){
+    std::string nickname(Utils::random_string(20));
+    auto random_integer = uni(rng);
+    Models::User user(nickname, random_integer);
+    Models::User unauthenticatedUser(false);
+    EXPECT_TRUE(user.isValid());
+    EXPECT_FALSE(unauthenticatedUser.isValid());
+}
 }
