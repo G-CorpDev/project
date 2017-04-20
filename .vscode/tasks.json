@@ -6,8 +6,50 @@
   "windows": { "command": "powershell", "args": ["-Command"] },
   "tasks": [
     {
-      "taskName": "build",
-      "args": ["mkdir -p server/build && cd server/build && cmake .. && make && find . ! \\( -name 'Server' -o -name 'Test' \\) -type f -exec rm -f {} + && find . ! \\( -name bin -o -name . -o -name .. \\) -type d -exec rm -rf {} + && cd ../../doc && doxygen Doxyfile"],
+      "taskName": "build Server",
+      "args": ["mkdir -p server/build && cd server/build && cmake .. && make Server && find . ! \\( -name 'Server' -o -name 'Test' \\) -type f -exec rm -f {} + && find . ! \\( -name bin -o -name . -o -name .. \\) -type d -exec rm -rf {} +"],
+      "showOutput": "always",
+      "isShellCommand": true,
+      "suppressTaskName": true,
+      "isBuildCommand": true,
+      "isTestCommand": false,
+      "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": ["relative", "${workspaceRoot}"],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
+    },
+    {
+      "taskName": "build Test",
+      "args": ["mkdir -p server/build && cd server/build && cmake .. && make Test && find . ! \\( -name 'Server' -o -name 'Test' \\) -type f -exec rm -f {} + && find . ! \\( -name bin -o -name . -o -name .. \\) -type d -exec rm -rf {} +"],
+      "showOutput": "always",
+      "isShellCommand": true,
+      "suppressTaskName": true,
+      "isBuildCommand": true,
+      "isTestCommand": false,
+      "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": ["relative", "${workspaceRoot}"],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
+    },
+    {
+      "taskName": "build doc",
+      "args": ["mkdir -p server/build && cd server/build && cmake .. && make doc && make coverage && find . ! \\( -name 'Server' -o -name 'Test' \\) -type f -exec rm -f {} + && find . ! \\( -name bin -o -name . -o -name .. \\) -type d -exec rm -rf {} +"],
       "showOutput": "always",
       "isShellCommand": true,
       "suppressTaskName": true,

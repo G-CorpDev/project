@@ -9,3 +9,12 @@ subdirs(src)
 subdirs(test)
 
 include_directories(./inc)
+
+add_custom_target(doc
+WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/../doc
+COMMAND echo "Generating documentation."
+COMMAND mkdir -p ${PROJECT_SOURCE_DIR}/../doc/
+COMMAND echo ${PROJECT_SOURCE_DIR}
+COMMAND doxygen
+)
+set_target_properties(doc PROPERTIES EXCLUDE_FROM_DEFAULT_BUILD TRUE)
