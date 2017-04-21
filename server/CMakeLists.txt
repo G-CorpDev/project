@@ -20,3 +20,9 @@ COMMAND echo ${PROJECT_SOURCE_DIR}
 COMMAND doxygen
 )
 set_target_properties(doc PROPERTIES EXCLUDE_FROM_DEFAULT_BUILD TRUE)
+
+add_custom_target(cleanup
+WORKING_DIRECTORY ${PROJECT_BINARY_DIR}
+COMMAND find . ! \\\( -name 'Server' -o -name 'Test' \\\) -type f -exec rm -f {} +
+COMMAND find . ! \\\( -name bin -o -name . -o -name .. \\\) -type d -exec rm -rf {} +
+)

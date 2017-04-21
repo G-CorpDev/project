@@ -35,7 +35,9 @@ TEST(WorkoutTest,AddExercise){
 }
 TEST(WorkoutTest,toJSON){
     Models::Workout workout("Name","Desc.",Models::Workout::TimeOfDay::Morning,true,false);
+    Models::Exercise ex("","",Models::Exercise::Type::RepsOnly,"","",true);
 
+    workout.addExercise(ex);
     std::string JSON(workout.toJSON());
 
     ASSERT_GT(JSON.size(),0);

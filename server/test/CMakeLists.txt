@@ -35,5 +35,7 @@ COMMAND ${PROJECT_BINARY_DIR}/bin/Test -s
 COMMAND mkdir -p ${PROJECT_SOURCE_DIR}/../doc/coverage
 COMMAND ${LCOV_PATH} --directory ${PROJECT_BINARY_DIR}/test/CMakeFiles/Test.dir/ --base-directory ${PROJECT_SOURCE_DIR} --no-external --capture --output-file ${PROJECT_SOURCE_DIR}/../doc/coverage/code_coverage.info -rc lcov_branch_coverage=1
 COMMAND ${LCOV_PATH} --remove ${PROJECT_SOURCE_DIR}/../doc/coverage/code_coverage.info "*test_main.cpp*" -o ${PROJECT_SOURCE_DIR}/../doc/coverage/code_coverage.info
+COMMAND ${LCOV_PATH} --remove ${PROJECT_SOURCE_DIR}/../doc/coverage/code_coverage.info "*RouteHandler.*" -o ${PROJECT_SOURCE_DIR}/../doc/coverage/code_coverage.info
+COMMAND ${LCOV_PATH} --remove ${PROJECT_SOURCE_DIR}/../doc/coverage/code_coverage.info "*Mock*" -o ${PROJECT_SOURCE_DIR}/../doc/coverage/code_coverage.info
 COMMAND genhtml ${PROJECT_SOURCE_DIR}/../doc/coverage/code_coverage.info --output-directory ${PROJECT_SOURCE_DIR}/../doc/coverage
 )
