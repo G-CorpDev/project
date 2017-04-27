@@ -7,8 +7,7 @@ var indexSectionsWithContent =
   4: "adefgimorstuvw~",
   5: "dst",
   6: "acdefijlmnoprstuw",
-  7: "gv",
-  8: "p"
+  7: "gv"
 };
 
 var indexSectionNames =
@@ -20,8 +19,7 @@ var indexSectionNames =
   4: "functions",
   5: "enums",
   6: "enumvalues",
-  7: "related",
-  8: "pages"
+  7: "related"
 };
 
 var indexSectionLabels =
@@ -33,7 +31,6 @@ var indexSectionLabels =
   4: "Functions",
   5: "Enumerations",
   6: "Enumerator",
-  7: "Friends",
-  8: "Pages"
+  7: "Friends"
 };
 

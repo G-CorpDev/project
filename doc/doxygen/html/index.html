@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Worksheet - Project Tools ELTE: project</title>
+<title>Worksheet - Project Tools ELTE: Main Page</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -59,26 +59,28 @@ $(function() {
 
 <div class="header">
   <div class="headertitle">
-<div class="title">project </div>  </div>
+<div class="title">Worksheet - Project Tools ELTE Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>For Project Tools at ELTE IK</p>
+<div class="textblock"><p># </p><h2>For our Project Tools Course at ELTE Faculty of Informatics</h2>
+<p><b>Contributors</b> -Márk Kővári -Roland Szőke -Máté Szokolai</p>
+<p>This repository contains our submission for the 'Project Tools' course.</p>
+<p>Our goal was to make an application which would act as a workout planner and journal.</p>
+<p>Features include: -Choosing from premade <em>Worksheet*s, which describe a workout plan. -The plans vary in length, difficulty and complexity. -All of these attributes are displayed to the user when they choose a *Worksheet</em> -Keeping a journal of the user's progress and completion of the chosen <em>Worksheet</em> -The user can complete a Workout, which consists of several predetermined exercises. -Notes can be assigned to each individual exercise. -Individual exercises can be marked skipped by not putting in it's parameters. -A Workout can be skipped, which will result in all of its exercises being skipped.</p>
+<p>We have developed a solution which consists of the following layers: -The <b>Front-end layer</b>, the layer the user will be interacting with. This layer will be ran in a web browser, written in JavaScript and consuming the REST API the server layer provides. -*responsible : Roland Szőke* -The <b>Server layer</b>, which implements most of the business logic, provides the REST API and handles authentication. Written in C++ and using a HTTP framework, Pistache. -*responsible : Máté Szokolai* -The <b>Database layer</b>, which ensures data persistance and implements the database interface for the Server layer. TODO: what it uses -*responsible : Márk Kővári</p>
 <p><b>Note:</b> Do not use Chrome , POST requests are unreliable. Firefox works 100%.</p>
-<p>Instructions for <b>Client</b> :</p>
-<p><code>cd client</code></p>
-<p><code>npm i</code></p>
-<p><code>npm start</code></p>
-<p>Instructions for <b>Server</b> :</p>
-<p>Install libraries : <a href="https://github.com/benmcollins/libjwt">libjwt</a> and <a href="https://github.com/oktal/pistache/">libnet from Pistache</a></p>
+<p>Instructions for running the <b>Client</b> :</p>
+<div class="fragment"><div class="line">cd client</div><div class="line"></div><div class="line">npm i</div><div class="line"></div><div class="line">npm start</div></div><!-- fragment --><p> This will only launch a webpack server, which <b>does not provide the REST API</b></p>
+<p>Instructions for running the <b>Server</b> :</p>
+<p>Install libraries : <a href="https://github.com/benmcollins/libjwt">libjwt</a>, <a href="https://github.com/oktal/pistache/">libnet from Pistache</a> and [jansson](TODO) (usually available from default repositories)</p>
 <p>Install tools: <code>make, cmake, g++</code></p>
-<p>If you are using Visual Code, just press <code>F5</code> or use the Launch and Task tools.</p>
-<p>If not, <code>mkdir build</code></p>
-<p><code>cd build</code> <code>cmake ..</code> <code>make</code></p>
-<p>This will put the binary into <code>/build/bin</code> with the name <code>Server</code>. Since Pistache only works on Linux, this only works on Linux as well.</p>
-<p>Then build the Client:</p>
-<p><code>cd client</code></p>
-<p><code>npm run build</code> </p>
-</div></div><!-- contents -->
+<p>If you wish to run the <b>test suite</b> install <code>gtest, gcov, lcov, genhtml</code></p>
+<p>To generate the documentation, you will need <code>doxygen</code></p>
+<p>If you are using Visual Code, just press <code>F5</code> to run the currently selected launcher or use the Launch and Task tools to select another.</p>
+<p>If not, </p><div class="fragment"><div class="line">mkdir build</div><div class="line">cd build</div><div class="line">cmake ..</div><div class="line">make $your_target</div></div><!-- fragment --><p> The targets are: -Server -Test -coverage - to generate the test code coverage report (run the Test executable first) -doc - to generate the documentation -cleanup - to remove CMake's temporary files</p>
+<p>This will put the binary into <code>/build/bin</code> with the name <code>Server</code> or <code>Test</code>. Since Pistache only works on Linux, the server only works on Linux as well.</p>
+<p>You will also need to build the Client in order to serve it:</p>
+<div class="fragment"><div class="line">cd client</div><div class="line"></div><div class="line">npm run build</div></div><!-- fragment --> </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
